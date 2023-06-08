@@ -1,0 +1,10 @@
+BinPocket filter=lfs diff=lfs merge=lfs -text
+BinPocket.xcodeproj filter=lfs diff=lfs merge=lfs -text
+BinPocket.xcworkspace filter=lfs diff=lfs merge=lfs -text
+Podfile filter=lfs diff=lfs merge=lfs -text
+Podfile.lock filter=lfs diff=lfs merge=lfs -text
+Pods filter=lfs diff=lfs merge=lfs -text
+README.md filter=lfs diff=lfs merge=lfs -text
+Pods/Realm/core/realm-monorepo.xcframework/watchos-arm64_i386_x86_64-simulator/librealm-monorepo.a filter=lfs diff=lfs merge=lfs -text
+BinPocket[[:space:]]Ver1.0.3.zip filter=lfs diff=lfs merge=lfs -text
+librealm-monorepo.a filter=lfs diff=lfs merge=lfs -text
