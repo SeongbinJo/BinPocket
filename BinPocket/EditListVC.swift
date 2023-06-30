@@ -40,6 +40,13 @@ class EditListVC : UIViewController {
         editTitleTextField.text = selectCellTitle
         editMoneyTextField.text = selectCellMoney.trimmingCharacters(in: ["-"])
         self.editMoneyTextField.keyboardType = .numberPad
+        if selectCellPlusOrMinus{
+            editSegementController.selectedSegmentIndex = 0
+            editSegementController.selectedSegmentTintColor = UIColor(r: 63, g: 137, b: 249, a: 0.3)
+        }else{
+            editSegementController.selectedSegmentIndex = 1
+            editSegementController.selectedSegmentTintColor = UIColor(r: 233, g: 81, b: 81, a: 0.3)
+        }
     }
     
     @IBAction func segmentControl(_ sender: UISegmentedControl) {

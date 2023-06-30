@@ -274,7 +274,7 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
         let currentcell : TableCell = tableView.cellForRow(at: indexPath) as! TableCell
         //선택한 셀이 수입 테이블일 경우
         if tableView == plusTableView{
-            print("id는? : \(currentcell.plusId)")
+//            print("id는? : \(currentcell.plusId)")
             let selectPlusData = realm.objects(MyData.self).filter("date == %@ AND moneyTitle == %@ AND money == %@ AND plusOrMinus == %@", self.navigationItem.title as Any, MainVC.decimalToNumstring(value: currentcell.plusCellTitle.text!) as Any, MainVC.decimalToNumstring(value: currentcell.plusCellMoney.text!) as Any, 0)
             editListPage.selectCellDate = selectPlusData.first!.date
             editListPage.selectCellMoney = selectPlusData.first!.money
