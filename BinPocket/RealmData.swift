@@ -14,4 +14,5 @@ class MyData : Object {
     @objc dynamic var plusOrMinus = false //지출/수입 구분.  false -> 수입, true -> 지출.
     @objc dynamic var moneyTitle = ""
     @objc dynamic var money = ""
+    @objc dynamic var id = ""
 }

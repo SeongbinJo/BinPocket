@@ -47,6 +47,9 @@ class ViewlistVC : UIViewController {
         })
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        print("등장")
+    }
     //이전 날
     @IBAction func prevDate(_ sender: Any) {
         prevNextDate(time: -86400)
@@ -76,7 +79,7 @@ class ViewlistVC : UIViewController {
         self.navigationItem.title = selectdate
     }
     
-    //네이게이션 바 + 버튼 작동
+    //네비게이션 바 + 버튼 작동
     @objc func goAddListPage(sender: UIBarButtonItem) {
         guard let addviewpage = self.storyboard?.instantiateViewController(withIdentifier: "AddlistVC") as? AddlistVC else { return }
         addviewpage.selectdate = self.navigationItem.title!
@@ -147,7 +150,7 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
     
     //테이블 뷰 셀 지정
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: PlusTableCell = tableView.dequeueReusableCell(withIdentifier: "PlusTableCell", for: indexPath) as! PlusTableCell
+        let cell: TableCell = tableView.dequeueReusableCell(withIdentifier: "PlusTableCell", for: indexPath) as! TableCell
         //셀 커스텀
         cell.layer.cornerRadius = 20
         cell.backgroundColor = .clear
@@ -162,9 +165,8 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
                 //대신 아래와 같은 방법 사용.
                 cell.plusCellTitle.text = "\(datefiltering[indexPath.row].moneyTitle)"
                 cell.plusCellMoney.text = "\(MainVC.decimalWon(value: Int(datefiltering[indexPath.row].money)!))"
+                cell.plusId = datefiltering[indexPath.row].id
                 dayTotalMoney.text = "\(MainVC.decimalWon(value: dateTotalFunc()))"
-//                totalPlusMoney.text = "\(MainVC.decimalWon(value: dateTotalPlusMinusMoney(bool: false))) 원"
-//                totalMinusMoney.text = "\(MainVC.decimalWon(value: dateTotalPlusMinusMoney(bool: true))) 원"
                 if dateTotalFunc() > 0 {
                     dayTotalMoney.text = "+\(MainVC.decimalWon(value: dateTotalFunc()))"
                     dayTotalMoney.textColor = UIColor(r: 233, g: 81, b: 81, a: 1)
@@ -198,6 +200,7 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
                 //변수[0].value(forKey: "") 로 추출한 데이터 불러오기.
                 cell.minusCellTitle.text = "\(datefiltering[indexPath.row].moneyTitle)"
                 cell.minusCellMoney.text = "\(MainVC.decimalWon(value: Int(datefiltering[indexPath.row].money)!))"
+                cell.minusId = datefiltering[indexPath.row].id
                 dayTotalMoney.text = "\(MainVC.decimalWon(value: dateTotalFunc()))"
 //                totalPlusMoney.text = "\(MainVC.decimalWon(value: dateTotalPlusMinusMoney(bool: false))) 원"
 //                totalMinusMoney.text = "\(MainVC.decimalWon(value: dateTotalPlusMinusMoney(bool: true))) 원"
@@ -228,7 +231,7 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //테이블 뷰에서 삭제할때 선택된 cell의 정보를 불러오기 위해 currentcell 선언.
-        let currentcell : PlusTableCell = tableView.cellForRow(at: indexPath) as! PlusTableCell
+        let currentcell : TableCell = tableView.cellForRow(at: indexPath) as! TableCell
         if editingStyle == .delete {
             //realm 데이터 필터링 중복 변수 선언.
             if tableView == plusTableView {
@@ -264,7 +267,34 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
         return "삭제하기"
     }
     
+    //테이블 뷰 셀 클릭했을 경우.
+    //해당 셀 클릭했을때의 창을 하나 만들고, 값을 그대로 띄운 후 값 수정이 일어나면 realm의 해당 데이터 수정 하게끔!
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        guard let editListPage = self.storyboard?.instantiateViewController(withIdentifier: "EditListVC") as? EditListVC else { return }
+        let currentcell : TableCell = tableView.cellForRow(at: indexPath) as! TableCell
+        //선택한 셀이 수입 테이블일 경우
+        if tableView == plusTableView{
+            print("id는? : \(currentcell.plusId)")
+            let selectPlusData = realm.objects(MyData.self).filter("date == %@ AND moneyTitle == %@ AND money == %@ AND plusOrMinus == %@", self.navigationItem.title as Any, MainVC.decimalToNumstring(value: currentcell.plusCellTitle.text!) as Any, MainVC.decimalToNumstring(value: currentcell.plusCellMoney.text!) as Any, 0)
+            editListPage.selectCellDate = selectPlusData.first!.date
+            editListPage.selectCellMoney = selectPlusData.first!.money
+            editListPage.selectCellTitle = selectPlusData.first!.moneyTitle
+            editListPage.selectCellPlusOrMinus = selectPlusData.first!.plusOrMinus
+            editListPage.selectId = selectPlusData.first!.id
+            self.present(editListPage, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        //선택한 셀이 지출 테이블일 경우
+        if tableView == minusTableView{
+            let selectMinusData = realm.objects(MyData.self).filter("date == %@ AND moneyTitle == %@ AND money == %@ AND plusOrMinus == %@", self.navigationItem.title as Any, MainVC.decimalToNumstring(value: currentcell.minusCellTitle.text!) as Any, MainVC.decimalToNumstring(value: currentcell.minusCellMoney.text!) as Any, 1)
+            editListPage.selectCellDate = selectMinusData.first!.date
+            editListPage.selectCellMoney = selectMinusData.first!.money
+//            editListPage.minusMoney = selectMinusData.first!.money
+            editListPage.selectCellTitle = selectMinusData.first!.moneyTitle
+            editListPage.selectCellPlusOrMinus = selectMinusData.first!.plusOrMinus
+            editListPage.selectId = selectMinusData.first!.id
+            self.present(editListPage, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }

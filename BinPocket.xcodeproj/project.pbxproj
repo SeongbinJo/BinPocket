@@ -15,6 +15,7 @@
 		5849E85629824CDC00088CA4 /* NanumBarunpenR.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5849E85429824CDC00088CA4 /* NanumBarunpenR.otf */; };
 		58528E7F2997C0F500F7726F /* appImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 58528E7E2997C0F400F7726F /* appImage.png */; };
 		58528E812997C0FD00F7726F /* nameImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 58528E802997C0FD00F7726F /* nameImage.png */; };
+		58571E242A4EB27F0092D7C1 /* EditListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58571E232A4EB27F0092D7C1 /* EditListVC.swift */; };
 		58694FCE297904FF00817314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FCD297904FF00817314 /* AppDelegate.swift */; };
 		58694FD0297904FF00817314 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FCF297904FF00817314 /* SceneDelegate.swift */; };
 		58694FD2297904FF00817314 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FD1297904FF00817314 /* MainVC.swift */; };
@@ -27,7 +28,7 @@
 		587E0B7A29982CE00007BB54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 587E0B7C29982CE00007BB54 /* InfoPlist.strings */; };
 		58A125B72997372B0068F86E /* RgbColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A125B62997372B0068F86E /* RgbColorExt.swift */; };
 		58A125B9299737C80068F86E /* NotificationCenterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A125B8299737C80068F86E /* NotificationCenterName.swift */; };
-		58A12F8B2985191D00FD668E /* PlusTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A12F8A2985191D00FD668E /* PlusTableCell.swift */; };
+		58A12F8B2985191D00FD668E /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A12F8A2985191D00FD668E /* TableCell.swift */; };
 		58D848012986A25C00854DDD /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D848002986A25C00854DDD /* RealmData.swift */; };
 		58DD22E629927FA6001CBD84 /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DD22E529927FA6001CBD84 /* TotalTableViewCell.swift */; };
 		58ECD34D29965DBF00812DC9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD34C29965DBF00812DC9 /* SettingVC.swift */; };
@@ -47,6 +48,7 @@
 		5849E85429824CDC00088CA4 /* NanumBarunpenR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenR.otf; sourceTree = "<group>"; };
 		58528E7E2997C0F400F7726F /* appImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appImage.png; sourceTree = "<group>"; };
 		58528E802997C0FD00F7726F /* nameImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nameImage.png; sourceTree = "<group>"; };
+		58571E232A4EB27F0092D7C1 /* EditListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListVC.swift; sourceTree = "<group>"; };
 		58694FCA297904FF00817314 /* BinPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58694FCD297904FF00817314 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58694FCF297904FF00817314 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 		587E0B7B29982CE00007BB54 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58A125B62997372B0068F86E /* RgbColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RgbColorExt.swift; sourceTree = "<group>"; };
 		58A125B8299737C80068F86E /* NotificationCenterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterName.swift; sourceTree = "<group>"; };
-		58A12F8A2985191D00FD668E /* PlusTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusTableCell.swift; sourceTree = "<group>"; };
+		58A12F8A2985191D00FD668E /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		58D848002986A25C00854DDD /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		58DD22E529927FA6001CBD84 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
 		58ECD34C29965DBF00812DC9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -123,7 +125,7 @@
 				5805878F29794D2A00DA5F5B /* Borderview.swift */,
 				58492B8A297AE5240056A9A7 /* BorderCV.swift */,
 				58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */,
-				58A12F8A2985191D00FD668E /* PlusTableCell.swift */,
+				58A12F8A2985191D00FD668E /* TableCell.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -169,6 +171,7 @@
 				58694FD82979050000817314 /* LaunchScreen.storyboard */,
 				58694FD1297904FF00817314 /* MainVC.swift */,
 				58ECD34C29965DBF00812DC9 /* SettingVC.swift */,
+				58571E232A4EB27F0092D7C1 /* EditListVC.swift */,
 				587E0B7C29982CE00007BB54 /* InfoPlist.strings */,
 				58694FE12979058D00817314 /* ViewlistVC.swift */,
 				58694FE3297905A200817314 /* AddlistVC.swift */,
@@ -317,12 +320,13 @@
 				5805879029794D2A00DA5F5B /* Borderview.swift in Sources */,
 				58694FCE297904FF00817314 /* AppDelegate.swift in Sources */,
 				58A125B72997372B0068F86E /* RgbColorExt.swift in Sources */,
+				58571E242A4EB27F0092D7C1 /* EditListVC.swift in Sources */,
 				58A125B9299737C80068F86E /* NotificationCenterName.swift in Sources */,
 				58694FD0297904FF00817314 /* SceneDelegate.swift in Sources */,
 				58492B8B297AE5240056A9A7 /* BorderCV.swift in Sources */,
 				58694FE22979058D00817314 /* ViewlistVC.swift in Sources */,
 				58D848012986A25C00854DDD /* RealmData.swift in Sources */,
-				58A12F8B2985191D00FD668E /* PlusTableCell.swift in Sources */,
+				58A12F8B2985191D00FD668E /* TableCell.swift in Sources */,
 				58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */,
 				58694FE4297905A200817314 /* AddlistVC.swift in Sources */,
 				58694FE6297905D200817314 /* TotalListVC.swift in Sources */,

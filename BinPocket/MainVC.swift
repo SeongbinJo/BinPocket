@@ -118,6 +118,7 @@ extension MainVC : FSCalendarDelegate {
         dateformatter.dateFormat = "yyyy년 M월 d일"
         print("선택한 날짜 : \(dateformatter.string(from: date))")
 
+        // 뷰 이동.
         let secondview = self.storyboard?.instantiateViewController(withIdentifier: "ViewlistVC") as! ViewlistVC
         secondview.selectdate = dateformatter.string(from: date)
         self.navigationController?.pushViewController(secondview, animated: true)

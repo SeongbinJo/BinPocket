@@ -29,8 +29,6 @@ class AddlistVC : UIViewController {
         super.viewDidLoad()
         titleTextField.delegate = self
         moneyTextField.delegate = self
-        //세그먼트 컨트롤러 초기 색상.
-        self.segementController.selectedSegmentTintColor = UIColor(r: 233, g: 81, b: 81, a: 0.3)
         self.addBtn.isEnabled = true
         self.segementController.isSelected = false
         self.moneyTextField.keyboardType = .numberPad
@@ -56,18 +54,18 @@ class AddlistVC : UIViewController {
     //세그먼트 컨트롤러 액션
     @IBAction func segementAction(_ sender: UISegmentedControl) {
         if segementController.selectedSegmentIndex == 0 {
-            segementController.selectedSegmentTintColor = UIColor(r: 233, g: 81, b: 81, a: 0.3)
+            segementController.selectedSegmentTintColor = UIColor(r: 63, g: 137, b: 249, a: 0.3)
             //지출 칸 선택하면, true
             plusminus = true
             self.segementController.isSelected = true
-            print("지출을 선택함. \(segementController.isSelected)")
+//            print("지출을 선택함. \(segementController.isSelected)")
         }
         else{
-            segementController.selectedSegmentTintColor = UIColor(r: 63, g: 137, b: 249, a: 0.3)
+            segementController.selectedSegmentTintColor = UIColor(r: 233, g: 81, b: 81, a: 0.3)
             //수입 칸 선택하면, false
             plusminus = false
             self.segementController.isSelected = true
-            print("수입을 선택함.")
+//            print("수입을 선택함.")
         }
     }
     
@@ -83,6 +81,7 @@ class AddlistVC : UIViewController {
                 pmoneylist.moneyTitle = titleTextField.text ?? ""
                 pmoneylist.money = moneyTextField.text ?? ""
                 pmoneylist.plusOrMinus = false
+                pmoneylist.id = UUID().uuidString
                 //데이터를 realm에 넣음.
                 try! realm.write {
                     realm.add(pmoneylist)
@@ -96,6 +95,7 @@ class AddlistVC : UIViewController {
                 mmoneylist.moneyTitle = titleTextField.text ?? ""
                 mmoneylist.money = "-\(moneyTextField.text ?? "")"
                 mmoneylist.plusOrMinus = true
+                mmoneylist.id = UUID().uuidString
                 try! realm.write {
                     realm.add(mmoneylist)
                 }
