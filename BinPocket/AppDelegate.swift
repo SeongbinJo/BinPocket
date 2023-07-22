@@ -7,6 +7,9 @@
 
 import UIKit
 import RealmSwift
+import GoogleMobileAds
+import AdSupport
+import AppTrackingTransparency
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
         // 1. config 설정(이전 버전에서 다음 버전으로 마이그레이션될때 어떻게 변경될것인지)
                 let config = Realm.Configuration(
                     schemaVersion: 4, // 새로운 스키마 버전 설정
@@ -31,8 +37,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // 2. Realm이 새로운 Object를 쓸 수 있도록 설정
                 Realm.Configuration.defaultConfiguration = config
         
-        
+        requestIDFA()
         return true
+    }
+    
+    func requestIDFA() {
+      ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+        // Tracking authorization completed. Start loading ads here.
+        // loadAd()
+      })
     }
 
     // MARK: UISceneSession Lifecycle

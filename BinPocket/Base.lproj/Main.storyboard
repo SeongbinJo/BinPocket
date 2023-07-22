@@ -336,6 +336,25 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PCl-Bm-O1h">
+                                <rect key="frame" x="16" y="441.33333333333331" width="372" height="43.333333333333314"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CYI-5G-NN2">
+                                        <rect key="frame" x="0.0" y="2.6666666666666634" width="20" height="15"/>
+                                        <color key="tintColor" red="0.43137254899999999" green="0.24313725489999999" blue="0.015686274510000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Nfh-2r-7pi"/>
+                                            <constraint firstAttribute="width" constant="20" id="uQA-AV-EKu"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지출/수입 내역을 클릭하면 잘못 기입한 내용을 수정할 수 있습니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EO2-JD-ad8">
+                                        <rect key="frame" x="28" y="0.0" width="344" height="43.333333333333336"/>
+                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                        <color key="textColor" red="0.25116012209999999" green="0.1561912278" blue="0.049155438789999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="457-Xp-6OG"/>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.83529411764705885" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
@@ -343,6 +362,7 @@
                             <constraint firstItem="PLW-xN-QSS" firstAttribute="top" secondItem="15H-r0-5mC" secondAttribute="bottom" constant="10" id="0lP-Hq-Chv"/>
                             <constraint firstItem="euf-df-lJD" firstAttribute="centerX" secondItem="457-Xp-6OG" secondAttribute="centerX" id="55f-w6-4mp"/>
                             <constraint firstItem="yuE-Gy-beq" firstAttribute="trailing" secondItem="457-Xp-6OG" secondAttribute="trailing" constant="-5" id="7iZ-lp-veU"/>
+                            <constraint firstItem="PCl-Bm-O1h" firstAttribute="leading" secondItem="gij-Ye-JRa" secondAttribute="leading" id="Cub-pw-mgG"/>
                             <constraint firstItem="F5D-Pe-oLW" firstAttribute="leading" secondItem="457-Xp-6OG" secondAttribute="leading" constant="16" id="D0w-y6-ga1"/>
                             <constraint firstItem="15H-r0-5mC" firstAttribute="leading" secondItem="457-Xp-6OG" secondAttribute="leading" id="EOR-Tj-CO6"/>
                             <constraint firstItem="euf-df-lJD" firstAttribute="top" secondItem="457-Xp-6OG" secondAttribute="top" constant="20" id="HRg-8a-TKX"/>
@@ -352,11 +372,13 @@
                             <constraint firstItem="PLW-xN-QSS" firstAttribute="leading" secondItem="457-Xp-6OG" secondAttribute="leading" constant="16" id="OsR-Q9-m2z"/>
                             <constraint firstItem="yuE-Gy-beq" firstAttribute="top" secondItem="uSj-RE-ZSx" secondAttribute="bottom" constant="10" id="Tc8-6F-eyf"/>
                             <constraint firstItem="uSj-RE-ZSx" firstAttribute="leading" secondItem="457-Xp-6OG" secondAttribute="leading" constant="16" id="UDi-Vb-GFn"/>
+                            <constraint firstItem="PCl-Bm-O1h" firstAttribute="trailing" secondItem="gij-Ye-JRa" secondAttribute="trailing" id="Wqu-Sx-Qr9"/>
                             <constraint firstItem="457-Xp-6OG" firstAttribute="trailing" secondItem="PLW-xN-QSS" secondAttribute="trailing" constant="37" id="cPb-lo-gbY"/>
                             <constraint firstItem="uSj-RE-ZSx" firstAttribute="top" secondItem="F5D-Pe-oLW" secondAttribute="bottom" constant="10" id="gtC-4k-89d"/>
                             <constraint firstItem="uSj-RE-ZSx" firstAttribute="trailing" secondItem="457-Xp-6OG" secondAttribute="trailing" constant="-5" id="lJe-If-e1r"/>
                             <constraint firstItem="F5D-Pe-oLW" firstAttribute="top" secondItem="PLW-xN-QSS" secondAttribute="bottom" constant="10" id="lP7-gY-Rb9"/>
                             <constraint firstItem="gij-Ye-JRa" firstAttribute="top" secondItem="yuE-Gy-beq" secondAttribute="bottom" constant="10" id="sls-r7-TEK"/>
+                            <constraint firstItem="PCl-Bm-O1h" firstAttribute="top" secondItem="gij-Ye-JRa" secondAttribute="bottom" constant="10" id="t79-pY-yoN"/>
                             <constraint firstItem="F5D-Pe-oLW" firstAttribute="trailing" secondItem="457-Xp-6OG" secondAttribute="trailing" constant="-5" id="uAX-EE-jeX"/>
                             <constraint firstItem="457-Xp-6OG" firstAttribute="trailing" secondItem="15H-r0-5mC" secondAttribute="trailing" id="uhH-Og-ej9"/>
                             <constraint firstItem="15H-r0-5mC" firstAttribute="top" secondItem="euf-df-lJD" secondAttribute="bottom" constant="20" id="xPD-nI-O1N"/>
@@ -376,13 +398,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UgE-7N-ULf" customClass="Borderview" customModule="BinPocket" customModuleProvider="target">
-                                <rect key="frame" x="25" y="103.33333333333331" width="343" height="279.00000000000006"/>
+                                <rect key="frame" x="25" y="103.33333333333331" width="343" height="261"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oZ0-iF-LtB">
-                                        <rect key="frame" x="32" y="53" width="282" height="218"/>
+                                        <rect key="frame" x="32" y="53" width="282" height="200"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="218" id="gCU-LA-NTZ"/>
+                                            <constraint firstAttribute="height" constant="200" id="gCU-LA-NTZ"/>
                                             <constraint firstAttribute="width" constant="282" id="tTz-c8-mFX"/>
                                         </constraints>
                                         <prototypes>
@@ -495,7 +517,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8b-Jd-tPM" customClass="Borderview" customModule="BinPocket" customModuleProvider="target">
-                                <rect key="frame" x="25" y="397.33333333333326" width="343" height="279"/>
+                                <rect key="frame" x="25" y="379.33333333333331" width="343" height="260.99999999999994"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vd1-x0-xUy">
                                         <rect key="frame" x="31.999999999999996" y="20" width="40.666666666666657" height="25.666666666666671"/>
@@ -525,10 +547,10 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zlE-1O-n7N">
-                                        <rect key="frame" x="32" y="53" width="282" height="218"/>
+                                        <rect key="frame" x="32" y="53" width="282" height="200"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="218" id="Bbi-Be-xHn"/>
+                                            <constraint firstAttribute="height" constant="200" id="Bbi-Be-xHn"/>
                                             <constraint firstAttribute="width" constant="282" id="Mud-cr-iZy"/>
                                         </constraints>
                                         <prototypes>
@@ -643,7 +665,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="DKw-gh-yn5">
-                                <rect key="frame" x="125.66666666666669" y="713" width="142" height="25.666666666666629"/>
+                                <rect key="frame" x="125.66666666666669" y="653.33333333333337" width="142" height="25.666666666666629"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="szg-hj-n6a" userLabel="nowtotalmoney">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="25.666666666666668"/>
@@ -682,7 +704,7 @@
                             <constraint firstItem="DKw-gh-yn5" firstAttribute="centerX" secondItem="BtV-dn-Syz" secondAttribute="centerX" id="Qjn-fn-eM5"/>
                             <constraint firstItem="GKI-Yj-hUu" firstAttribute="trailing" secondItem="UgE-7N-ULf" secondAttribute="trailing" id="TDo-Va-S0n"/>
                             <constraint firstItem="BtV-dn-Syz" firstAttribute="trailing" secondItem="UgE-7N-ULf" secondAttribute="trailing" constant="25" id="UaZ-qi-H3z"/>
-                            <constraint firstItem="DKw-gh-yn5" firstAttribute="top" secondItem="Z8b-Jd-tPM" secondAttribute="bottom" constant="36.666666666666742" id="a1A-qQ-cu5"/>
+                            <constraint firstItem="DKw-gh-yn5" firstAttribute="top" secondItem="Z8b-Jd-tPM" secondAttribute="bottom" constant="13" id="a1A-qQ-cu5"/>
                             <constraint firstItem="UgE-7N-ULf" firstAttribute="top" secondItem="GKI-Yj-hUu" secondAttribute="bottom" constant="5" id="b9D-UR-Qas"/>
                             <constraint firstItem="Z8b-Jd-tPM" firstAttribute="leading" secondItem="UgE-7N-ULf" secondAttribute="leading" id="gy2-J1-cuN"/>
                         </constraints>
@@ -849,7 +871,7 @@
         <scene sceneID="rOF-ON-EyX">
             <objects>
                 <viewController storyboardIdentifier="TotalListVC" id="fDM-pE-Q3S" customClass="TotalListVC" customModule="BinPocket" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5JH-pB-Cwd">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="5JH-pB-Cwd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -863,13 +885,19 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월 별 지출액 현황" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfU-aP-vsP">
                                 <rect key="frame" x="141" y="79" width="111" height="23"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="6MH-Hy-dpe"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="18"/>
                                 <color key="textColor" red="0.43137254899999999" green="0.24313725489999999" blue="0.015686274510000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iqR-qP-Ivb">
-                                <rect key="frame" x="8" y="131" width="377" height="687"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iqR-qP-Ivb">
+                                <rect key="frame" x="8" y="181" width="377" height="637"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="637" id="yEi-v6-Z8J"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TotalTableViewCell" id="WkJ-JJ-UoJ" customClass="TotalTableViewCell" customModule="BinPocket" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="377" height="43.666667938232422"/>

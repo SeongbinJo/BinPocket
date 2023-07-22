@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 import RealmSwift
+import GoogleMobileAds
 
-class ViewlistVC : UIViewController {
+class ViewlistVC : UIViewController, GADBannerViewDelegate {
     
     
     @IBOutlet weak var plusTableView: UITableView!
@@ -19,6 +20,9 @@ class ViewlistVC : UIViewController {
     @IBOutlet weak var nextDateBtn: UIButton!
     @IBOutlet weak var totalPlusMoney: UILabel!
     @IBOutlet weak var totalMinusMoney: UILabel!
+    
+    //애드몹 배너뷰
+    var bannerView: GADBannerView!
     
     //realm
     var realm = try! Realm()
@@ -46,7 +50,43 @@ class ViewlistVC : UIViewController {
             self.plusTableView.reloadData(); self.minusTableView.reloadData();
         })
         
+        //애드몹 배너 사이즈 정하기.
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        
+        //애드몹 배너 넣기.
+        addBannerViewToView(bannerView)
+        
+        //info.plist와 같아야함!
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        //광고 로드
+        bannerView.load(GADRequest())
+        //배너뷰 델리게이트
+        bannerView.delegate = self
     }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        //애드몹 광고 배너 오토레이아웃.
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+          [NSLayoutConstraint(item: bannerView,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: view.safeAreaLayoutGuide,
+                              attribute: .bottom,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: bannerView,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+       }
+    
     override func viewDidAppear(_ animated: Bool) {
         print("등장")
     }
@@ -235,28 +275,20 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             //realm 데이터 필터링 중복 변수 선언.
             if tableView == plusTableView {
-                let plusfilterdata = realm.objects(MyData.self).filter("date == %@ AND moneyTitle == %@ AND money == %@", self.navigationItem.title as Any, MainVC.decimalToNumstring(value: currentcell.plusCellTitle.text!) as Any, MainVC.decimalToNumstring(value: currentcell.plusCellMoney.text!) as Any)
+                let plusfilterdata = realm.objects(MyData.self).filter("date == %@ AND id == %@", self.navigationItem.title as Any, currentcell.plusId)
                 tableView.beginUpdates()
                 //삭제할 cell의 정보를 가져와 realm에서 조건 만족한 데이터 삭제
                 try! realm.write {
-                    if plusfilterdata.count > 1 {
-                        realm.delete(plusfilterdata[0])
-                    }else {
                         realm.delete(plusfilterdata)
-                    }
                 }
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
             }
             if tableView == minusTableView {
-                let minusfilterdata = realm.objects(MyData.self).filter("date == %@ AND moneyTitle == %@ AND money == %@", self.navigationItem.title as Any, MainVC.decimalToNumstring(value: currentcell.minusCellTitle.text!) as Any, MainVC.decimalToNumstring(value: currentcell.minusCellMoney.text!) as Any)
+                let minusfilterdata = realm.objects(MyData.self).filter("date == %@ AND id == %@", self.navigationItem.title as Any, currentcell.minusId)
                 tableView.beginUpdates()
                 try! realm.write {
-                    if minusfilterdata.count > 1 {
-                        realm.delete(minusfilterdata[0])
-                    }else {
                         realm.delete(minusfilterdata)
-                    }
                 }
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
@@ -274,8 +306,7 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
         let currentcell : TableCell = tableView.cellForRow(at: indexPath) as! TableCell
         //선택한 셀이 수입 테이블일 경우
         if tableView == plusTableView{
-//            print("id는? : \(currentcell.plusId)")
-            let selectPlusData = realm.objects(MyData.self).filter("date == %@ AND moneyTitle == %@ AND money == %@ AND plusOrMinus == %@", self.navigationItem.title as Any, MainVC.decimalToNumstring(value: currentcell.plusCellTitle.text!) as Any, MainVC.decimalToNumstring(value: currentcell.plusCellMoney.text!) as Any, 0)
+            let selectPlusData = realm.objects(MyData.self).filter("date == %@ AND id == %@", self.navigationItem.title as Any, currentcell.plusId)
             editListPage.selectCellDate = selectPlusData.first!.date
             editListPage.selectCellMoney = selectPlusData.first!.money
             editListPage.selectCellTitle = selectPlusData.first!.moneyTitle
@@ -286,10 +317,9 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
         }
         //선택한 셀이 지출 테이블일 경우
         if tableView == minusTableView{
-            let selectMinusData = realm.objects(MyData.self).filter("date == %@ AND moneyTitle == %@ AND money == %@ AND plusOrMinus == %@", self.navigationItem.title as Any, MainVC.decimalToNumstring(value: currentcell.minusCellTitle.text!) as Any, MainVC.decimalToNumstring(value: currentcell.minusCellMoney.text!) as Any, 1)
+            let selectMinusData = realm.objects(MyData.self).filter("date == %@ AND id == %@", self.navigationItem.title as Any, currentcell.minusId)
             editListPage.selectCellDate = selectMinusData.first!.date
             editListPage.selectCellMoney = selectMinusData.first!.money
-//            editListPage.minusMoney = selectMinusData.first!.money
             editListPage.selectCellTitle = selectMinusData.first!.moneyTitle
             editListPage.selectCellPlusOrMinus = selectMinusData.first!.plusOrMinus
             editListPage.selectId = selectMinusData.first!.id
@@ -297,4 +327,32 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
+
+    //MARK - GADBannerViewDelegate 관련 메소드
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+      print("bannerViewDidReceiveAd")
+//        //애드몹 배너 넣기.
+//        addBannerViewToView(bannerView)
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewDidDismissScreen")
+    }
+    
 }

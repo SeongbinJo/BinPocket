@@ -8,13 +8,17 @@
 import Foundation
 import UIKit
 import RealmSwift
+import GoogleMobileAds
 
-class AddlistVC : UIViewController {
+class AddlistVC : UIViewController, GADBannerViewDelegate {
     
     @IBOutlet weak var segementController: UISegmentedControl!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var moneyTextField: UITextField!
     @IBOutlet weak var addBtn: Borderbutton!
+    
+    //애드몹 배너뷰
+    var bannerView: GADBannerView!
     
     //Realm
     var realm = try! Realm()
@@ -32,8 +36,43 @@ class AddlistVC : UIViewController {
         self.addBtn.isEnabled = true
         self.segementController.isSelected = false
         self.moneyTextField.keyboardType = .numberPad
+        
+        //애드몹 배너 사이즈 정하기.
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        
+        //애드몹 배너 넣기.
+        addBannerViewToView(bannerView)
+        
+        //info.plist와 같아야함!
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        //광고 로드
+        bannerView.load(GADRequest())
+        //배너뷰 델리게이트
+        bannerView.delegate = self
     }
 
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        //애드몹 광고 배너 오토레이아웃.
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+          [NSLayoutConstraint(item: bannerView,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: view.safeAreaLayoutGuide,
+                              attribute: .bottom,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: bannerView,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+       }
     
     //titletextfield 길이제한.
     @IBAction func titleTextFieldMaxLength(sender: Any) {
@@ -86,7 +125,7 @@ class AddlistVC : UIViewController {
                 try! realm.write {
                     realm.add(pmoneylist)
                 }
-                print("mydata의 데이터 목록 : \(realm.objects(MyData.self))")
+//                print("mydata의 데이터 목록 : \(realm.objects(MyData.self))")
                 self.dismiss(animated: true)
             }
             if plusminus == true {
@@ -99,7 +138,6 @@ class AddlistVC : UIViewController {
                 try! realm.write {
                     realm.add(mmoneylist)
                 }
-                print("mydata의 데이터 목록 : \(realm.objects(MyData.self))")
                 self.dismiss(animated: true)
             }
         } else {
@@ -126,4 +164,32 @@ extension AddlistVC : UITextFieldDelegate {
         }
         return true
     }
+    
+    //MARK - GADBannerViewDelegate 관련 메소드
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+      print("bannerViewDidReceiveAd")
+//        //애드몹 배너 넣기.
+//        addBannerViewToView(bannerView)
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+      print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("bannerViewDidDismissScreen")
+    }
+    
 }
