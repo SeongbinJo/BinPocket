@@ -10,6 +10,9 @@ import FSCalendar
 import RealmSwift
 import GoogleMobileAds
 import StoreKit
+import AdSupport
+import AppTrackingTransparency
+
 
 class MainVC: UIViewController, GADBannerViewDelegate {
     
@@ -35,6 +38,9 @@ class MainVC: UIViewController, GADBannerViewDelegate {
         calendarView.dataSource = self
         print("mydata의 데이터 목록 : \(realm.objects(MyData.self))")
         
+        //애드몹 앱 트래킹(앱추적) 얼럿
+        requestTrackingAuthorization()
+        
         //애드몹 배너 사이즈 정하기.
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
         
@@ -59,7 +65,29 @@ class MainVC: UIViewController, GADBannerViewDelegate {
             }
             UIApplication.shared.open(reviewUrl, options: [:], completionHandler: nil)
         }
+        
     }
+    
+    func requestTrackingAuthorization() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                if #available(iOS 14, *) {
+                    ATTrackingManager.requestTrackingAuthorization { (status) in
+                        switch status {
+                        case .notDetermined:
+                            print("notDetermined") // 결정되지 않음
+                        case .restricted:
+                            print("restricted") // 제한됨
+                        case .denied:
+                            print("denied") // 거부됨
+                        case .authorized:
+                            print("authorized") // 허용됨
+                        @unknown default:
+                            print("error") // 알려지지 않음
+                        }
+                    }
+                }
+            }
+        }
     
     func addBannerViewToView(_ bannerView: GADBannerView) {
         //애드몹 광고 배너 오토레이아웃.

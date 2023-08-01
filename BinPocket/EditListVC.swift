@@ -103,27 +103,36 @@ class EditListVC : UIViewController, GADBannerViewDelegate {
     }
     
     @IBAction func editBtn(_ sender: Borderbutton) {
-        let editData = realm.objects(MyData.self).filter("date == %@ AND moneyTitle == %@ AND money == %@ AND plusOrMinus == %@ AND id == %@", selectCellDate, selectCellTitle, selectCellMoney, selectCellPlusOrMinus, selectId)
-        //true = 지출
-        if plusMinus{
-            try! realm.write{
-                for data in editData{
-                    data.moneyTitle = self.editTitleTextField.text!
-                    data.money = "-" + self.editMoneyTextField.text!
-                    data.plusOrMinus = self.plusMinus
+        if self.editSegementController.isSelected && self.editTitleTextField.text != "" && self.editMoneyTextField.text != "" {
+            let editData = realm.objects(MyData.self).filter("date == %@ AND moneyTitle == %@ AND money == %@ AND plusOrMinus == %@ AND id == %@", selectCellDate, selectCellTitle, selectCellMoney, selectCellPlusOrMinus, selectId)
+            //true = 지출
+            if plusMinus{
+                try! realm.write{
+                    for data in editData{
+                        data.moneyTitle = self.editTitleTextField.text!
+                        data.money = "-" + self.editMoneyTextField.text!
+                        data.plusOrMinus = self.plusMinus
+                    }
+                }
+            }else{
+                try! realm.write{
+                    for data in editData{
+                        data.moneyTitle = self.editTitleTextField.text!
+                        data.money = self.editMoneyTextField.text!
+                        data.plusOrMinus = self.plusMinus
+                    }
                 }
             }
+            print("변경된 값은 제목 : \(editTitleTextField.text!), 금액 : \(editMoneyTextField.text!), 지출/수입 : \(plusMinus)")
+            self.dismiss(animated: true)
         }else{
-            try! realm.write{
-                for data in editData{
-                    data.moneyTitle = self.editTitleTextField.text!
-                    data.money = self.editMoneyTextField.text!
-                    data.plusOrMinus = self.plusMinus
-                }
-            }
+            //수정 페이지에서 아무것도 작성되어있지 않을때.
+            let alert = UIAlertController(title:"잠깐!",
+                message: "비어있는 항목이 있습니다.", preferredStyle: .alert)
+            let okbtn = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alert.addAction(okbtn)
+            present(alert,animated: true, completion: nil)
         }
-        print("변경된 값은 제목 : \(editTitleTextField.text!), 금액 : \(editMoneyTextField.text!), 지출/수입 : \(plusMinus)")
-        self.dismiss(animated: true)
     }
     
 }

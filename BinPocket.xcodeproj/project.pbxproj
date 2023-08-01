@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5805879029794D2A00DA5F5B /* Borderview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805878F29794D2A00DA5F5B /* Borderview.swift */; };
 		5805879329794EAC00DA5F5B /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805879229794EAC00DA5F5B /* CALayer.swift */; };
+		5838DFD42A78BA7100F8ED2D /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5838DFD32A78BA7100F8ED2D /* AppTrackingTransparency.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		583D7C812979482700F01023 /* Borderbutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D7C802979482700F01023 /* Borderbutton.swift */; };
 		58492B8B297AE5240056A9A7 /* BorderCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58492B8A297AE5240056A9A7 /* BorderCV.swift */; };
 		5849E85529824CDC00088CA4 /* NanumBarunpenB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5849E85329824CDC00088CA4 /* NanumBarunpenB.otf */; };
@@ -42,6 +43,7 @@
 		35890E8DF5F966FB5AC8F04A /* Pods-SaveMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveMoney.release.xcconfig"; path = "Target Support Files/Pods-SaveMoney/Pods-SaveMoney.release.xcconfig"; sourceTree = "<group>"; };
 		5805878F29794D2A00DA5F5B /* Borderview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borderview.swift; sourceTree = "<group>"; };
 		5805879229794EAC00DA5F5B /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		5838DFD32A78BA7100F8ED2D /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		583D7C802979482700F01023 /* Borderbutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borderbutton.swift; sourceTree = "<group>"; };
 		58492B8A297AE5240056A9A7 /* BorderCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCV.swift; sourceTree = "<group>"; };
 		5849E85329824CDC00088CA4 /* NanumBarunpenB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenB.otf; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3D743C57A3F485B30824A75 /* Pods_BinPocket.framework in Frameworks */,
+				5838DFD42A78BA7100F8ED2D /* AppTrackingTransparency.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +105,7 @@
 		4F3A4CF6AFDAB7A96872BE65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5838DFD32A78BA7100F8ED2D /* AppTrackingTransparency.framework */,
 				0CF88A3F0A1C87590491B005 /* Pods_BinPocket.framework */,
 			);
 			name = Frameworks;
@@ -494,6 +498,7 @@
 				DEVELOPMENT_TEAM = P95R3MRRWK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BinPocket/Info.plist;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -504,7 +509,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.Bin.BinPocket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -524,6 +529,7 @@
 				DEVELOPMENT_TEAM = P95R3MRRWK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BinPocket/Info.plist;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -534,7 +540,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.Bin.BinPocket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
