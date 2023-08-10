@@ -57,7 +57,7 @@ class ViewlistVC : UIViewController, GADBannerViewDelegate {
         addBannerViewToView(bannerView)
         
         //info.plist와 같아야함!
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544~1458002511"
         bannerView.rootViewController = self
         //광고 로드
         bannerView.load(GADRequest())
@@ -192,7 +192,7 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: TableCell = tableView.dequeueReusableCell(withIdentifier: "PlusTableCell", for: indexPath) as! TableCell
         //셀 커스텀
-        cell.layer.cornerRadius = 20
+        cell.layer.cornerRadius = 10
         cell.backgroundColor = .clear
         
         //테이블 뷰가 2개이므로 구분하기위한 조건문

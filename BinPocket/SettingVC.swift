@@ -40,7 +40,7 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
         let cell : SettingtableviewCell = tableView.dequeueReusableCell(withIdentifier: "SettingtableviewCell", for: indexPath) as! SettingtableviewCell
         
         cell.backgroundColor = .clear
-        cell.layer.cornerRadius = 20
+        cell.layer.cornerRadius = 10
         cell.settingLabel.text = settingTitleList[indexPath.row]
         
         return cell

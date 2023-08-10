@@ -31,6 +31,7 @@
 		58A125B9299737C80068F86E /* NotificationCenterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A125B8299737C80068F86E /* NotificationCenterName.swift */; };
 		58A12F8B2985191D00FD668E /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A12F8A2985191D00FD668E /* TableCell.swift */; };
 		58D848012986A25C00854DDD /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D848002986A25C00854DDD /* RealmData.swift */; };
+		58D93C422A7E0B1A00141D7A /* FavoriteDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93C412A7E0B1A00141D7A /* FavoriteDataCell.swift */; };
 		58DD22E629927FA6001CBD84 /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DD22E529927FA6001CBD84 /* TotalTableViewCell.swift */; };
 		58ECD34D29965DBF00812DC9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD34C29965DBF00812DC9 /* SettingVC.swift */; };
 		58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */; };
@@ -71,6 +72,7 @@
 		58A125B8299737C80068F86E /* NotificationCenterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterName.swift; sourceTree = "<group>"; };
 		58A12F8A2985191D00FD668E /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		58D848002986A25C00854DDD /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
+		58D93C412A7E0B1A00141D7A /* FavoriteDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDataCell.swift; sourceTree = "<group>"; };
 		58DD22E529927FA6001CBD84 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
 		58ECD34C29965DBF00812DC9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingtableviewCell.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				58492B8A297AE5240056A9A7 /* BorderCV.swift */,
 				58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */,
 				58A12F8A2985191D00FD668E /* TableCell.swift */,
+				58D93C412A7E0B1A00141D7A /* FavoriteDataCell.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				58694FE22979058D00817314 /* ViewlistVC.swift in Sources */,
 				58D848012986A25C00854DDD /* RealmData.swift in Sources */,
 				58A12F8B2985191D00FD668E /* TableCell.swift in Sources */,
+				58D93C422A7E0B1A00141D7A /* FavoriteDataCell.swift in Sources */,
 				58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */,
 				58694FE4297905A200817314 /* AddlistVC.swift in Sources */,
 				58694FE6297905D200817314 /* TotalListVC.swift in Sources */,
@@ -509,9 +513,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8.1;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.Bin.BinPocket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -540,9 +547,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8.1;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.Bin.BinPocket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

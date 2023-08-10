@@ -12,6 +12,7 @@ import GoogleMobileAds
 import StoreKit
 import AdSupport
 import AppTrackingTransparency
+import SwiftUI
 
 
 class MainVC: UIViewController, GADBannerViewDelegate {
@@ -48,7 +49,7 @@ class MainVC: UIViewController, GADBannerViewDelegate {
         addBannerViewToView(bannerView)
         
         //info.plist와 같아야함!
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544~1458002511"
         bannerView.rootViewController = self
         //광고 로드
         bannerView.load(GADRequest())
@@ -81,6 +82,7 @@ class MainVC: UIViewController, GADBannerViewDelegate {
                             print("denied") // 거부됨
                         case .authorized:
                             print("authorized") // 허용됨
+                            print("현재 기기의 IDFA = \(ASIdentifierManager.shared().advertisingIdentifier.uuidString)")
                         @unknown default:
                             print("error") // 알려지지 않음
                         }

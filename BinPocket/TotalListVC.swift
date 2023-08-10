@@ -36,7 +36,7 @@ extension TotalListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : TotalTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TotalTableViewCell", for: indexPath) as! TotalTableViewCell
         //셀 커스텀
-        cell.layer.cornerRadius = 20
+        cell.layer.cornerRadius = 10
         cell.backgroundColor = .clear
         
         cell.totalTitle.text = "\(totalTitleCell(indexpath: indexPath.row))"

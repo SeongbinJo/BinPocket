@@ -16,12 +16,17 @@ class EditListVC : UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var editTitleTextField: UITextField!
     @IBOutlet weak var editMoneyTextField: UITextField!
     @IBOutlet weak var editBtn: Borderbutton!
+    @IBOutlet weak var addFavoriteDataButton: Borderbutton!
+    @IBOutlet weak var favoriteDataTableView: UITableView!
     
     //애드몹 배너뷰
     var bannerView: GADBannerView!
     
     //realm
     var realm = try! Realm()
+    
+    //Realm 데이터베이스 변경될때 이용할 토큰.
+    var notificationToken : NotificationToken?
     
     //ViewlistVC에서 선택한 셀의 정보 담을 변수들.
     var selectCellDate = ""
@@ -41,15 +46,25 @@ class EditListVC : UIViewController, GADBannerViewDelegate {
         super.viewDidLoad()
         editTitleTextField.delegate = self
         editMoneyTextField.delegate = self
+        favoriteDataTableView.delegate = self
+        favoriteDataTableView.dataSource = self
         editTitleTextField.text = selectCellTitle
         editMoneyTextField.text = selectCellMoney.trimmingCharacters(in: ["-"])
         self.editMoneyTextField.keyboardType = .numberPad
+        
+        //데이터베이스 변경될 때마다 테이블 뷰 리로드.
+        notificationToken = realm.observe({ (noti, realm) in
+            self.favoriteDataTableView.reloadData();
+        })
+        
         if selectCellPlusOrMinus{
             editSegementController.selectedSegmentIndex = 0
             editSegementController.selectedSegmentTintColor = UIColor(r: 63, g: 137, b: 249, a: 0.3)
+            plusMinus = true
         }else{
             editSegementController.selectedSegmentIndex = 1
             editSegementController.selectedSegmentTintColor = UIColor(r: 233, g: 81, b: 81, a: 0.3)
+            plusMinus = false
         }
         
         //애드몹 배너 사이즈 정하기.
@@ -59,7 +74,7 @@ class EditListVC : UIViewController, GADBannerViewDelegate {
         addBannerViewToView(bannerView)
         
         //info.plist와 같아야함!
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544~1458002511"
         bannerView.rootViewController = self
         //광고 로드
         bannerView.load(GADRequest())
@@ -128,16 +143,102 @@ class EditListVC : UIViewController, GADBannerViewDelegate {
         }else{
             //수정 페이지에서 아무것도 작성되어있지 않을때.
             let alert = UIAlertController(title:"잠깐!",
-                message: "비어있는 항목이 있습니다.", preferredStyle: .alert)
+                message: "비어있는 항목이 있습니다! 삭제를 원하시면 해당 내역을 왼쪽으로 밀어주세요!", preferredStyle: .alert)
             let okbtn = UIAlertAction(title: "확인", style: .default, handler: nil)
             alert.addAction(okbtn)
             present(alert,animated: true, completion: nil)
         }
     }
     
+    
+    @IBAction func addFavoriteBtn(_ sender: Any) {
+        if self.editSegementController.isSelected && self.editTitleTextField.text != "" && self.editMoneyTextField.text != ""{
+            if plusMinus == false{
+                let favoriteList = FavoriteData()
+                favoriteList.moneyTitle = editTitleTextField.text ?? ""
+                favoriteList.money = editMoneyTextField.text ?? ""
+                favoriteList.plusOrMinus = false
+                favoriteList.id = UUID().uuidString
+                try! realm.write{
+                    realm.add(favoriteList)
+                }
+            }
+            if plusMinus == true{
+                let favoriteList = FavoriteData()
+                favoriteList.moneyTitle = editTitleTextField.text ?? ""
+                favoriteList.money = "-\(editMoneyTextField.text ?? "")"
+                favoriteList.plusOrMinus = true
+                favoriteList.id = UUID().uuidString
+                try! realm.write{
+                    realm.add(favoriteList)
+                }
+            }
+        }else {
+            //세그먼트 컨트롤러(지출 or 수입)이 선택 안되어있으면~
+            let alert = UIAlertController(title:"잠깐!",
+                message: "비어있는 항목이 있습니다.", preferredStyle: .alert)
+            let okbtn = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alert.addAction(okbtn)
+            present(alert,animated: true, completion: nil)
+        }
+    }
 }
 
-extension EditListVC : UITextFieldDelegate{
+extension EditListVC : UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if realm.objects(FavoriteData.self).count > 0{
+            return realm.objects(FavoriteData.self).count
+        }else{
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: FavoriteDataCell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell", for: indexPath) as! FavoriteDataCell
+        cell.layer.cornerRadius = 10
+        cell.backgroundColor = .clear
+        
+        if realm.objects(FavoriteData.self).count > 0{
+            let favoriteData = realm.objects(FavoriteData.self)
+            cell.moneyTitle.text = "\(favoriteData[indexPath.row].moneyTitle)"
+            cell.money.text = "\(MainVC.decimalWon(value: Int(favoriteData[indexPath.row].money)!))"
+            cell.plusOrMinus.text = favoriteData[indexPath.row].plusOrMinus ? "(지출)" : "(수입)"
+            cell.id = favoriteData[indexPath.row].id
+        }
+        return cell
+    }
+    
+    //셀 삭제
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let currentcell: FavoriteDataCell = tableView.cellForRow(at: indexPath) as! FavoriteDataCell
+        if editingStyle == .delete{
+            let favoriteData = realm.objects(FavoriteData.self).filter("id == %@", currentcell.id)
+            tableView.beginUpdates()
+            try! realm.write{
+                realm.delete(favoriteData)
+            }
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "삭제하기"
+    }
+    
+    //즐겨찾기 테이블 셀 클릭했을때.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentcell: FavoriteDataCell = tableView.cellForRow(at: indexPath) as! FavoriteDataCell
+        let selectedCell = realm.objects(FavoriteData.self).filter("id == %@", currentcell.id)
+        self.editTitleTextField.text = selectedCell.first!.moneyTitle
+        self.editMoneyTextField.text = selectedCell.first!.money.trimmingCharacters(in: ["-"])
+        self.editSegementController.selectedSegmentIndex = selectedCell.first!.plusOrMinus ? 0 : 1
+        self.plusMinus = selectedCell.first!.plusOrMinus ? true : false
+        self.editSegementController.isSelected = true
+        self.editSegementController.selectedSegmentTintColor = selectedCell.first!.plusOrMinus ? UIColor(r: 63, g: 137, b: 249, a: 0.3) : UIColor(r: 233, g: 81, b: 81, a: 0.3)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //moneytextfield에 숫자만 입력가능하게.
         if textField == self.editMoneyTextField {
