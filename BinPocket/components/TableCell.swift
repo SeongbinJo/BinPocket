@@ -12,11 +12,13 @@ class TableCell: UITableViewCell {
     //수입 셀 라벨
     @IBOutlet weak var plusCellTitle: UILabel!
     @IBOutlet weak var plusCellMoney: UILabel!
+    @IBOutlet weak var plusCategory: UILabel!
     var plusId: String = ""
     
     //지출 셀 라벨
     @IBOutlet weak var minusCellTitle: UILabel!
     @IBOutlet weak var minusCellMoney: UILabel!
+    @IBOutlet weak var minusCategory: UILabel!
     var minusId: String = ""
     
     override func awakeFromNib() {

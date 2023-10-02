@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 import RealmSwift
-import GoogleMobileAds
 
-class AddlistVC : UIViewController, GADBannerViewDelegate {
+class AddlistVC : UIViewController {
     
     @IBOutlet weak var segementController: UISegmentedControl!
     @IBOutlet weak var titleTextField: UITextField!
@@ -18,9 +17,8 @@ class AddlistVC : UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var addBtn: Borderbutton!
     @IBOutlet weak var addFavoriteDataButton: Borderbutton!
     @IBOutlet weak var favoriteDataTableView: UITableView!
-    
-    //애드몹 배너뷰
-    var bannerView: GADBannerView!
+    @IBOutlet weak var selectCategoryBtn: Borderbutton!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     //Realm
     var realm = try! Realm()
@@ -49,42 +47,8 @@ class AddlistVC : UIViewController, GADBannerViewDelegate {
             self.favoriteDataTableView.reloadData();
         })
         
-        //애드몹 배너 사이즈 정하기.
-        bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        
-        //애드몹 배너 넣기.
-        addBannerViewToView(bannerView)
-        
-        //info.plist와 같아야함!
-        bannerView.adUnitID = "ca-app-pub-3940256099942544~1458002511"
-        bannerView.rootViewController = self
-        //광고 로드
-        bannerView.load(GADRequest())
-        //배너뷰 델리게이트
-        bannerView.delegate = self
     }
 
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        //애드몹 광고 배너 오토레이아웃.
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints(
-          [NSLayoutConstraint(item: bannerView,
-                              attribute: .bottom,
-                              relatedBy: .equal,
-                              toItem: view.safeAreaLayoutGuide,
-                              attribute: .bottom,
-                              multiplier: 1,
-                              constant: 0),
-           NSLayoutConstraint(item: bannerView,
-                              attribute: .centerX,
-                              relatedBy: .equal,
-                              toItem: view,
-                              attribute: .centerX,
-                              multiplier: 1,
-                              constant: 0)
-          ])
-       }
     
     //titletextfield 길이제한.
     @IBAction func titleTextFieldMaxLength(sender: Any) {
@@ -124,7 +88,7 @@ class AddlistVC : UIViewController, GADBannerViewDelegate {
     @IBAction func addlistBtn(_ sender: Borderbutton) {
         //지출과 수입 선택에 따라 저장되는 값이 달라짐.
         //세그먼트 컨트롤러(지출 or 수입)이 선택 되어있으면~
-        if self.segementController.isSelected && self.titleTextField.text != "" && self.moneyTextField.text != "" {
+        if self.segementController.isSelected && self.titleTextField.text != "" && self.moneyTextField.text != "" && self.categoryLabel.text != "비어있음" {
             if plusminus == false {
                 //realm에 저장할 데이터 틀에 맞춰 데이터 생성.
                 let pmoneylist = MyData()
@@ -133,6 +97,7 @@ class AddlistVC : UIViewController, GADBannerViewDelegate {
                 pmoneylist.money = moneyTextField.text ?? ""
                 pmoneylist.plusOrMinus = false
                 pmoneylist.id = UUID().uuidString
+                pmoneylist.category = categoryLabel.text ?? ""
                 //데이터를 realm에 넣음.
                 try! realm.write {
                     realm.add(pmoneylist)
@@ -147,6 +112,7 @@ class AddlistVC : UIViewController, GADBannerViewDelegate {
                 mmoneylist.money = "-\(moneyTextField.text ?? "")"
                 mmoneylist.plusOrMinus = true
                 mmoneylist.id = UUID().uuidString
+                mmoneylist.category = categoryLabel.text ?? ""
                 try! realm.write {
                     realm.add(mmoneylist)
                 }
@@ -164,13 +130,14 @@ class AddlistVC : UIViewController, GADBannerViewDelegate {
     
     //즐겨찾기 추가버튼
     @IBAction func addFavoriteBtn(_ sender: Any) {
-        if self.segementController.isSelected && self.titleTextField.text != "" && self.moneyTextField.text != ""{
+        if self.segementController.isSelected && self.titleTextField.text != "" && self.moneyTextField.text != "" && self.categoryLabel.text != "비어있음" {
             if plusminus == false{
                 let favoriteList = FavoriteData()
                 favoriteList.moneyTitle = titleTextField.text ?? ""
                 favoriteList.money = moneyTextField.text ?? ""
                 favoriteList.plusOrMinus = false
                 favoriteList.id = UUID().uuidString
+                favoriteList.category = categoryLabel.text ?? ""
                 try! realm.write{
                     realm.add(favoriteList)
                 }
@@ -181,6 +148,7 @@ class AddlistVC : UIViewController, GADBannerViewDelegate {
                 favoriteList.money = "-\(moneyTextField.text ?? "")"
                 favoriteList.plusOrMinus = true
                 favoriteList.id = UUID().uuidString
+                favoriteList.category = categoryLabel.text ?? ""
                 try! realm.write{
                     realm.add(favoriteList)
                 }
@@ -195,8 +163,18 @@ class AddlistVC : UIViewController, GADBannerViewDelegate {
         }
     }
     
+    //카테고리 선택 페이지 이동
+    @IBAction func goToCategoryVCBtn(_ sender: Any) {
+        guard let categoryPage = self.storyboard?.instantiateViewController(withIdentifier: "SelectCategoryVC") as? SelectCategoryVC else { return }
+        categoryPage.selectedCategory = { category in
+            self.categoryLabel.text = category
+        }
+        self.present(categoryPage, animated: true)
+    }
+    
 }
 
+//셀 개수
 extension AddlistVC : UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if realm.objects(FavoriteData.self).count > 0{
@@ -206,6 +184,7 @@ extension AddlistVC : UITextFieldDelegate, UITableViewDelegate, UITableViewDataS
         }
     }
     
+    //셀 표현
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: FavoriteDataCell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableCell", for: indexPath) as! FavoriteDataCell
         cell.layer.cornerRadius = 10
@@ -217,6 +196,7 @@ extension AddlistVC : UITextFieldDelegate, UITableViewDelegate, UITableViewDataS
             cell.money.text = "\(MainVC.decimalWon(value: Int(favoriteData[indexPath.row].money)!))"
             cell.plusOrMinus.text = favoriteData[indexPath.row].plusOrMinus ? "(지출)" : "(수입)"
             cell.id = favoriteData[indexPath.row].id
+            cell.category.text = favoriteData[indexPath.row].category
         }
         return cell
     }
@@ -249,6 +229,7 @@ extension AddlistVC : UITextFieldDelegate, UITableViewDelegate, UITableViewDataS
         self.plusminus = selectedCell.first!.plusOrMinus ? true : false
         self.segementController.isSelected = true
         self.segementController.selectedSegmentTintColor = selectedCell.first!.plusOrMinus ? UIColor(r: 63, g: 137, b: 249, a: 0.3) : UIColor(r: 233, g: 81, b: 81, a: 0.3)
+        self.categoryLabel.text = selectedCell.first!.category
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -263,32 +244,5 @@ extension AddlistVC : UITextFieldDelegate, UITableViewDelegate, UITableViewDataS
         }
         return true
     }
-    
-    //MARK - GADBannerViewDelegate 관련 메소드
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("bannerViewDidReceiveAd")
-//        //애드몹 배너 넣기.
-//        addBannerViewToView(bannerView)
-    }
-
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-
-    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-      print("bannerViewDidRecordImpression")
-    }
-
-    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillPresentScreen")
-    }
-
-    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillDIsmissScreen")
-    }
-
-    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewDidDismissScreen")
-    }
-    
+   
 }

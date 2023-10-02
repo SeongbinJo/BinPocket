@@ -12,6 +12,7 @@ class FavoriteDataCell: UITableViewCell{
     @IBOutlet weak var moneyTitle: UILabel!
     @IBOutlet weak var money: UILabel!
     @IBOutlet weak var plusOrMinus: UILabel!
+    @IBOutlet weak var category: UILabel!
     var id: String = ""
     
     override func awakeFromNib() {

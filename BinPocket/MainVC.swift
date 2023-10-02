@@ -8,23 +8,19 @@
 import UIKit
 import FSCalendar
 import RealmSwift
-import GoogleMobileAds
-import StoreKit
-import AdSupport
-import AppTrackingTransparency
 import SwiftUI
 
 
-class MainVC: UIViewController, GADBannerViewDelegate {
+class MainVC: UIViewController {
     
     
     @IBOutlet weak var calendarView: FSCalendar!
     @IBOutlet weak var monthTotalMoney: UILabel!
     @IBOutlet weak var plusTotalMoney: UILabel!
     @IBOutlet weak var minusTotalMoney: UILabel!
+    @IBOutlet weak var plusRankTableView: UITableView!
+    @IBOutlet weak var minusRankTableView: UITableView!
     
-    //애드몹 배너뷰
-    var bannerView: GADBannerView!
     //realm
     var realm = try! Realm()
     
@@ -37,88 +33,21 @@ class MainVC: UIViewController, GADBannerViewDelegate {
         calendarViewCustom()
         calendarView.delegate = self
         calendarView.dataSource = self
-        print("mydata의 데이터 목록 : \(realm.objects(MyData.self))")
-        
-        //애드몹 앱 트래킹(앱추적) 얼럿
-        requestTrackingAuthorization()
-        
-        //애드몹 배너 사이즈 정하기.
-        bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        
-        //애드몹 배너 넣기.
-        addBannerViewToView(bannerView)
-        
-        //info.plist와 같아야함!
-        bannerView.adUnitID = "ca-app-pub-3940256099942544~1458002511"
-        bannerView.rootViewController = self
-        //광고 로드
-        bannerView.load(GADRequest())
-        //배너뷰 델리게이트
-        bannerView.delegate = self
-        SKStoreReviewController.requestReview()
-        if let appstoreUrl = URL(string: "https://apps.apple.com/app/id{앱스토어ID}") {
-            var urlComp = URLComponents(url: appstoreUrl, resolvingAgainstBaseURL: false)
-            urlComp?.queryItems = [
-                URLQueryItem(name: "action", value: "write-review")
-            ]
-            guard let reviewUrl = urlComp?.url else {
-                return
-            }
-            UIApplication.shared.open(reviewUrl, options: [:], completionHandler: nil)
-        }
+//        print("mydata의 데이터 목록 : \(realm.objects(MyData.self))")
+//        print("즐겨찾기 목록 : \(realm.objects(FavoriteData.self))")
+    
         
     }
-    
-    func requestTrackingAuthorization() {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                if #available(iOS 14, *) {
-                    ATTrackingManager.requestTrackingAuthorization { (status) in
-                        switch status {
-                        case .notDetermined:
-                            print("notDetermined") // 결정되지 않음
-                        case .restricted:
-                            print("restricted") // 제한됨
-                        case .denied:
-                            print("denied") // 거부됨
-                        case .authorized:
-                            print("authorized") // 허용됨
-                            print("현재 기기의 IDFA = \(ASIdentifierManager.shared().advertisingIdentifier.uuidString)")
-                        @unknown default:
-                            print("error") // 알려지지 않음
-                        }
-                    }
-                }
-            }
-        }
-    
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        //애드몹 광고 배너 오토레이아웃.
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints(
-          [NSLayoutConstraint(item: bannerView,
-                              attribute: .bottom,
-                              relatedBy: .equal,
-                              toItem: view.safeAreaLayoutGuide,
-                              attribute: .bottom,
-                              multiplier: 1,
-                              constant: 0),
-           NSLayoutConstraint(item: bannerView,
-                              attribute: .centerX,
-                              relatedBy: .equal,
-                              toItem: view,
-                              attribute: .centerX,
-                              multiplier: 1,
-                              constant: 0)
-          ])
-       }
     
     //MainVC 나타날때
     override func viewWillAppear(_ animated: Bool) {
         calendarView.reloadData()
         //notification 명령 수신.
         NotificationCenter.default.addObserver(self, selector: #selector(goToMyMonthCalendar(notification: )), name: .goToMyMonth, object: nil)
+        
+        
     }
+    
     
     //notification 명령 수신할 때 사용될 함수.
     //명령 발신 때 보낸 object값도 같이 받음. notification : Notification
@@ -319,30 +248,25 @@ extension MainVC : FSCalendarDataSource {
     }
     
     
-    //MARK - GADBannerViewDelegate 관련 메소드
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("bannerViewDidReceiveAd")
-    }
-
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-
-    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-      print("bannerViewDidRecordImpression")
-    }
-
-    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillPresentScreen")
-    }
-
-    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillDIsmissScreen")
-    }
-
-    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewDidDismissScreen")
-    }
-    
+   
 }
 
+//extension MainVC : UITableViewDelegate, UITableViewDataSource {
+//    //셀 개수
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if tableView == plusRankTableView {
+//
+//        }
+//        if tableView == minusRankTableView {
+//
+//        }
+//    }
+//
+//    //셀 표현
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//
+//
+//}
+//

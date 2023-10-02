@@ -5,12 +5,26 @@
 //  Created by 조성빈 on 2023/01/19.
 //
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///
+///.  중요!!!!!!!!!!!!!!!!!! (카테고리/mainVC의 도넛 그래프 완성한 후에 작업할 것)
+///
+///.  ViewList의 타이들의 'E요일' 을 넣게되면 기존의 yyyy년 m월 d일 로 저장된 데이터들이 존재하기 때문에 바꿀 수 없다.
+///.  대신 mainVC에서 선택한 날짜를 yyyy년 m월 d일 의 형식의 String으로 따로 변수를 만들고 값을 전달 받아서
+///.  ex) 변수명을 FuckingDate라고 가정.
+///.  현재 realm에서 가져오는 filter의 "date == %@"의  self.navigationiem.title 에서 FuckingDate로 바꿔준다.
+///.  그렇게되면 네비게이션바 타이틀은 @요일을 붙인 문자열로 사용, FuckingDate 변수 사용해서 realm의 date별 데이터 가져옴으로 문제를 해결하자.
+///.  2023.09.07 목요일 -> 오늘은 시간이 그닥 없는 관계로, 카테고리 VC까지만 제작.
+///.  다음엔 콜렉션 뷰 사용해서 카테고리 생성하는 것 까지 목표.
+///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 import Foundation
 import UIKit
 import RealmSwift
-import GoogleMobileAds
 
-class ViewlistVC : UIViewController, GADBannerViewDelegate {
+class ViewlistVC : UIViewController {
     
     
     @IBOutlet weak var plusTableView: UITableView!
@@ -20,9 +34,6 @@ class ViewlistVC : UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var nextDateBtn: UIButton!
     @IBOutlet weak var totalPlusMoney: UILabel!
     @IBOutlet weak var totalMinusMoney: UILabel!
-    
-    //애드몹 배너뷰
-    var bannerView: GADBannerView!
     
     //realm
     var realm = try! Realm()
@@ -50,42 +61,9 @@ class ViewlistVC : UIViewController, GADBannerViewDelegate {
             self.plusTableView.reloadData(); self.minusTableView.reloadData();
         })
         
-        //애드몹 배너 사이즈 정하기.
-        bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        
-        //애드몹 배너 넣기.
-        addBannerViewToView(bannerView)
-        
-        //info.plist와 같아야함!
-        bannerView.adUnitID = "ca-app-pub-3940256099942544~1458002511"
-        bannerView.rootViewController = self
-        //광고 로드
-        bannerView.load(GADRequest())
-        //배너뷰 델리게이트
-        bannerView.delegate = self
     }
     
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        //애드몹 광고 배너 오토레이아웃.
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints(
-          [NSLayoutConstraint(item: bannerView,
-                              attribute: .bottom,
-                              relatedBy: .equal,
-                              toItem: view.safeAreaLayoutGuide,
-                              attribute: .bottom,
-                              multiplier: 1,
-                              constant: 0),
-           NSLayoutConstraint(item: bannerView,
-                              attribute: .centerX,
-                              relatedBy: .equal,
-                              toItem: view,
-                              attribute: .centerX,
-                              multiplier: 1,
-                              constant: 0)
-          ])
-       }
+
     
     override func viewDidAppear(_ animated: Bool) {
         print("등장")
@@ -206,6 +184,7 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
                 cell.plusCellTitle.text = "\(datefiltering[indexPath.row].moneyTitle)"
                 cell.plusCellMoney.text = "\(MainVC.decimalWon(value: Int(datefiltering[indexPath.row].money)!))"
                 cell.plusId = datefiltering[indexPath.row].id
+                cell.plusCategory.text = datefiltering[indexPath.row].category
                 dayTotalMoney.text = "\(MainVC.decimalWon(value: dateTotalFunc()))"
                 if dateTotalFunc() > 0 {
                     dayTotalMoney.text = "+\(MainVC.decimalWon(value: dateTotalFunc()))"
@@ -241,9 +220,8 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
                 cell.minusCellTitle.text = "\(datefiltering[indexPath.row].moneyTitle)"
                 cell.minusCellMoney.text = "\(MainVC.decimalWon(value: Int(datefiltering[indexPath.row].money)!))"
                 cell.minusId = datefiltering[indexPath.row].id
+                cell.minusCategory.text = datefiltering[indexPath.row].category
                 dayTotalMoney.text = "\(MainVC.decimalWon(value: dateTotalFunc()))"
-//                totalPlusMoney.text = "\(MainVC.decimalWon(value: dateTotalPlusMinusMoney(bool: false))) 원"
-//                totalMinusMoney.text = "\(MainVC.decimalWon(value: dateTotalPlusMinusMoney(bool: true))) 원"
                 if dateTotalFunc() > 0 {
                     dayTotalMoney.text = "+\(MainVC.decimalWon(value: dateTotalFunc()))"
                     dayTotalMoney.textColor = UIColor(r: 233, g: 81, b: 81, a: 1)
@@ -312,7 +290,8 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
             editListPage.selectCellTitle = selectPlusData.first!.moneyTitle
             editListPage.selectCellPlusOrMinus = selectPlusData.first!.plusOrMinus
             editListPage.selectId = selectPlusData.first!.id
-            self.present(editListPage, animated: true)
+            editListPage.selectCategory = selectPlusData.first!.category
+//            self.present(editListPage, animated: true)
             tableView.deselectRow(at: indexPath, animated: true)
         }
         //선택한 셀이 지출 테이블일 경우
@@ -323,36 +302,18 @@ extension ViewlistVC : UITableViewDelegate, UITableViewDataSource {
             editListPage.selectCellTitle = selectMinusData.first!.moneyTitle
             editListPage.selectCellPlusOrMinus = selectMinusData.first!.plusOrMinus
             editListPage.selectId = selectMinusData.first!.id
+            editListPage.selectCategory = selectMinusData.first!.category
+            print("현재 클릭한 셀의 정보입니다. : ")
+            print("1. 날짜 : \(selectMinusData.first!.date)")
+            print("2. 제목 : \(selectMinusData.first!.moneyTitle)")
+            print("3. 금액 : \(selectMinusData.first!.money)")
+            print("4. 지출/수입 : \(selectMinusData.first!.plusOrMinus)")
+            print("5. 아이디 : \(selectMinusData.first!.id)")
+            print("6. 카테고리 : \(selectMinusData.first!.category)")
             self.present(editListPage, animated: true)
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 
-    //MARK - GADBannerViewDelegate 관련 메소드
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      print("bannerViewDidReceiveAd")
-//        //애드몹 배너 넣기.
-//        addBannerViewToView(bannerView)
-    }
-
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-      print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-
-    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-      print("bannerViewDidRecordImpression")
-    }
-
-    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillPresentScreen")
-    }
-
-    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewWillDIsmissScreen")
-    }
-
-    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-      print("bannerViewDidDismissScreen")
-    }
     
 }

@@ -26,7 +26,9 @@
 		58694FE22979058D00817314 /* ViewlistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FE12979058D00817314 /* ViewlistVC.swift */; };
 		58694FE4297905A200817314 /* AddlistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FE3297905A200817314 /* AddlistVC.swift */; };
 		58694FE6297905D200817314 /* TotalListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FE5297905D200817314 /* TotalListVC.swift */; };
+		5873E2522ACAF17100B31106 /* RankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5873E2512ACAF17100B31106 /* RankTableCell.swift */; };
 		587E0B7A29982CE00007BB54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 587E0B7C29982CE00007BB54 /* InfoPlist.strings */; };
+		588332732AAA07EA007630C9 /* SelectCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588332722AAA07EA007630C9 /* SelectCategoryVC.swift */; };
 		58A125B72997372B0068F86E /* RgbColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A125B62997372B0068F86E /* RgbColorExt.swift */; };
 		58A125B9299737C80068F86E /* NotificationCenterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A125B8299737C80068F86E /* NotificationCenterName.swift */; };
 		58A12F8B2985191D00FD668E /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A12F8A2985191D00FD668E /* TableCell.swift */; };
@@ -35,6 +37,7 @@
 		58DD22E629927FA6001CBD84 /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DD22E529927FA6001CBD84 /* TotalTableViewCell.swift */; };
 		58ECD34D29965DBF00812DC9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD34C29965DBF00812DC9 /* SettingVC.swift */; };
 		58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */; };
+		58F3923E2AADE5DD00C4119D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F3923D2AADE5DD00C4119D /* CategoryCollectionViewCell.swift */; };
 		C3D743C57A3F485B30824A75 /* Pods_BinPocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF88A3F0A1C87590491B005 /* Pods_BinPocket.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,11 +66,13 @@
 		58694FE12979058D00817314 /* ViewlistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewlistVC.swift; sourceTree = "<group>"; };
 		58694FE3297905A200817314 /* AddlistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddlistVC.swift; sourceTree = "<group>"; };
 		58694FE5297905D200817314 /* TotalListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalListVC.swift; sourceTree = "<group>"; };
+		5873E2512ACAF17100B31106 /* RankTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableCell.swift; sourceTree = "<group>"; };
 		5878BC732998190F00C0133C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		5878BC742998190F00C0133C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5878BC752998192C00C0133C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		5878BC762998192E00C0133C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		587E0B7B29982CE00007BB54 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		588332722AAA07EA007630C9 /* SelectCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryVC.swift; sourceTree = "<group>"; };
 		58A125B62997372B0068F86E /* RgbColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RgbColorExt.swift; sourceTree = "<group>"; };
 		58A125B8299737C80068F86E /* NotificationCenterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterName.swift; sourceTree = "<group>"; };
 		58A12F8A2985191D00FD668E /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
@@ -76,6 +81,7 @@
 		58DD22E529927FA6001CBD84 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
 		58ECD34C29965DBF00812DC9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingtableviewCell.swift; sourceTree = "<group>"; };
+		58F3923D2AADE5DD00C4119D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		6945CFE149F90AA02DB8406C /* Pods-SaveMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaveMoney.debug.xcconfig"; path = "Target Support Files/Pods-SaveMoney/Pods-SaveMoney.debug.xcconfig"; sourceTree = "<group>"; };
 		96C17D911AB3536243F69688 /* Pods-BinPocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinPocket.release.xcconfig"; path = "Target Support Files/Pods-BinPocket/Pods-BinPocket.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +139,8 @@
 				58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */,
 				58A12F8A2985191D00FD668E /* TableCell.swift */,
 				58D93C412A7E0B1A00141D7A /* FavoriteDataCell.swift */,
+				58F3923D2AADE5DD00C4119D /* CategoryCollectionViewCell.swift */,
+				5873E2512ACAF17100B31106 /* RankTableCell.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -181,6 +189,7 @@
 				58571E232A4EB27F0092D7C1 /* EditListVC.swift */,
 				587E0B7C29982CE00007BB54 /* InfoPlist.strings */,
 				58694FE12979058D00817314 /* ViewlistVC.swift */,
+				588332722AAA07EA007630C9 /* SelectCategoryVC.swift */,
 				58694FE3297905A200817314 /* AddlistVC.swift */,
 				58D848002986A25C00854DDD /* RealmData.swift */,
 				58694FE5297905D200817314 /* TotalListVC.swift */,
@@ -327,16 +336,19 @@
 				5805879029794D2A00DA5F5B /* Borderview.swift in Sources */,
 				58694FCE297904FF00817314 /* AppDelegate.swift in Sources */,
 				58A125B72997372B0068F86E /* RgbColorExt.swift in Sources */,
+				588332732AAA07EA007630C9 /* SelectCategoryVC.swift in Sources */,
 				58571E242A4EB27F0092D7C1 /* EditListVC.swift in Sources */,
 				58A125B9299737C80068F86E /* NotificationCenterName.swift in Sources */,
 				58694FD0297904FF00817314 /* SceneDelegate.swift in Sources */,
 				58492B8B297AE5240056A9A7 /* BorderCV.swift in Sources */,
 				58694FE22979058D00817314 /* ViewlistVC.swift in Sources */,
+				5873E2522ACAF17100B31106 /* RankTableCell.swift in Sources */,
 				58D848012986A25C00854DDD /* RealmData.swift in Sources */,
 				58A12F8B2985191D00FD668E /* TableCell.swift in Sources */,
 				58D93C422A7E0B1A00141D7A /* FavoriteDataCell.swift in Sources */,
 				58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */,
 				58694FE4297905A200817314 /* AddlistVC.swift in Sources */,
+				58F3923E2AADE5DD00C4119D /* CategoryCollectionViewCell.swift in Sources */,
 				58694FE6297905D200817314 /* TotalListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,7 +533,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -555,7 +567,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

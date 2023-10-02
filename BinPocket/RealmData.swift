@@ -15,6 +15,7 @@ class MyData: Object{
     @objc dynamic var moneyTitle = ""
     @objc dynamic var money = ""
     @objc dynamic var id = ""
+    @objc dynamic var category = ""
 }
 
 //자주 입력하는 내역 정보 따로 저장하기 위한 데이터 모델
@@ -22,5 +23,11 @@ class FavoriteData: Object{
     @objc dynamic var plusOrMinus = false
     @objc dynamic var moneyTitle = ""
     @objc dynamic var money = ""
+    @objc dynamic var id = ""
+    @objc dynamic var category = ""
+}
+
+class Category: Object{
+    @objc dynamic var category = ""
     @objc dynamic var id = ""
 }

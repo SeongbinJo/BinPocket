@@ -7,28 +7,28 @@
 
 import UIKit
 import RealmSwift
-import GoogleMobileAds
-import AdSupport
-import AppTrackingTransparency
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         // 1. config 설정(이전 버전에서 다음 버전으로 마이그레이션될때 어떻게 변경될것인지)
                 let config = Realm.Configuration(
-                    schemaVersion: 4, // 새로운 스키마 버전 설정
+                    schemaVersion: 6, // 새로운 스키마 버전 설정
                     migrationBlock: { migration, oldSchemaVersion in
-                        if oldSchemaVersion < 4 {
+                        if oldSchemaVersion < 6 {
                             // 1-1. 마이그레이션 수행(버전 2보다 작은 경우 버전 2에 맞게 데이터베이스 수정)
-                            migration.enumerateObjects(ofType: MyData.className()) { oldObject, newObject in
+                            migration.enumerateObjects(ofType: Category.className()) { oldObject, newObject in
                                 newObject!["id"] = UUID().uuidString
+                            }
+                            migration.enumerateObjects(ofType: MyData.className()) { oldObject, newObject in
+                                newObject!["category"] = "비어있음"
+                            }
+                            migration.enumerateObjects(ofType: FavoriteData.className()) { oldObject, newObject in
+                                newObject!["category"] = "비어있음"
                             }
                         }
                     }
