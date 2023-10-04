@@ -196,7 +196,7 @@ extension AddlistVC : UITextFieldDelegate, UITableViewDelegate, UITableViewDataS
             cell.money.text = "\(MainVC.decimalWon(value: Int(favoriteData[indexPath.row].money)!))"
             cell.plusOrMinus.text = favoriteData[indexPath.row].plusOrMinus ? "(지출)" : "(수입)"
             cell.id = favoriteData[indexPath.row].id
-            cell.category.text = favoriteData[indexPath.row].category
+            cell.category.text = "[\(favoriteData[indexPath.row].category)]"
         }
         return cell
     }

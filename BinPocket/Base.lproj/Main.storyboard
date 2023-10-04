@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbu-tx-qR7" customClass="FSCalendar">
-                                <rect key="frame" x="7" y="103" width="416" height="402"/>
+                                <rect key="frame" x="7" y="108" width="416" height="409"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="allowsSelection" value="YES"/>
@@ -34,26 +34,26 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3Eu-WE-dtj">
-                                <rect key="frame" x="238" y="765" width="162" height="83"/>
+                                <rect key="frame" x="259.66666666666669" y="777" width="140.33333333333331" height="71"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="q37-9V-NYh">
-                                        <rect key="frame" x="79" y="0.0" width="83" height="25.666666666666668"/>
+                                        <rect key="frame" x="67" y="0.0" width="73.333333333333314" height="21.666666666666668"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3HU-46-B1S">
-                                                <rect key="frame" x="0.0" y="0.0" width="61" height="25.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="53.333333333333336" height="21.666666666666668"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수입 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZR-wV-otW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="41" height="25.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Od1-NF-w5I" userLabel="nowtotalmoney">
-                                                        <rect key="frame" x="51" y="0.0" width="10" height="25.666666666666668"/>
+                                                        <rect key="frame" x="45" y="0.0" width="8.3333333333333357" height="21.666666666666668"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5m-9a-cv6">
-                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="25.666666666666668"/>
-                                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="8.3333333333333339" height="21.666666666666668"/>
+                                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -62,28 +62,28 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFW-OF-ahd">
-                                                <rect key="frame" x="68" y="0.0" width="15" height="25.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                <rect key="frame" x="60.333333333333314" y="0.0" width="13" height="21.666666666666668"/>
+                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ZJw-Xj-V3H">
-                                        <rect key="frame" x="79" y="28.666666666666629" width="83" height="25.666666666666671"/>
+                                        <rect key="frame" x="67" y="24.666666666666629" width="73.333333333333314" height="21.666666666666671"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JCW-s0-Fac" userLabel="nowtotalmoney">
-                                                <rect key="frame" x="0.0" y="0.0" width="61" height="25.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="53.333333333333336" height="21.666666666666668"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지출 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOo-Dq-HqX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="41" height="25.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnS-m0-dvd">
-                                                        <rect key="frame" x="51" y="0.0" width="10" height="25.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                        <rect key="frame" x="45" y="0.0" width="8.3333333333333357" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -93,28 +93,28 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyG-Dx-9QY">
-                                                <rect key="frame" x="68" y="0.0" width="15" height="25.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                <rect key="frame" x="60.333333333333314" y="0.0" width="13" height="21.666666666666668"/>
+                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="TV9-sq-YBR">
-                                        <rect key="frame" x="0.0" y="57.333333333333364" width="162" height="25.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="49.333333333333371" width="140.33333333333334" height="21.666666666666671"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cjx-gL-Zqg" userLabel="nowtotalmoney">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="25.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="21.666666666666668"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번 달 총 합계 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2o-gY-HyW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="25.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="102" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIn-UM-1bV">
-                                                        <rect key="frame" x="130" y="0.0" width="10" height="25.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                        <rect key="frame" x="112" y="0.0" width="8.3333333333333286" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -124,8 +124,8 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMH-ei-8kM">
-                                                <rect key="frame" x="147" y="0.0" width="15" height="25.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                <rect key="frame" x="127.33333333333331" y="0.0" width="13" height="21.666666666666668"/>
+                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -134,13 +134,13 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="2DV-0V-J9p">
-                                <rect key="frame" x="17" y="505" width="396" height="240"/>
+                                <rect key="frame" x="17" y="517" width="396" height="240"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xp-Fx-ETb" customClass="Borderview" customModule="BinPocket" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="191" height="240"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수입 순위" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjd-bh-R5Y">
-                                                <rect key="frame" x="16.000000000000004" y="8" width="46.333333333333343" height="18"/>
+                                                <rect key="frame" x="72.333333333333329" y="8" width="46.333333333333329" height="18"/>
                                                 <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -149,7 +149,7 @@
                                                 <rect key="frame" x="8" y="34" width="175" height="198"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="plusRankCell" id="zfX-4w-mEv" customClass="RankTableCell" customModule="BinPocket" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rankCell" rowHeight="41" id="zfX-4w-mEv" customClass="RankTableCell" customModule="BinPocket" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="50" width="175" height="41"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zfX-4w-mEv" id="ZnO-uC-m1f">
@@ -204,11 +204,11 @@
                                         <color key="backgroundColor" red="0.91372549020000005" green="0.31764705879999999" blue="0.31764705879999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="j1O-aT-ZzH" secondAttribute="trailing" constant="8" id="MO2-G5-OUC"/>
+                                            <constraint firstItem="xjd-bh-R5Y" firstAttribute="centerX" secondItem="5Xp-Fx-ETb" secondAttribute="centerX" id="UfV-yd-T9A"/>
                                             <constraint firstItem="j1O-aT-ZzH" firstAttribute="top" secondItem="xjd-bh-R5Y" secondAttribute="bottom" constant="8" symbolic="YES" id="VtT-Eh-b62"/>
                                             <constraint firstItem="j1O-aT-ZzH" firstAttribute="leading" secondItem="5Xp-Fx-ETb" secondAttribute="leading" constant="8" id="bh1-GB-vGN"/>
                                             <constraint firstItem="j1O-aT-ZzH" firstAttribute="top" secondItem="5Xp-Fx-ETb" secondAttribute="top" constant="34" id="ck4-xX-Ko1"/>
                                             <constraint firstAttribute="bottom" secondItem="j1O-aT-ZzH" secondAttribute="bottom" constant="8" id="xVS-g7-hBJ"/>
-                                            <constraint firstItem="xjd-bh-R5Y" firstAttribute="leading" secondItem="j1O-aT-ZzH" secondAttribute="leading" constant="8" id="znH-jl-qgk"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerradius">
@@ -221,7 +221,7 @@
                                         <rect key="frame" x="205" y="0.0" width="191" height="240"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지출 순위" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlu-1r-OxD">
-                                                <rect key="frame" x="16.000000000000004" y="8" width="46.333333333333343" height="18"/>
+                                                <rect key="frame" x="72.333333333333314" y="8" width="46.333333333333343" height="18"/>
                                                 <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -230,7 +230,7 @@
                                                 <rect key="frame" x="8" y="34" width="175" height="198"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="minusRankCell" id="JHb-Oh-VOZ" customClass="RankTableCell" customModule="BinPocket" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rankCell" id="JHb-Oh-VOZ" customClass="RankTableCell" customModule="BinPocket" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="50" width="175" height="41"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JHb-Oh-VOZ" id="p2E-Sb-Nnu">
@@ -284,8 +284,8 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.2470588235" green="0.53725490200000003" blue="0.97647058819999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="xlu-1r-OxD" firstAttribute="leading" secondItem="Sib-Ud-U4u" secondAttribute="leading" constant="8" id="4Ul-gh-hog"/>
                                             <constraint firstItem="Sib-Ud-U4u" firstAttribute="top" secondItem="xlu-1r-OxD" secondAttribute="bottom" constant="8" symbolic="YES" id="Bic-8k-oUt"/>
+                                            <constraint firstItem="xlu-1r-OxD" firstAttribute="centerX" secondItem="nQw-Be-yJR" secondAttribute="centerX" id="CSP-Oz-rUC"/>
                                             <constraint firstItem="Sib-Ud-U4u" firstAttribute="top" secondItem="nQw-Be-yJR" secondAttribute="top" constant="34" id="GyD-0h-7jg"/>
                                             <constraint firstItem="Sib-Ud-U4u" firstAttribute="leading" secondItem="nQw-Be-yJR" secondAttribute="leading" constant="8" id="RPT-dU-gG6"/>
                                             <constraint firstAttribute="bottom" secondItem="Sib-Ud-U4u" secondAttribute="bottom" constant="8" id="YNU-Va-3VY"/>
@@ -313,7 +313,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2DV-0V-J9p" secondAttribute="trailing" constant="17" id="rGh-hC-NVx"/>
                             <constraint firstItem="2DV-0V-J9p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="17" id="vsc-sg-edO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Eu-WE-dtj" secondAttribute="bottom" constant="50" id="ydk-EB-mf0"/>
-                            <constraint firstItem="Jbu-tx-qR7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zPt-wM-o3i"/>
+                            <constraint firstItem="Jbu-tx-qR7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="zPt-wM-o3i"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="세이브 머니" id="s2k-uF-dMF"/>
@@ -570,261 +570,268 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UgE-7N-ULf" customClass="Borderview" customModule="BinPocket" customModuleProvider="target">
-                                <rect key="frame" x="25" y="103.33333333333331" width="380" height="261"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="9sW-EH-BBa">
+                                <rect key="frame" x="25" y="99" width="380" height="655"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oZ0-iF-LtB">
-                                        <rect key="frame" x="30" y="53" width="320" height="200"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="gCU-LA-NTZ"/>
-                                            <constraint firstAttribute="width" constant="320" id="tTz-c8-mFX"/>
-                                        </constraints>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlusTableCell" id="gel-wl-TsB" customClass="TableCell" customModule="BinPocket" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="320" height="45.333332061767578"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gel-wl-TsB" id="0f4-lQ-9WC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="45.333332061767578"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="HRU-p5-tG2">
-                                                            <rect key="frame" x="16" y="12" width="158" height="22"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UgE-7N-ULf" customClass="Borderview" customModule="BinPocket" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="320.66666666666669"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oZ0-iF-LtB">
+                                                <rect key="frame" x="10" y="52.333333333333343" width="360" height="258.33333333333326"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlusTableCell" id="gel-wl-TsB" customClass="TableCell" customModule="BinPocket" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="50" width="360" height="45.333332061767578"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gel-wl-TsB" id="0f4-lQ-9WC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="360" height="45.333332061767578"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VsX-Xy-gIL">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="106" height="22"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="HRU-p5-tG2">
+                                                                    <rect key="frame" x="16" y="12" width="158" height="22"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(카테고리)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbD-nb-t2Q">
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VsX-Xy-gIL">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="106" height="22"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(카테고리)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbD-nb-t2Q">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="22"/>
+                                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDV-v6-FtO">
+                                                                                    <rect key="frame" x="70" y="0.0" width="26.666666666666671" height="22"/>
+                                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfK-Y4-hgi">
+                                                                                    <rect key="frame" x="101.66666666666667" y="0.0" width="4.3333333333333286" height="22"/>
+                                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GAS-Rv-rEQ">
+                                                                            <rect key="frame" x="113" y="0.0" width="45" height="22"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-cx-2wu">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="27" height="22"/>
+                                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-cx-W5n">
+                                                                                    <rect key="frame" x="32" y="0.0" width="13" height="22"/>
+                                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="HRU-p5-tG2" firstAttribute="top" secondItem="0f4-lQ-9WC" secondAttribute="top" constant="12" id="Dyd-f8-Nk7"/>
+                                                                <constraint firstItem="HRU-p5-tG2" firstAttribute="leading" secondItem="0f4-lQ-9WC" secondAttribute="leading" constant="16" id="bvb-sb-HNc"/>
+                                                                <constraint firstAttribute="bottom" secondItem="HRU-p5-tG2" secondAttribute="bottom" constant="11.333334604899093" id="iNb-6Q-6Ma"/>
+                                                            </constraints>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="plusCategory" destination="kbD-nb-t2Q" id="N6e-Jf-Ad0"/>
+                                                            <outlet property="plusCellMoney" destination="rlJ-cx-2wu" id="AKK-7Q-Wij"/>
+                                                            <outlet property="plusCellTitle" destination="fDV-v6-FtO" id="JhR-4b-XU9"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="BwW-gL-8Yi" id="8AN-oO-vGa"/>
+                                                    <outlet property="delegate" destination="BwW-gL-8Yi" id="BuV-41-yIC"/>
+                                                </connections>
+                                            </tableView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFR-zD-4Nj">
+                                                <rect key="frame" x="29.999999999999996" y="15" width="40.666666666666657" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수입" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sg-J6-51X">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30.666666666666668" height="30"/>
+                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="t36-6E-18h">
+                                                        <rect key="frame" x="30.666666666666671" y="0.0" width="10" height="30"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6VB-j0-Ihm" userLabel="nowtotalmoney">
+                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="30"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeT-XQ-fOz">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="10" height="30"/>
+                                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="52T-WF-aMc"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.9137254901960784" green="0.31764705882352939" blue="0.31764705882352939" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="oZ0-iF-LtB" secondAttribute="bottom" constant="10" id="72a-gm-4hH"/>
+                                            <constraint firstItem="oZ0-iF-LtB" firstAttribute="leading" secondItem="UgE-7N-ULf" secondAttribute="leading" constant="10" id="INp-K3-Daj"/>
+                                            <constraint firstItem="oZ0-iF-LtB" firstAttribute="centerX" secondItem="UgE-7N-ULf" secondAttribute="centerX" id="Unv-lJ-irK"/>
+                                            <constraint firstItem="uFR-zD-4Nj" firstAttribute="top" secondItem="UgE-7N-ULf" secondAttribute="top" constant="15" id="VDf-aI-nZQ"/>
+                                            <constraint firstItem="oZ0-iF-LtB" firstAttribute="top" secondItem="uFR-zD-4Nj" secondAttribute="bottom" constant="7.3300000000000001" id="cLc-tf-6gT"/>
+                                            <constraint firstAttribute="trailing" secondItem="oZ0-iF-LtB" secondAttribute="trailing" constant="10" id="jay-OM-dlN"/>
+                                            <constraint firstItem="uFR-zD-4Nj" firstAttribute="leading" secondItem="oZ0-iF-LtB" secondAttribute="leading" constant="20" id="jvU-lg-ecF"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerradius">
+                                                <real key="value" value="49"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasshadow" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8b-Jd-tPM" customClass="Borderview" customModule="BinPocket" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="334.66666666666674" width="380" height="320.33333333333326"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vd1-x0-xUy">
+                                                <rect key="frame" x="29.999999999999996" y="15" width="40.666666666666657" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지출" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xms-Ag-DPn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30.666666666666668" height="30"/>
+                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="dBo-Vl-mnD">
+                                                        <rect key="frame" x="30.666666666666671" y="0.0" width="10" height="30"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mx8-11-edl" userLabel="nowtotalmoney">
+                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="30"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekH-Pl-Unv">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="10" height="30"/>
+                                                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="ZxY-G7-vQK"/>
+                                                </constraints>
+                                            </stackView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zlE-1O-n7N">
+                                                <rect key="frame" x="10" y="52.333333333333314" width="360" height="258"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlusTableCell" id="Bbo-zF-eEf" customClass="TableCell" customModule="BinPocket" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="50" width="360" height="45.333332061767578"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bbo-zF-eEf" id="q4s-FG-zMd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="360" height="45.333332061767578"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="gnz-HQ-y6c">
+                                                                    <rect key="frame" x="16" y="12" width="160" height="22"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(카테고리)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZN-7q-M8A">
                                                                             <rect key="frame" x="0.0" y="0.0" width="65" height="22"/>
                                                                             <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDV-v6-FtO">
-                                                                            <rect key="frame" x="70" y="0.0" width="26.666666666666671" height="22"/>
-                                                                            <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfK-Y4-hgi">
-                                                                            <rect key="frame" x="101.66666666666667" y="0.0" width="4.3333333333333286" height="22"/>
-                                                                            <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GAS-Rv-rEQ">
-                                                                    <rect key="frame" x="113" y="0.0" width="45" height="22"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-cx-2wu">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="27" height="22"/>
-                                                                            <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-cx-W5n">
-                                                                            <rect key="frame" x="32" y="0.0" width="13" height="22"/>
-                                                                            <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="duF-x8-fbw">
+                                                                            <rect key="frame" x="72" y="0.0" width="36" height="22"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0T-vW-WvR">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="26.666666666666668" height="22"/>
+                                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cC-Rw-dX5">
+                                                                                    <rect key="frame" x="31.666666666666668" y="0.0" width="4.3333333333333321" height="22"/>
+                                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UGx-JG-IGg">
+                                                                            <rect key="frame" x="115" y="0.0" width="45" height="22"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYU-tU-xss">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="27" height="22"/>
+                                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyr-Rd-7Lx">
+                                                                                    <rect key="frame" x="32" y="0.0" width="13" height="22"/>
+                                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="HRU-p5-tG2" firstAttribute="top" secondItem="0f4-lQ-9WC" secondAttribute="top" constant="12" id="Dyd-f8-Nk7"/>
-                                                        <constraint firstItem="HRU-p5-tG2" firstAttribute="leading" secondItem="0f4-lQ-9WC" secondAttribute="leading" constant="16" id="bvb-sb-HNc"/>
-                                                        <constraint firstAttribute="bottom" secondItem="HRU-p5-tG2" secondAttribute="bottom" constant="11.333334604899093" id="iNb-6Q-6Ma"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
+                                                            <constraints>
+                                                                <constraint firstItem="gnz-HQ-y6c" firstAttribute="leading" secondItem="q4s-FG-zMd" secondAttribute="leading" constant="16" id="4Ln-8X-fhb"/>
+                                                                <constraint firstAttribute="bottom" secondItem="gnz-HQ-y6c" secondAttribute="bottom" constant="11.333334604899093" id="4dv-r9-NAl"/>
+                                                                <constraint firstItem="gnz-HQ-y6c" firstAttribute="top" secondItem="q4s-FG-zMd" secondAttribute="top" constant="12" id="hsO-Qg-EmC"/>
+                                                            </constraints>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="minusCategory" destination="EZN-7q-M8A" id="aCx-Ht-Rh8"/>
+                                                            <outlet property="minusCellMoney" destination="WYU-tU-xss" id="ixT-Dp-9no"/>
+                                                            <outlet property="minusCellTitle" destination="H0T-vW-WvR" id="56O-cV-c0x"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
                                                 <connections>
-                                                    <outlet property="plusCategory" destination="kbD-nb-t2Q" id="N6e-Jf-Ad0"/>
-                                                    <outlet property="plusCellMoney" destination="rlJ-cx-2wu" id="AKK-7Q-Wij"/>
-                                                    <outlet property="plusCellTitle" destination="fDV-v6-FtO" id="JhR-4b-XU9"/>
+                                                    <outlet property="dataSource" destination="BwW-gL-8Yi" id="Bsz-Rn-f4M"/>
+                                                    <outlet property="delegate" destination="BwW-gL-8Yi" id="uck-vH-LJo"/>
                                                 </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                        <connections>
-                                            <outlet property="dataSource" destination="BwW-gL-8Yi" id="8AN-oO-vGa"/>
-                                            <outlet property="delegate" destination="BwW-gL-8Yi" id="BuV-41-yIC"/>
-                                        </connections>
-                                    </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFR-zD-4Nj">
-                                        <rect key="frame" x="31.999999999999996" y="20" width="40.666666666666657" height="25.666666666666671"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수입" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sg-J6-51X">
-                                                <rect key="frame" x="0.0" y="0.0" width="30.666666666666668" height="25.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="t36-6E-18h">
-                                                <rect key="frame" x="30.666666666666671" y="0.0" width="10" height="25.666666666666668"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6VB-j0-Ihm" userLabel="nowtotalmoney">
-                                                        <rect key="frame" x="0.0" y="0.0" width="10" height="25.666666666666668"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeT-XQ-fOz">
-                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="25.666666666666668"/>
-                                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
+                                            </tableView>
                                         </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.9137254901960784" green="0.31764705882352939" blue="0.31764705882352939" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="oZ0-iF-LtB" secondAttribute="bottom" constant="8" id="72a-gm-4hH"/>
-                                    <constraint firstItem="oZ0-iF-LtB" firstAttribute="centerX" secondItem="UgE-7N-ULf" secondAttribute="centerX" id="Unv-lJ-irK"/>
-                                    <constraint firstItem="uFR-zD-4Nj" firstAttribute="leading" secondItem="UgE-7N-ULf" secondAttribute="leading" constant="32" id="V35-MF-ZSh"/>
-                                    <constraint firstItem="uFR-zD-4Nj" firstAttribute="top" secondItem="UgE-7N-ULf" secondAttribute="top" constant="20" symbolic="YES" id="VDf-aI-nZQ"/>
-                                    <constraint firstItem="oZ0-iF-LtB" firstAttribute="top" secondItem="9sg-J6-51X" secondAttribute="bottom" constant="7.3333333333333286" id="Xpf-Tr-Rlo"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerradius">
-                                        <real key="value" value="49"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasshadow" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8b-Jd-tPM" customClass="Borderview" customModule="BinPocket" customModuleProvider="target">
-                                <rect key="frame" x="25" y="379.33333333333331" width="380" height="260.99999999999994"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vd1-x0-xUy">
-                                        <rect key="frame" x="31.999999999999996" y="20" width="40.666666666666657" height="25.666666666666671"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지출" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xms-Ag-DPn">
-                                                <rect key="frame" x="0.0" y="0.0" width="30.666666666666668" height="25.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="dBo-Vl-mnD">
-                                                <rect key="frame" x="30.666666666666671" y="0.0" width="10" height="25.666666666666668"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mx8-11-edl" userLabel="nowtotalmoney">
-                                                        <rect key="frame" x="0.0" y="0.0" width="10" height="25.666666666666668"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekH-Pl-Unv">
-                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="25.666666666666668"/>
-                                                                <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zlE-1O-n7N">
-                                        <rect key="frame" x="30" y="53" width="320" height="200"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.24705882352941178" green="0.53725490196078429" blue="0.97647058823529409" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="Bbi-Be-xHn"/>
-                                            <constraint firstAttribute="width" constant="320" id="Mud-cr-iZy"/>
+                                            <constraint firstAttribute="trailing" secondItem="zlE-1O-n7N" secondAttribute="trailing" constant="10" id="1RY-Qt-NjK"/>
+                                            <constraint firstItem="vd1-x0-xUy" firstAttribute="top" secondItem="Z8b-Jd-tPM" secondAttribute="top" constant="15" id="Adw-ud-T0a"/>
+                                            <constraint firstItem="zlE-1O-n7N" firstAttribute="leading" secondItem="Z8b-Jd-tPM" secondAttribute="leading" constant="10" id="HDh-cn-teD"/>
+                                            <constraint firstItem="zlE-1O-n7N" firstAttribute="top" secondItem="vd1-x0-xUy" secondAttribute="bottom" constant="7.3333333333333144" id="N1b-OQ-gaE"/>
+                                            <constraint firstItem="vd1-x0-xUy" firstAttribute="leading" secondItem="zlE-1O-n7N" secondAttribute="leading" constant="20" id="Rs6-nf-3iw"/>
+                                            <constraint firstItem="zlE-1O-n7N" firstAttribute="centerX" secondItem="Z8b-Jd-tPM" secondAttribute="centerX" id="bik-bM-dQ9"/>
+                                            <constraint firstAttribute="bottom" secondItem="zlE-1O-n7N" secondAttribute="bottom" constant="10" id="sQk-zQ-yx1"/>
                                         </constraints>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlusTableCell" id="Bbo-zF-eEf" customClass="TableCell" customModule="BinPocket" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="320" height="45.333332061767578"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bbo-zF-eEf" id="q4s-FG-zMd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="45.333332061767578"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="gnz-HQ-y6c">
-                                                            <rect key="frame" x="16" y="12" width="160" height="22"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(카테고리)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZN-7q-M8A">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="22"/>
-                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="duF-x8-fbw">
-                                                                    <rect key="frame" x="72" y="0.0" width="36" height="22"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0T-vW-WvR">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="26.666666666666668" height="22"/>
-                                                                            <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cC-Rw-dX5">
-                                                                            <rect key="frame" x="31.666666666666668" y="0.0" width="4.3333333333333321" height="22"/>
-                                                                            <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UGx-JG-IGg">
-                                                                    <rect key="frame" x="115" y="0.0" width="45" height="22"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYU-tU-xss">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="27" height="22"/>
-                                                                            <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyr-Rd-7Lx">
-                                                                            <rect key="frame" x="32" y="0.0" width="13" height="22"/>
-                                                                            <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                </stackView>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="gnz-HQ-y6c" firstAttribute="leading" secondItem="q4s-FG-zMd" secondAttribute="leading" constant="16" id="4Ln-8X-fhb"/>
-                                                        <constraint firstAttribute="bottom" secondItem="gnz-HQ-y6c" secondAttribute="bottom" constant="11.333334604899093" id="4dv-r9-NAl"/>
-                                                        <constraint firstItem="gnz-HQ-y6c" firstAttribute="top" secondItem="q4s-FG-zMd" secondAttribute="top" constant="12" id="hsO-Qg-EmC"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="minusCategory" destination="EZN-7q-M8A" id="aCx-Ht-Rh8"/>
-                                                    <outlet property="minusCellMoney" destination="WYU-tU-xss" id="ixT-Dp-9no"/>
-                                                    <outlet property="minusCellTitle" destination="H0T-vW-WvR" id="56O-cV-c0x"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                        <connections>
-                                            <outlet property="dataSource" destination="BwW-gL-8Yi" id="Bsz-Rn-f4M"/>
-                                            <outlet property="delegate" destination="BwW-gL-8Yi" id="uck-vH-LJo"/>
-                                        </connections>
-                                    </tableView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerradius">
+                                                <real key="value" value="49"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasshadow" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.24705882352941178" green="0.53725490196078429" blue="0.97647058823529409" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="vd1-x0-xUy" firstAttribute="top" secondItem="Z8b-Jd-tPM" secondAttribute="top" constant="20.000000000000014" id="Adw-ud-T0a"/>
-                                    <constraint firstItem="zlE-1O-n7N" firstAttribute="top" secondItem="vd1-x0-xUy" secondAttribute="bottom" constant="7.3333333333333144" id="N1b-OQ-gaE"/>
-                                    <constraint firstItem="zlE-1O-n7N" firstAttribute="centerX" secondItem="Z8b-Jd-tPM" secondAttribute="centerX" id="bik-bM-dQ9"/>
-                                    <constraint firstItem="vd1-x0-xUy" firstAttribute="leading" secondItem="Z8b-Jd-tPM" secondAttribute="leading" constant="32" id="vB5-Cc-0pN"/>
-                                    <constraint firstAttribute="bottom" secondItem="zlE-1O-n7N" secondAttribute="bottom" constant="8" id="y6a-ma-oc9"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerradius">
-                                        <real key="value" value="49"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasshadow" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="167" translatesAutoresizingMaskIntoConstraints="NO" id="GKI-Yj-hUu">
-                                <rect key="frame" x="25" y="64" width="380" height="34.333333333333343"/>
+                                <rect key="frame" x="64" y="64" width="302.33333333333326" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilN-HM-8uW">
-                                        <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="67.666666666666671" height="30"/>
                                         <color key="tintColor" red="0.20000001789999999" green="0.1647058874" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="어제" imagePadding="3">
@@ -836,7 +843,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSj-IF-v3M">
-                                        <rect key="frame" x="273.66666666666669" y="0.0" width="106.33333333333331" height="34.333333333333336"/>
+                                        <rect key="frame" x="234.66666666666666" y="0.0" width="67.666666666666657" height="30"/>
                                         <color key="tintColor" red="0.20000001789999999" green="0.1647058874" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="내일" imagePadding="3">
@@ -848,21 +855,24 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SDR-dH-XYn"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="DKw-gh-yn5">
-                                <rect key="frame" x="144" y="653.33333333333337" width="142" height="25.666666666666629"/>
+                                <rect key="frame" x="144" y="768" width="142" height="30"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="szg-hj-n6a" userLabel="nowtotalmoney">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="25.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="하루 총 합계 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaY-ct-xbR">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="25.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                 <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fx4-dv-G0G">
-                                                <rect key="frame" x="110" y="0.0" width="10" height="25.666666666666668"/>
+                                                <rect key="frame" x="110" y="0.0" width="10" height="30"/>
                                                 <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -870,28 +880,28 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgS-tb-yIi">
-                                        <rect key="frame" x="127" y="0.0" width="15" height="25.666666666666668"/>
+                                        <rect key="frame" x="127" y="0.0" width="15" height="30"/>
                                         <fontDescription key="fontDescription" name="NanumBarunpenOTF-Bold" family="NanumBarunpenOTF" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="i2Y-vX-JFd"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BtV-dn-Syz"/>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.83529411760000005" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="GKI-Yj-hUu" firstAttribute="leading" secondItem="UgE-7N-ULf" secondAttribute="leading" id="4dN-7j-r4W"/>
-                            <constraint firstItem="Z8b-Jd-tPM" firstAttribute="trailing" secondItem="UgE-7N-ULf" secondAttribute="trailing" id="8HI-cG-q8a"/>
+                            <constraint firstItem="DKw-gh-yn5" firstAttribute="top" secondItem="9sW-EH-BBa" secondAttribute="bottom" constant="14.000000000000227" id="2iu-OF-ecq"/>
                             <constraint firstItem="GKI-Yj-hUu" firstAttribute="top" secondItem="BtV-dn-Syz" secondAttribute="top" constant="5" id="BY1-3Q-n3E"/>
-                            <constraint firstItem="Z8b-Jd-tPM" firstAttribute="top" secondItem="UgE-7N-ULf" secondAttribute="bottom" constant="15" id="LcK-p5-naG"/>
-                            <constraint firstItem="UgE-7N-ULf" firstAttribute="leading" secondItem="BtV-dn-Syz" secondAttribute="leading" constant="25" id="NHC-51-kOa"/>
                             <constraint firstItem="DKw-gh-yn5" firstAttribute="centerX" secondItem="BtV-dn-Syz" secondAttribute="centerX" id="Qjn-fn-eM5"/>
-                            <constraint firstItem="GKI-Yj-hUu" firstAttribute="trailing" secondItem="UgE-7N-ULf" secondAttribute="trailing" id="TDo-Va-S0n"/>
-                            <constraint firstItem="BtV-dn-Syz" firstAttribute="trailing" secondItem="UgE-7N-ULf" secondAttribute="trailing" constant="25" id="UaZ-qi-H3z"/>
-                            <constraint firstItem="DKw-gh-yn5" firstAttribute="top" secondItem="Z8b-Jd-tPM" secondAttribute="bottom" constant="13" id="a1A-qQ-cu5"/>
-                            <constraint firstItem="UgE-7N-ULf" firstAttribute="top" secondItem="GKI-Yj-hUu" secondAttribute="bottom" constant="5" id="b9D-UR-Qas"/>
-                            <constraint firstItem="Z8b-Jd-tPM" firstAttribute="leading" secondItem="UgE-7N-ULf" secondAttribute="leading" id="gy2-J1-cuN"/>
+                            <constraint firstItem="9sW-EH-BBa" firstAttribute="leading" secondItem="BtV-dn-Syz" secondAttribute="leading" constant="25" id="U4j-j8-4NV"/>
+                            <constraint firstItem="BtV-dn-Syz" firstAttribute="bottom" secondItem="DKw-gh-yn5" secondAttribute="bottom" constant="100" id="U50-eK-YJ9"/>
+                            <constraint firstItem="BtV-dn-Syz" firstAttribute="trailing" secondItem="9sW-EH-BBa" secondAttribute="trailing" constant="25" id="jGj-bQ-hwC"/>
+                            <constraint firstItem="GKI-Yj-hUu" firstAttribute="centerX" secondItem="BtV-dn-Syz" secondAttribute="centerX" id="jw5-sC-UBu"/>
+                            <constraint firstItem="9sW-EH-BBa" firstAttribute="top" secondItem="GKI-Yj-hUu" secondAttribute="bottom" constant="4.9999999999999716" id="kY9-KW-cjC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="j6Q-28-kYh"/>
@@ -918,7 +928,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hg-FL-bPd">
-                                <rect key="frame" x="186.66666666666666" y="79" width="56.666666666666657" height="23"/>
+                                <rect key="frame" x="187" y="79" width="56.333333333333343" height="23"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="18"/>
                                 <color key="textColor" red="0.43137254899999999" green="0.24313725489999999" blue="0.015686274510000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
@@ -955,7 +965,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEK-ZL-2sK">
-                                                            <rect key="frame" x="20" y="11" width="34" height="22"/>
+                                                            <rect key="frame" x="20" y="11.000000000000002" width="34" height="21.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1399,13 +1409,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="z0I-DH-3YH">
                                                             <rect key="frame" x="0.0" y="0.0" width="43.333333333333336" height="24.333333333333332"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="연 월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vr6-4a-tbi">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연 월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vr6-4a-tbi">
                                                                     <rect key="frame" x="0.0" y="0.0" width="33.666666666666664" height="24.333333333333332"/>
                                                                     <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="19"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mC7-qf-uzs">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mC7-qf-uzs">
                                                                     <rect key="frame" x="38.666666666666664" y="0.0" width="4.6666666666666643" height="24.333333333333332"/>
                                                                     <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="19"/>
                                                                     <nil key="textColor"/>
@@ -1416,13 +1426,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CKX-0s-yMy">
                                                             <rect key="frame" x="65.333333333333329" y="0.0" width="49.333333333333329" height="24.333333333333332"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVc-bi-6US">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVc-bi-6US">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="24.333333333333332"/>
                                                                     <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="19"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsd-OE-Qhu">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsd-OE-Qhu">
                                                                     <rect key="frame" x="35" y="0.0" width="14.333333333333336" height="24.333333333333332"/>
                                                                     <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="19"/>
                                                                     <nil key="textColor"/>
@@ -1568,7 +1578,7 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="I2s-At-Zb7">
-                                <rect key="frame" x="66" y="213" width="298.33333333333337" height="135.66666666666663"/>
+                                <rect key="frame" x="66" y="213" width="298.33333333333331" height="135.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="o0m-Zt-Maq">
                                         <rect key="frame" x="0.0" y="0.0" width="279" height="35.666666666666664"/>

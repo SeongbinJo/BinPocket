@@ -47,10 +47,16 @@ class SelectCategoryVC : UIViewController {
             guard let textField = makeCategoryAlert.textFields?.first else { return print("카테고리 이름 오류1") }
             //카테고리 추가 alert에서 텍스트필드에 값이 담겨있지 않을 경우
             guard textField.text != "" else {
-                let nilCategoryAlert = UIAlertController(title: "알림!", message: "카테고리 이름이 비어있어, 없던 일이 되었습니다!", preferredStyle: .alert)
+                let nilCategoryAlert = UIAlertController(title: "알림!", message: "카테고리 이름이 비어있습니다!", preferredStyle: .alert)
                 self.present(nilCategoryAlert, animated: true, completion: nil)
                 Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false, block: { _ in nilCategoryAlert.dismiss(animated: true, completion: nil)} )
                 return print("카테고리 이름 오류2")
+            }
+            guard self.realm.objects(Category.self).filter("category == %@", textField.text).isEmpty else {
+                let duplicateCategoryAlert = UIAlertController(title: "알림!", message: "이미 존재하는 카테고리입니다!", preferredStyle: .alert)
+                self.present(duplicateCategoryAlert, animated: true, completion: nil)
+                Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false, block: { _ in duplicateCategoryAlert.dismiss(animated: true, completion: nil)} )
+                return print("이미 존재하는 카테고리")
             }
             //정상적으로 텍스트필드에 값이 담기고, <만들기>를 눌렀을 경우. => Realm에 저장
             let categoryList = Category()
