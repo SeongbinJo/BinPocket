@@ -21,7 +21,7 @@ class SettingVC : UIViewController {
         naviItem()
         settingTableView.delegate = self
         settingTableView.dataSource = self
-
+        
     }
     
     //네비게이션 바

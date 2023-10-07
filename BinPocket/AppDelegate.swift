@@ -36,17 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 // 2. Realm이 새로운 Object를 쓸 수 있도록 설정
                 Realm.Configuration.defaultConfiguration = config
-        
-//        requestIDFA()
+
         return true
     }
     
-//    func requestIDFA() {
-//      ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-//        // Tracking authorization completed. Start loading ads here.
-////         loadAd()
-//      })
-//    }
 
     // MARK: UISceneSession Lifecycle
 

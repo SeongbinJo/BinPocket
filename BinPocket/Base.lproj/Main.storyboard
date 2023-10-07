@@ -1502,6 +1502,95 @@
             </objects>
             <point key="canvasLocation" x="-73" y="-35"/>
         </scene>
+        <!--Rank DetailVC-->
+        <scene sceneID="0xk-8Z-4SH">
+            <objects>
+                <viewController id="peP-fE-fAF" customClass="RankDetailVC" customModule="BinPocket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FXh-nM-c85">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nsE-gf-y1S">
+                                <rect key="frame" x="0.0" y="59" width="430" height="839"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RankDetailCell" id="RdU-EE-EbJ" customClass="RankDetailCell" customModule="BinPocket" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="430" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RdU-EE-EbJ" id="ffB-Zb-y7Y">
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ctl-kQ-24w">
+                                                    <rect key="frame" x="20" y="11" width="159" height="22"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[카테고리]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoO-8u-yFP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="22"/>
+                                                            <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TDS-dg-j0V">
+                                                            <rect key="frame" x="71" y="0.0" width="36" height="22"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkx-Ix-VU2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="26.666666666666668" height="22"/>
+                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFQ-tK-uFz">
+                                                                    <rect key="frame" x="31.666666666666668" y="0.0" width="4.3333333333333321" height="22"/>
+                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EDC-Gf-UrU">
+                                                            <rect key="frame" x="114" y="0.0" width="45" height="22"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fID-HA-PSe">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="27" height="22"/>
+                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc3-KU-ALQ">
+                                                                    <rect key="frame" x="32" y="0.0" width="13" height="22"/>
+                                                                    <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ctl-kQ-24w" firstAttribute="leading" secondItem="ffB-Zb-y7Y" secondAttribute="leading" constant="20" symbolic="YES" id="YWm-a6-ZMt"/>
+                                                <constraint firstItem="ctl-kQ-24w" firstAttribute="top" secondItem="ffB-Zb-y7Y" secondAttribute="top" constant="11" id="hwh-fd-OB0"/>
+                                                <constraint firstAttribute="bottom" secondItem="ctl-kQ-24w" secondAttribute="bottom" constant="11.00000127156575" id="k2r-8r-g2Z"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="izf-Az-Pd8"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.83529411764705885" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="izf-Az-Pd8" firstAttribute="trailing" secondItem="nsE-gf-y1S" secondAttribute="trailing" id="8c2-HU-3Vm"/>
+                            <constraint firstItem="nsE-gf-y1S" firstAttribute="top" secondItem="izf-Az-Pd8" secondAttribute="top" id="EZh-GD-1Mb"/>
+                            <constraint firstItem="nsE-gf-y1S" firstAttribute="leading" secondItem="izf-Az-Pd8" secondAttribute="leading" id="PjP-tV-F36"/>
+                            <constraint firstItem="izf-Az-Pd8" firstAttribute="bottom" secondItem="nsE-gf-y1S" secondAttribute="bottom" id="k1o-tI-9C0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cVq-CU-AMZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701.8604651162791" y="651.50214592274688"/>
+        </scene>
         <!--Edit ListVC-->
         <scene sceneID="Oey-9u-Ei0">
             <objects>
@@ -1578,7 +1667,7 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="I2s-At-Zb7">
-                                <rect key="frame" x="66" y="213" width="298.33333333333331" height="135.66666666666663"/>
+                                <rect key="frame" x="66" y="213" width="298.33333333333337" height="135.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="o0m-Zt-Maq">
                                         <rect key="frame" x="0.0" y="0.0" width="279" height="35.666666666666664"/>

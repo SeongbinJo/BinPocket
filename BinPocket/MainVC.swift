@@ -34,6 +34,8 @@ class MainVC: UIViewController {
     var plusCategoryCount : Set<String> = []
     var minusCategoryCount : Set<String> = []
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         naviItem()
@@ -49,14 +51,16 @@ class MainVC: UIViewController {
             self.plusRankTableView.reloadData();
             self.minusRankTableView.reloadData();
         })
+    
     }
+    
+    
     
     //MainVC 나타날때
     override func viewWillAppear(_ animated: Bool) {
         calendarView.reloadData()
         //notification 명령 수신.
         NotificationCenter.default.addObserver(self, selector: #selector(goToMyMonthCalendar(notification: )), name: .goToMyMonth, object: nil)
-
     }
     
     //notification 명령 수신할 때 사용될 함수.
@@ -103,6 +107,7 @@ class MainVC: UIViewController {
     
     //FScalendar 커스텀
     func calendarViewCustom() {
+
         calendarView.appearance.headerTitleFont = UIFont(name: "NanumBarunpenOTF-Bold", size: 17)
         calendarView.appearance.headerTitleColor = UIColor.black
         calendarView.appearance.weekdayFont = UIFont(name: "NanumBarunpenOTF-Bold", size: 17)
@@ -129,90 +134,59 @@ class MainVC: UIViewController {
         calendarView.calendarWeekdayView.weekdayLabels[6].textColor = UIColor.blue
     }
     
-    //지출, 수입 순위 테이블 셀에 넣을 값들 구하는 함수
-    func plusRankValue() -> (Array<(key: String, value: Double)>,Array<(key: String, value: Double)>) {
+    //해당 월의 지출, 수입을 구하는 함수
+    func totalMoney(plusOrMinus: Bool) -> Int {
         //현재 년도, 월 알아내는 부분
         let currentYear = Calendar.current.component(.year, from: calendarView.currentPage)
         let currentMonth = Calendar.current.component(.month, from: calendarView.currentPage)
         let currentYearMonth = "\(currentYear)년 \(currentMonth)월"
-        //수입
-        let plusData = realm.objects(MyData.self).filter("date contains %@ AND plusOrMinus == false", currentYearMonth)
-        //지출
-        let minusData = realm.objects(MyData.self).filter("date contains %@ AND plusOrMinus == true", currentYearMonth)
         
-        //수입
-        var plusSet : Set<String> = []
-        var plusDic : [String : Double] = [:]
-        var plusCategoryTotalMoney : Double = 0.0
-        var plusCategoryPercentage : Double = 0.0
-        //지출
-        var minusSet : Set<String> = []
-        var minusDic : [String : Double] = [:]
-        var minusCategoryTotalMoney : Double = 0.0
-        var minusCategoryPercentage : Double = 0.0
+        var money : Int = 0
         
-        //해당 월 총 수입 합계 구하는 부분
-        let datePlusFilter = realm.objects(MyData.self).filter("date contains %@ AND plusOrMinus == false", currentYearMonth)
-        //해당 월 총 지출 합계 구하는 부분
-        let dateMinusFilter = realm.objects(MyData.self).filter("date contains %@ AND plusOrMinus == true", currentYearMonth)
-        
-        var plusTotalMoney : Double = 0.0
-        var minusTotalMoney : Double = 0.0
-        //Set에 사용중인 카테고리 종류 별 담기
-        for plus in plusData {
-            plusSet.insert(plus.category)
-        }
-        for minus in minusData {
-            minusSet.insert(minus.category)
+        let monthData = realm.objects(MyData.self).filter("date contains %@ AND plusOrMinus == %@", currentYearMonth, plusOrMinus)
+        for data in monthData {
+            money = money + Int(data.money)!
         }
         
-        //수입 부분 각 카테고리 별 [이름 : 퍼센테이지] 딕셔너리 정렬
-        for data in plusSet {
-            for i in 0...datePlusFilter.endIndex - 1 {
-                plusTotalMoney = plusTotalMoney + Double(datePlusFilter[i].money)!
-            }
-            //data(카테고리)별 총 수입 액을 구하고 data가 총 수입에서 몇 %를 차지하는지 구하는 부분
-            for categoryMoney in realm.objects(MyData.self).filter("date contains %@ AND plusOrMinus == false AND category == %@", currentYearMonth, data) {
-                //해당 카테고리의 해당 월 총 수입액
-                plusCategoryTotalMoney += Double(categoryMoney.money)!
-            }
-            //해당 카테고리의 해당 월 총 수입액 중 차지하는 %.
-            if plusTotalMoney != 0.0 {
-                plusCategoryPercentage = Double(plusCategoryTotalMoney) / Double(plusTotalMoney) * 100.0
-            }
+        return money
+    }
 
-            //딕셔너리에 [카테고리 : %] 추가
-            plusDic[data] = plusCategoryPercentage
-            plusCategoryPercentage = 0.0
-            plusCategoryTotalMoney = 0.0
-            plusTotalMoney = 0.0
-        }
-        let plusResult = plusDic.sorted { $0.1 > $1.1 }
+    
+    //지출, 수입 순위 테이블 셀에 넣을 값들 구하는 함수
+    func rankData(plusOrMinus : Bool) -> Array<(key: String, value: Double)> {
+        //현재 년도, 월 알아내는 부분
+        let currentYear = Calendar.current.component(.year, from: calendarView.currentPage)
+        let currentMonth = Calendar.current.component(.month, from: calendarView.currentPage)
+        let currentYearMonth = "\(currentYear)년 \(currentMonth)월"
         
-        //지출 부분 각 카테고리 별 [이름 : 퍼센테이지] 딕셔너리 정렬
-        for data in minusSet {
-            for i in 0...dateMinusFilter.endIndex - 1 {
-                minusTotalMoney = minusTotalMoney + Double(dateMinusFilter[i].money)!
-            }
-            //data(카테고리)별 총 지출 액을 구하고 data가 총 수입에서 몇 %를 차지하는지 구하는 부분
-            for categoryMoney in realm.objects(MyData.self).filter("date contains %@ AND plusOrMinus == true AND category == %@", currentYearMonth, data) {
-                //해당 카테고리의 해당 월 총 수입액
-                minusCategoryTotalMoney += Double(categoryMoney.money)!
-            }
-            //해당 카테고리의 해당 월 총 지출 액 중 차지하는 %.
-            if minusTotalMoney != 0.0 {
-                minusCategoryPercentage = Double(minusCategoryTotalMoney) / Double(minusTotalMoney) * 100.0
-            }
-
-            //딕셔너리에 [카테고리 : %] 추가
-            minusDic[data] = minusCategoryPercentage
-            minusCategoryPercentage = 0.0
-            minusCategoryTotalMoney = 0.0
-            minusTotalMoney = 0.0
-        }
-        let minusResult = minusDic.sorted { $0.1 > $1.1 }
+        var dataSet : Set<String> = [] //사용된 카테고리를 모으는 set
+        var dataDic : [String : Double] = [:] //사용된 카테고리 별 차지하는 %를 담을 Dicionary
         
-        return (plusResult, minusResult)
+        var monthTotalMoney : Double = 0.0 //현재 달의 지출, 수입의 총 합을 담을 변수
+        var categoryMoney : Double = 0.0 //사용된 카테고리의 지출, 수입의 총 합을 담을 변수
+        var categoryPercentage : Double = 0.0 //카테고리 별 차지하는 퍼센테이지
+        
+        //해당 월의 지출/수입이 있는 데이터들을 모아둔 변수
+        let monthData = realm.objects(MyData.self).filter("date contains %@ AND plusOrMinus == %@", currentYearMonth, plusOrMinus)
+        
+        //해당 달의 수입, 지출의 총 합 구하는 for문
+        for data in monthData {
+            monthTotalMoney = monthTotalMoney + (Double(data.money) ?? 0.0) //총 액 구하는 부분
+            dataSet.insert(data.category) //사용된 카테고리 종류별 모으는 부분
+        }
+        
+        //종류별로 모은 카테고리가 지출/수입의 총 액 구하는 for문
+        for data in dataSet {
+            categoryMoney = 0.0
+            categoryPercentage = 0.0
+            for money in monthData.filter("category == %@", data) {
+                categoryMoney = categoryMoney + (Double(money.money) ?? 0.0) //카테고리 별 지출/수입 총 액 구하는 부분
+            }
+            categoryPercentage = categoryMoney / monthTotalMoney * 100
+            dataDic[data] = categoryPercentage
+        }
+        let result = dataDic.sorted { $0.1 > $1.1 }
+        return result
     }
     
 
@@ -246,9 +220,9 @@ extension MainVC : FSCalendarDataSource {
             //해당 날짜의 money들의 합계를 계산하고 return함.
             let filterdate = realm.objects(MyData.self).filter("date == %@", dateFormatter.string(from: date))
             var datetotal = 0
-                for i in 0...filterdate.endIndex - 1 {
-                    datetotal = datetotal + Int(filterdate[i].money)!
-                }
+            for money in filterdate {
+                datetotal = datetotal + Int(money.money)!
+            }
             if datetotal > 0 {
                 return "+\(datetotal)원"
             }else if datetotal == 0 {
@@ -275,6 +249,7 @@ extension MainVC : FSCalendarDataSource {
         var minusmoney = 0
         //조건에 맞는 데이터가 한 개 이상 있다면, 그 조건에 맞는 money들의 총 합계를 보여주고 0개라면 0원 보여줌.
         if dateFilter.count > 0 {
+
             for i in 0...dateFilter.endIndex - 1 {
                 monthmoney = monthmoney + Int(dateFilter[i].money)!
             }
@@ -312,8 +287,8 @@ extension MainVC : FSCalendarDataSource {
         
         //해당 달 지출 합계.
         if dateMinusFilter.count > 0 {
-            for i in 0...dateMinusFilter.endIndex - 1 {
-                minusmoney = minusmoney + Int(dateMinusFilter[i].money)!
+            for money in dateMinusFilter {
+                minusmoney = minusmoney + Int(money.money)!
             }
 
             if minusmoney > 0 {
@@ -328,9 +303,7 @@ extension MainVC : FSCalendarDataSource {
             minusTotalMoney.text = "0"
             minusTotalMoney.textColor = UIColor.black
         }
-        
         return "-"
-        
     }
     
     
@@ -355,25 +328,18 @@ extension MainVC : UITableViewDelegate, UITableViewDataSource {
     
     //셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //현재 년도, 월 알아내는 부분
-        let currentYear = Calendar.current.component(.year, from: calendarView.currentPage)
-        let currentMonth = Calendar.current.component(.month, from: calendarView.currentPage)
-        let currentYearMonth = "\(currentYear)년 \(currentMonth)월"
 
         if tableView == plusRankTableView {
-            //카테고리 종류 초기화 => realm에 변동이 생겨 reload할 경우 초기화 하고 다시 카테고리를 가져옴(카테고리가 변동되었을 수 있기 때문)
-            plusCategoryCount = []
-            for data in realm.objects(MyData.self).filter("date contains %@ AND plusOrMinus == false", currentYearMonth) {
-                plusCategoryCount.insert(data.category)
+            if rankData(plusOrMinus: false).count > 0 {
+                return rankData(plusOrMinus: false).count
             }
-            return plusCategoryCount.count
+            return 0
         }
         if tableView == minusRankTableView {
-            minusCategoryCount = []
-            for data in realm.objects(MyData.self).filter("date contains %@ AND plusOrMinus == true", currentYearMonth) {
-                minusCategoryCount.insert(data.category)
+            if rankData(plusOrMinus: true).count > 0 {
+                return rankData(plusOrMinus: true).count
             }
-            return minusCategoryCount.count
+            return 0
         }
         return 0
     }
@@ -384,56 +350,72 @@ extension MainVC : UITableViewDelegate, UITableViewDataSource {
         cell.layer.cornerRadius = 10
         cell.backgroundColor = .clear
         
+        let plusMoney : Int = self.totalMoney(plusOrMinus: false)
+        let minusMoney : Int = self.totalMoney(plusOrMinus: true)
+        let monthMoney : Int = plusMoney + minusMoney
+        self.plusTotalMoney.text = "\(MainVC.decimalWon(value: plusMoney))"
+        self.plusTotalMoney.textColor = plusMoney > 0 ? UIColor(r: 233, g: 81, b: 81, a: 1) : UIColor.black
+        self.minusTotalMoney.text = "\(MainVC.decimalWon(value: minusMoney))"
+        self.minusTotalMoney.textColor = minusMoney < 0 ? UIColor(r: 61, g: 137, b: 249, a: 1) : UIColor.black
+        self.monthTotalMoney.text = "\(MainVC.decimalWon(value: monthMoney))"
+        self.monthTotalMoney.textColor = monthMoney > 0 ? UIColor(r: 233, g: 81, b: 81, a: 1) : monthMoney < 0 ? UIColor(r: 61, g: 137, b: 249, a: 1) : UIColor.black
+
         if tableView == plusRankTableView {
-            let result = self.plusRankValue().0
-            cell.plusRankNum.text = String(indexPath.row + 1)
-            cell.plusCategory.text = result[indexPath.row].key
-            cell.plusPercentage.text = "[\(String(format: "%.1f", result[indexPath.row].value))%]"
-            
+            if rankData(plusOrMinus: false).count > 0 {
+                cell.plusRankNum.text = String(indexPath.row + 1)
+                cell.plusCategory.text = rankData(plusOrMinus: false)[safe: indexPath.row]?.key
+                cell.plusPercentage.text = "[\(String(format: "%.1f", rankData(plusOrMinus: false)[safe: indexPath.row]?.value ?? 0.0))]"
+            }
             return cell
         }
-        
+
         if tableView == minusRankTableView {
-            let result = self.plusRankValue().1
-            cell.minusRankNum.text = String(indexPath.row + 1)
-            cell.minusCategory.text = result[indexPath.row].key
-            cell.minusPercentage.text = "[\(String(format: "%.1f", result[indexPath.row].value))%]"
-            
+            if rankData(plusOrMinus: true).count > 0 {
+                cell.minusRankNum.text = String(indexPath.row + 1)
+                cell.minusCategory.text = rankData(plusOrMinus: true)[safe: indexPath.row]?.key
+                cell.minusPercentage.text = "[\(String(format: "%.1f", rankData(plusOrMinus: true)[safe: indexPath.row]?.value ?? 0.0))]"
+            }
             return cell
         }
-        
+
         return cell
     }
+
 
     //셀 클릭했을 때
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //현재 년도, 월 알아내는 부분
-        let currentYear = Calendar.current.component(.year, from: calendarView.currentPage)
-        let currentMonth = Calendar.current.component(.month, from: calendarView.currentPage)
-        let currentYearMonth = "\(currentYear)년 \(currentMonth)월"
-        
+//        let currentYear = Calendar.current.component(.year, from: calendarView.currentPage)
+//        let currentMonth = Calendar.current.component(.month, from: calendarView.currentPage)
+//        let currentYearMonth = "\(currentYear)년 \(currentMonth)월"
+
         //RankDetailVC 관련 데이터 부분
-//        guard let rankDetailPage = self.storyboard?.instantiateViewController(withIdentifier: "RankDatailVC") as? RankDetailVC else { return }
+//        guard let rankDetailPage = self.storyboard?.instantiateViewController(withIdentifier: "RankDetailVC") as? RankDetailVC else { return }
         let currentCell : RankTableCell = tableView.cellForRow(at: indexPath) as! RankTableCell
-        
-        //수입 순위 테이블일 경우
+
+//        //수입 순위 테이블일 경우
 //        if tableView == plusRankTableView {
 //            rankDetailPage.categoryName = currentCell.plusCategory.text!
 //            rankDetailPage.currentDate = currentYearMonth
 //            self.present(rankDetailPage, animated: true)
 //            tableView.deselectRow(at: indexPath, animated: true)
 //        }
-        
-        //지출 순위 테이블일 경우
+//
+//        //지출 순위 테이블일 경우
 //        if tableView == minusRankTableView {
 //            rankDetailPage.categoryName = currentCell.minusCategory.text!
 //            rankDetailPage.currentDate = currentYearMonth
 //            self.present(rankDetailPage, animated: true)
 //            tableView.deselectRow(at: indexPath, animated: true)
 //        }
-        
+
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
 
+extension Array {
+    subscript (safe index: Int) -> Element? {
+        return indices ~= index ? self[index] : nil
+    }
+}
