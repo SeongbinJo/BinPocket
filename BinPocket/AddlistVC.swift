@@ -32,12 +32,15 @@ class AddlistVC : UIViewController {
     //ViewlistVC에서 selectdate 받아오기
     var selectdate = ""
     
+    var dataArray : Results<FavoriteData>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleTextField.delegate = self
         moneyTextField.delegate = self
         favoriteDataTableView.delegate = self
         favoriteDataTableView.dataSource = self
+//        favoriteDataTableView.isEditing = true
         self.addBtn.isEnabled = true
         self.segementController.isSelected = false
         self.moneyTextField.keyboardType = .numberPad
@@ -46,6 +49,8 @@ class AddlistVC : UIViewController {
         notificationToken = realm.observe({ (noti, realm) in
             self.favoriteDataTableView.reloadData();
         })
+        
+        dataArray = realm.objects(FavoriteData.self)
         
     }
 
@@ -233,6 +238,9 @@ extension AddlistVC : UITextFieldDelegate, UITableViewDelegate, UITableViewDataS
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    
+    
+    //텍스트필드 조건 거는 부분
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //moneytextfield에 숫자만 입력가능하게.
         if textField == self.moneyTextField {

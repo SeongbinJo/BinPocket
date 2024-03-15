@@ -102,6 +102,8 @@ extension SelectCategoryVC : UITableViewDelegate, UITableViewDataSource {
         
         let categoryArray = realm.objects(Category.self)
         
+        print(cell)
+        
         cell.categoryName.text = categoryArray[indexPath.row].category
         cell.id = categoryArray[indexPath.row].id
         

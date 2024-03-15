@@ -381,37 +381,6 @@ extension MainVC : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-
-    //셀 클릭했을 때
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //현재 년도, 월 알아내는 부분
-//        let currentYear = Calendar.current.component(.year, from: calendarView.currentPage)
-//        let currentMonth = Calendar.current.component(.month, from: calendarView.currentPage)
-//        let currentYearMonth = "\(currentYear)년 \(currentMonth)월"
-
-        //RankDetailVC 관련 데이터 부분
-//        guard let rankDetailPage = self.storyboard?.instantiateViewController(withIdentifier: "RankDetailVC") as? RankDetailVC else { return }
-        let currentCell : RankTableCell = tableView.cellForRow(at: indexPath) as! RankTableCell
-
-//        //수입 순위 테이블일 경우
-//        if tableView == plusRankTableView {
-//            rankDetailPage.categoryName = currentCell.plusCategory.text!
-//            rankDetailPage.currentDate = currentYearMonth
-//            self.present(rankDetailPage, animated: true)
-//            tableView.deselectRow(at: indexPath, animated: true)
-//        }
-//
-//        //지출 순위 테이블일 경우
-//        if tableView == minusRankTableView {
-//            rankDetailPage.categoryName = currentCell.minusCategory.text!
-//            rankDetailPage.currentDate = currentYearMonth
-//            self.present(rankDetailPage, animated: true)
-//            tableView.deselectRow(at: indexPath, animated: true)
-//        }
-
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-
 }
 
 extension Array {

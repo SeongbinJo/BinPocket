@@ -15,12 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        // 1. config 설정(이전 버전에서 다음 버전으로 마이그레이션될때 어떻게 변경될것인지)
+        // config 설정(이전 버전에서 다음 버전으로 마이그레이션될때 어떻게 변경될것인지)
                 let config = Realm.Configuration(
                     schemaVersion: 6, // 새로운 스키마 버전 설정
                     migrationBlock: { migration, oldSchemaVersion in
                         if oldSchemaVersion < 6 {
-                            // 1-1. 마이그레이션 수행(버전 2보다 작은 경우 버전 2에 맞게 데이터베이스 수정)
+                            // 마이그레이션 수행(버전 2보다 작은 경우 버전 2에 맞게 데이터베이스 수정)
                             migration.enumerateObjects(ofType: Category.className()) { oldObject, newObject in
                                 newObject!["id"] = UUID().uuidString
                             }
@@ -54,7 +54,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 
