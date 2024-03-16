@@ -80,8 +80,9 @@ class MainVC: UIViewController {
         let goToTotalPageBtn = UIBarButtonItem(image: UIImage(systemName: "calendar"), style: .plain, target: self, action: #selector(goToTotalListPage(sender:)))
         let goToCurrentDateBtn = UIBarButtonItem(image: UIImage(systemName: "t.square"), style: .plain, target: self, action: #selector(currentPageBtn(sender:)))
         let settingBtn = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(settingPageBtn(sender:)))
+        let themeBtn = UIBarButtonItem(image: UIImage(systemName: "paintpalette"), style: .plain, target: self, action: #selector(themePageBtn(sender:)))
         self.navigationItem.rightBarButtonItems = [goToTotalPageBtn, goToCurrentDateBtn]
-        self.navigationItem.leftBarButtonItems = [settingBtn]
+        self.navigationItem.leftBarButtonItems = [settingBtn, themeBtn]
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationItem.title = "빈 주머니"
         let backBarButtonItem = UIBarButtonItem(title: "뒤로가기", style: .plain, target: self, action: nil)
@@ -102,6 +103,11 @@ class MainVC: UIViewController {
     @objc func settingPageBtn(sender: UIBarButtonItem) {
         let settingpage = self.storyboard?.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
         self.navigationController?.pushViewController(settingpage, animated: true)
+    }
+    //네비게이션 버튼 -> 테마 변경 페이지 이동
+    @objc func themePageBtn(sender: UIBarButtonItem) {
+        guard let themeColorPage = self.storyboard?.instantiateViewController(withIdentifier: "ThemeColorVC") as? ThemeColorVC else { return }
+        self.present(themeColorPage, animated: true)
     }
     
     

@@ -25,6 +25,7 @@ class SelectCategoryVC : UIViewController {
     //AddListVC의 카테고리 Label에 클릭한 카테고리 Name 데이터 전달.
     var selectedCategory: ((_ category: String) -> Void)?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
