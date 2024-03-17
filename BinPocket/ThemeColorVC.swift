@@ -14,7 +14,7 @@ class ThemeColorVC: UIViewController {
     @IBOutlet weak var backgroundColorBtn: UIButton!
     @IBOutlet weak var textColorBtn: UIButton!
     @IBOutlet weak var buttonColorBtn: UIButton!
-    @IBOutlet weak var tableColorBtn: UIButton!
+    @IBOutlet weak var windowColorBtn: UIButton!
     @IBOutlet weak var themeSegmentBtn: UISegmentedControl!
     
     //Realm
@@ -29,7 +29,35 @@ class ThemeColorVC: UIViewController {
         //realm의 지정한 칼라 불러오기(ThemeColor 모델 이용)
         print(realm.objects(ThemeColor.self).count)
         print(realm.objects(ThemeColor.self))
-        print(realm.objects(ThemeColor.self).first)
+        changeBookmarkColor()
+    }
+    
+    //색 데이터 rgb 뽑아내는 부분
+    func getRgbData(index: String) -> ([CGFloat], [CGFloat], [CGFloat], [CGFloat]) {
+        let data = realm.objects(ThemeColor.self).filter("index == %@", index)
+        let backgroundData = data.first?.backgroundColor.split(separator: " ")
+        let textData = data.first?.textColor.split(separator: " ")
+        let buttonData = data.first?.buttonColor.split(separator: " ")
+        let windowData = data.first?.windowColor.split(separator: " ")
+        var backgroundColor: [CGFloat] = []
+        var textColor: [CGFloat] = []
+        var buttonColor: [CGFloat] = []
+        var windowColor: [CGFloat] = []
+        for i in 1...4 {
+            backgroundColor.append(CGFloat(Double(backgroundData![i])!))
+            textColor.append(CGFloat(Double(textData![i])!))
+            buttonColor.append(CGFloat(Double(buttonData![i])!))
+            windowColor.append(CGFloat(Double(windowData![i])!))
+        }
+        
+        return (backgroundColor, textColor, buttonColor, windowColor)
+    }
+    
+    //지정색상 세그먼트 컨트롤러
+    var segmentStatus: Int = 0 {
+        didSet {
+            changeBookmarkColor()
+        }
     }
     
     //색을 변경할 컴포넌트 구분
@@ -49,9 +77,44 @@ class ThemeColorVC: UIViewController {
         self.present(picker, animated: true, completion: nil)
     }
     
-    //컴포넌트 별 ColorPicker에서 선택한 색을 String 타입변환 후 색 데이터에 Update
-    func updateColor(type: ColorValue) {
-        let themeColor = realm.objects(ThemeColor.self).first
+    //지정 색상 1, 2, 3 별 버튼 색
+    func changeBookmarkColor() {
+        switch segmentStatus {
+        case 0:
+            let backgroundColor: [CGFloat] = getRgbData(index: "0").0
+            let textColor: [CGFloat] = getRgbData(index: "0").1
+            let buttonColor: [CGFloat] = getRgbData(index: "0").2
+            let tableColor: [CGFloat] = getRgbData(index: "0").3
+            self.backgroundColorBtn.tintColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+            self.textColorBtn.tintColor = UIColor(red: textColor[0], green: textColor[1], blue: textColor[2], alpha: textColor[3])
+            self.buttonColorBtn.tintColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
+            self.windowColorBtn.tintColor = UIColor(red: tableColor[0], green: tableColor[1], blue: tableColor[2], alpha: tableColor[3])
+        case 1:
+            let backgroundColor: [CGFloat] = getRgbData(index: "1").0
+            let textColor: [CGFloat] = getRgbData(index: "1").1
+            let buttonColor: [CGFloat] = getRgbData(index: "1").2
+            let tableColor: [CGFloat] = getRgbData(index: "1").3
+            self.backgroundColorBtn.tintColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+            self.textColorBtn.tintColor = UIColor(red: textColor[0], green: textColor[1], blue: textColor[2], alpha: textColor[3])
+            self.buttonColorBtn.tintColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
+            self.windowColorBtn.tintColor = UIColor(red: tableColor[0], green: tableColor[1], blue: tableColor[2], alpha: tableColor[3])
+        case 2:
+            let backgroundColor: [CGFloat] = getRgbData(index: "2").0
+            let textColor: [CGFloat] = getRgbData(index: "2").1
+            let buttonColor: [CGFloat] = getRgbData(index: "2").2
+            let tableColor: [CGFloat] = getRgbData(index: "2").3
+            self.backgroundColorBtn.tintColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+            self.textColorBtn.tintColor = UIColor(red: textColor[0], green: textColor[1], blue: textColor[2], alpha: textColor[3])
+            self.buttonColorBtn.tintColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
+            self.windowColorBtn.tintColor = UIColor(red: tableColor[0], green: tableColor[1], blue: tableColor[2], alpha: tableColor[3])
+        default:
+            print("지정 색상 세그먼트 컨트롤러 선택 에러.")
+        }
+    }
+    
+    func buttonColor(index: Int) {
+        let colorData = realm.objects(ThemeColor.self).filter("index == %@", index)
+        print(colorData)
     }
     
     @IBAction func backgroundColorPicker(_ sender: Any) {
@@ -70,24 +133,108 @@ class ThemeColorVC: UIViewController {
         presentColorPicker(type: .window)
     }
     
+    //지정 색상 1, 2, 3 세그먼트 컨트롤러
+    @IBAction func segmentController(_ sender: UISegmentedControl) {
+        if themeSegmentBtn.selectedSegmentIndex == 0 {
+            self.segmentStatus = 0
+            print("지정 색상 1 클릭됨.")
+        }else if themeSegmentBtn.selectedSegmentIndex == 1 {
+            self.segmentStatus = 1
+            print("지정 색상 2 클릭됨.")
+        }else {
+            self.segmentStatus = 2
+            print("지정 색상 3 클릭됨.")
+        }
+    }
     
 }
 
 extension ThemeColorVC: UIColorPickerViewControllerDelegate {
     
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
-        switch self.typeStatus {
-        case .background:
-            print("최종 선택한 background 칼라 : ", viewController.selectedColor)
-            print(type(of: viewController.selectedColor))
-        case .text:
-            print("최종 선택한 text 칼라 : ", viewController.selectedColor)
-        case .button:
-            print("최종 선택한 button 칼라 : ", viewController.selectedColor)
-        case .window:
-            print("최종 선택한 table 칼라 : ", viewController.selectedColor)
-        case .none:
-            break
+        switch segmentStatus {
+        case 0:
+            let editColor = realm.objects(ThemeColor.self).filter("index == %@", "0")
+            switch self.typeStatus {
+            case .background:
+                //선택한 색상 색 데이터에 업데이트
+                try! realm.write {
+                    editColor.first?.backgroundColor = "\(viewController.selectedColor)"
+                }
+                //선택한 색상 Picker 버튼에 적용
+                self.backgroundColorBtn.tintColor = viewController.selectedColor
+            case .text:
+                try! realm.write {
+                    editColor.first?.textColor = "\(viewController.selectedColor)"
+                }
+                self.textColorBtn.tintColor = viewController.selectedColor
+            case .button:
+                try! realm.write {
+                    editColor.first?.buttonColor = "\(viewController.selectedColor)"
+                }
+                self.buttonColorBtn.tintColor = viewController.selectedColor
+            case .window:
+                try! realm.write {
+                    editColor.first?.windowColor = "\(viewController.selectedColor)"
+                }
+                self.windowColorBtn.tintColor = viewController.selectedColor
+            case .none:
+                break
+            }
+        case 1:
+            let editColor = realm.objects(ThemeColor.self).filter("index == %@", "1")
+            switch self.typeStatus {
+            case .background:
+                try! realm.write {
+                    editColor.first?.backgroundColor = "\(viewController.selectedColor)"
+                }
+                self.backgroundColorBtn.tintColor = viewController.selectedColor
+            case .text:
+                try! realm.write {
+                    editColor.first?.textColor = "\(viewController.selectedColor)"
+                }
+                self.textColorBtn.tintColor = viewController.selectedColor
+            case .button:
+                try! realm.write {
+                    editColor.first?.buttonColor = "\(viewController.selectedColor)"
+                }
+                self.buttonColorBtn.tintColor = viewController.selectedColor
+            case .window:
+                try! realm.write {
+                    editColor.first?.windowColor = "\(viewController.selectedColor)"
+                }
+                self.windowColorBtn.tintColor = viewController.selectedColor
+            case .none:
+                break
+            }
+        case 2:
+            let editColor = realm.objects(ThemeColor.self).filter("index == %@", "1")
+            switch self.typeStatus {
+            case .background:
+                try! realm.write {
+                    editColor.first?.backgroundColor = "\(viewController.selectedColor)"
+                }
+                self.backgroundColorBtn.tintColor = viewController.selectedColor
+            case .text:
+                try! realm.write {
+                    editColor.first?.textColor = "\(viewController.selectedColor)"
+                }
+                self.textColorBtn.tintColor = viewController.selectedColor
+            case .button:
+                try! realm.write {
+                    editColor.first?.buttonColor = "\(viewController.selectedColor)"
+                }
+                self.buttonColorBtn.tintColor = viewController.selectedColor
+            case .window:
+                try! realm.write {
+                    editColor.first?.windowColor = "\(viewController.selectedColor)"
+                }
+                self.windowColorBtn.tintColor = viewController.selectedColor
+            case .none:
+                break
+            }
+        default:
+            print("색상 변경 문제 발생.")
         }
     }
     

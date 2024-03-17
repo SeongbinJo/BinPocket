@@ -828,7 +828,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="167" translatesAutoresizingMaskIntoConstraints="NO" id="GKI-Yj-hUu">
-                                <rect key="frame" x="64" y="64" width="302.33333333333326" height="30"/>
+                                <rect key="frame" x="64" y="64" width="302.33333333333331" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilN-HM-8uW">
                                         <rect key="frame" x="0.0" y="0.0" width="67.666666666666671" height="30"/>
@@ -1493,6 +1493,9 @@
                                     <segment title="지정 색상 2"/>
                                     <segment title="지정 색상 3"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentController:" destination="hqd-uD-Vob" eventType="valueChanged" id="iuP-6I-ynU"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="689-Ge-Li5"/>
@@ -1523,9 +1526,9 @@
                     <connections>
                         <outlet property="backgroundColorBtn" destination="wWC-ir-jUt" id="yfJ-WS-ERT"/>
                         <outlet property="buttonColorBtn" destination="rak-cu-aop" id="teb-gn-0k0"/>
-                        <outlet property="tableColorBtn" destination="k8C-U7-nNS" id="KUt-ik-6Z6"/>
                         <outlet property="textColorBtn" destination="dPo-uy-dqF" id="rrA-dT-uQc"/>
                         <outlet property="themeSegmentBtn" destination="YtJ-yJ-9Gy" id="mog-L9-hY5"/>
+                        <outlet property="windowColorBtn" destination="k8C-U7-nNS" id="KUt-ik-6Z6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t15-GI-71B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

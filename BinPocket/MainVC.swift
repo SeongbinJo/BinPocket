@@ -50,6 +50,8 @@ class MainVC: UIViewController {
         notificationToken = realm.observe({ (noti, realm) in
             self.plusRankTableView.reloadData();
             self.minusRankTableView.reloadData();
+            print("데이터 변경 감지됨.")
+            
         })
     
     }
@@ -73,6 +75,11 @@ class MainVC: UIViewController {
         getvalue = dateformatter.date(from: getvalue as! String)!
         //타입변환된 date로 달력 이동.
         self.calendarView.setCurrentPage(getvalue as! Date, animated: true)
+    }
+    
+    //뷰 색상 변경
+    func changeTheme() {
+        
     }
     
     //네비게이션 바

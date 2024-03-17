@@ -40,3 +40,8 @@ class ThemeColor: Object {
     @objc dynamic var buttonColor: String = ""
     @objc dynamic var windowColor: String = ""
 }
+
+class currentTheme: Object {
+    //현재 선택된 지정 색상
+    @objc dynamic var themeStatus: Int = 0
+}
