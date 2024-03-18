@@ -64,7 +64,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //색 데이터 생성 후, 앱 실행
             return true
         }
-        //색 데이터가 존재하므로 앱 실행
+        //현재 지정색상 상태 데이터 존재유무 확인
+        guard realm.objects(currentTheme.self).count == 1 else {
+            var currentTheme = currentTheme()
+            currentTheme.themeStatus = 0 //기본 지정색상 1로 생성.
+            try! realm.write {
+                realm.add(currentTheme)
+            }
+            return true
+        }
+        //색 데이터와 현재 지정색상 상태 데이터가 존재하므로 앱 실행
         return true
     }
     

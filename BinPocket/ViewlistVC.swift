@@ -55,15 +55,26 @@ class ViewlistVC : UIViewController {
         minusTableView.dataSource = self
         plusMoneyList = realm.objects(MyData.self).filter("plusOrMinus == 0")
         minusMoneyList = realm.objects(MyData.self).filter("plusOrMinus == 1")
-//        print("realm1 mydata : \(realm.objects(MyData.self))")
+
+        //notificationToken를 사용할 대상
+        var mydata = realm.objects(MyData.self)
         //데이터베이스가 변경될때마다 테이블 뷰 리로드하는 코드.
-        notificationToken = realm.observe({ (noti, realm) in
-            self.plusTableView.reloadData(); self.minusTableView.reloadData();
-        })
+        notificationToken = mydata.observe { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                self!.plusTableView.reloadData()
+                self!.minusTableView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                print("MyData 데이터 변경 감지됨")
+                self!.plusTableView.reloadData()
+                self!.minusTableView.reloadData()
+            case .error(let error):
+                print("\(error)")
+            }
+        }
         
     }
     
-
     
     override func viewDidAppear(_ animated: Bool) {
         print("등장")

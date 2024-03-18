@@ -20,6 +20,9 @@ class ThemeColorVC: UIViewController {
     //Realm
     let realm = try! Realm()
     
+    //Realm 데이터베이스가 변경될때 이용할 토큰.
+    var notificationToken : NotificationToken?
+    
     let picker = UIColorPickerViewController()
     
     override func viewDidLoad() {
@@ -29,8 +32,30 @@ class ThemeColorVC: UIViewController {
         //realm의 지정한 칼라 불러오기(ThemeColor 모델 이용)
         print(realm.objects(ThemeColor.self).count)
         print(realm.objects(ThemeColor.self))
+        //realm의 ThemeColor 색 데이터에 맞는 색으로 ColorPicker 버튼 색 초기화.
         changeBookmarkColor()
+        
+        //realm - currentTheme()의 데이터에 변경이 감지되면 작동 -> 지정 색상을 변경하면 해당 테마에 맞게 색 변경하는 부분.
+        var currentTheme = realm.objects(currentTheme.self)
+        notificationToken = currentTheme.observe { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                print("currentTheme 데이터 초기화됨.")
+            case .update(_, let deletions, let insertions, let modifications):
+                print("currentTheme 데이터 변경 감지됨//지정 색상 변경 감지")
+                let backgroundColor: [CGFloat] = self!.getRgbData(index: "\(currentTheme.first!.themeStatus)").0
+//                let textColor: [CGFloat] = self!.getRgbData(index: "\(currentTheme.first!.themeStatus)").1
+//                let buttonColor: [CGFloat] = self!.getRgbData(index: "\(currentTheme.first!.themeStatus)").2
+//                let tableColor: [CGFloat] = self!.getRgbData(index: "\(currentTheme.first!.themeStatus)").3
+                self!.view.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+            case .error(let error):
+                print("\(error)")
+            }
+        }
+        
+        //realm - ThemeColor()의 데이터에 변경이 감지되면 작동 -> ColorPicker에서 색을 선택하면 해당 색에 맞는 부분의 색을 변경하는 부분.
     }
+    
     
     //색 데이터 rgb 뽑아내는 부분
     func getRgbData(index: String) -> ([CGFloat], [CGFloat], [CGFloat], [CGFloat]) {
@@ -117,7 +142,7 @@ class ThemeColorVC: UIViewController {
         print(colorData)
     }
     
-    @IBAction func backgroundColorPicker(_ sender: Any) {
+    @IBAction func backgroundColorPicker(_ sender: UIButton) {
         presentColorPicker(type: .background)
     }
     
@@ -135,14 +160,24 @@ class ThemeColorVC: UIViewController {
     
     //지정 색상 1, 2, 3 세그먼트 컨트롤러
     @IBAction func segmentController(_ sender: UISegmentedControl) {
+        let currentTheme = realm.objects(currentTheme.self).first
         if themeSegmentBtn.selectedSegmentIndex == 0 {
             self.segmentStatus = 0
+            try! realm.write {
+                currentTheme?.themeStatus = self.segmentStatus
+            }
             print("지정 색상 1 클릭됨.")
         }else if themeSegmentBtn.selectedSegmentIndex == 1 {
             self.segmentStatus = 1
+            try! realm.write {
+                currentTheme?.themeStatus = self.segmentStatus
+            }
             print("지정 색상 2 클릭됨.")
         }else {
             self.segmentStatus = 2
+            try! realm.write {
+                currentTheme?.themeStatus = self.segmentStatus
+            }
             print("지정 색상 3 클릭됨.")
         }
     }

@@ -29,6 +29,7 @@ class MainVC: UIViewController {
     
     //Realm 데이터베이스가 변경될때 이용할 토큰.
     var notificationToken : NotificationToken?
+
     
     //현재 저장된 데이터들 중 한번이라도 사용되고있는 카테고리의 종류 담아내는 부분
     var plusCategoryCount : Set<String> = []
@@ -46,13 +47,29 @@ class MainVC: UIViewController {
         plusRankTableView.dataSource = self
         minusRankTableView.delegate = self
         minusRankTableView.dataSource = self
+ 
+        //notificationToken를 사용할 대상
+        var mydata = realm.objects(MyData.self)
         //데이터베이스가 변경될때마다 테이블 뷰 리로드하는 코드.
-        notificationToken = realm.observe({ (noti, realm) in
-            self.plusRankTableView.reloadData();
-            self.minusRankTableView.reloadData();
-            print("데이터 변경 감지됨.")
-            
-        })
+        notificationToken = mydata.observe { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                self!.plusRankTableView.reloadData()
+                self!.minusRankTableView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                print("MyData 데이터 변경 감지됨")
+                self!.plusRankTableView.reloadData()
+                self!.minusRankTableView.reloadData()
+            case .error(let error):
+                print("\(error)")
+            }
+        }
+        
+        //        notificationToken = realm.observe({ (noti, realm) in
+        //            self.plusRankTableView.reloadData();
+        //            self.minusRankTableView.reloadData();
+        //            print("데이터 변경 감지됨.")
+        //        })
     
     }
     
