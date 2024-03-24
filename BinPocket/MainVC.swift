@@ -48,9 +48,9 @@ class MainVC: UIViewController {
         minusRankTableView.delegate = self
         minusRankTableView.dataSource = self
  
-         //notificationToken를 사용할 대상
+        //notificationToken를 사용할 대상
         var mydata = realm.objects(MyData.self)
-         //데이터베이스가 변경될때마다 테이블 뷰 리로드하는 코드.
+        //데이터베이스가 변경될때마다 테이블 뷰 리로드하는 코드.
         notificationToken = mydata.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
