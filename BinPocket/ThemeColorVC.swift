@@ -12,7 +12,7 @@ import RealmSwift
 class ThemeColorVC: UIViewController {
     
     @IBOutlet weak var backgroundColorBtn: UIButton!
-    @IBOutlet weak var textColorBtn: UIButton!
+//    @IBOutlet weak var textColorBtn: UIButton!
     @IBOutlet weak var buttonColorBtn: UIButton!
     @IBOutlet weak var windowColorBtn: UIButton!
     @IBOutlet weak var themeSegmentBtn: UISegmentedControl!
@@ -21,7 +21,8 @@ class ThemeColorVC: UIViewController {
     let realm = try! Realm()
     
     //Realm 데이터베이스가 변경될때 이용할 토큰.
-    var notificationToken : NotificationToken?
+    var currentThemeNotiToken : NotificationToken?
+    var themeDataNotiToken : NotificationToken?
     
     let picker = UIColorPickerViewController()
     
@@ -35,18 +36,32 @@ class ThemeColorVC: UIViewController {
         //realm의 ThemeColor 색 데이터에 맞는 색으로 ColorPicker 버튼 색 초기화.
         changeBookmarkColor()
         
+        backgroundColorBtn.layer.borderWidth = 1
+        backgroundColorBtn.layer.cornerRadius = 10
+        backgroundColorBtn.layer.borderColor = UIColor.black.cgColor
+//        textColorBtn.layer.borderWidth = 1
+//        textColorBtn.layer.cornerRadius = 10
+//        textColorBtn.layer.borderColor = UIColor.black.cgColor
+        buttonColorBtn.layer.borderWidth = 1
+        buttonColorBtn.layer.cornerRadius = 10
+        buttonColorBtn.layer.borderColor = UIColor.black.cgColor
+        windowColorBtn.layer.borderWidth = 1
+        windowColorBtn.layer.cornerRadius = 10
+        windowColorBtn.layer.borderColor = UIColor.black.cgColor
+        
         //realm - currentTheme()의 데이터에 변경이 감지되면 작동 -> 지정 색상을 변경하면 해당 테마에 맞게 색 변경하는 부분.
-        var currentTheme = realm.objects(currentTheme.self)
-        notificationToken = currentTheme.observe { [weak self] (changes: RealmCollectionChange) in
+        let currentTheme = realm.objects(currentTheme.self)
+        currentThemeNotiToken = currentTheme.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
                 print("currentTheme 데이터 초기화됨.")
             case .update(_, let deletions, let insertions, let modifications):
                 print("currentTheme 데이터 변경 감지됨//지정 색상 변경 감지")
-                let backgroundColor: [CGFloat] = self!.getRgbData(index: "\(currentTheme.first!.themeStatus)").0
-//                let textColor: [CGFloat] = self!.getRgbData(index: "\(currentTheme.first!.themeStatus)").1
-//                let buttonColor: [CGFloat] = self!.getRgbData(index: "\(currentTheme.first!.themeStatus)").2
-//                let tableColor: [CGFloat] = self!.getRgbData(index: "\(currentTheme.first!.themeStatus)").3
+                let backgroundColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").0
+//                let textColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").1
+                let buttonColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").2
+                let tableColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").3
+                //MainVC 배경색
                 self!.view.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
             case .error(let error):
                 print("\(error)")
@@ -54,11 +69,26 @@ class ThemeColorVC: UIViewController {
         }
         
         //realm - ThemeColor()의 데이터에 변경이 감지되면 작동 -> ColorPicker에서 색을 선택하면 해당 색에 맞는 부분의 색을 변경하는 부분.
+        let themeData = realm.objects(ThemeColor.self)
+        themeDataNotiToken = themeData.observe { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                print("ThemeColor 데이터 초기화됨.")
+            case .update:
+                print("ThemeColor 데이터 변경 감지됨")
+                let backgroundColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").0
+//                let textColor: [CGFloat] = self!.getRgbData(index: "\(themeData.filter("themeStatus == %@", currentTheme.first!.themeStatus))").1
+                //MainVC 배경색
+                self!.view.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+            case .error(let error):
+                print("\(error)")
+            }
+        }
     }
     
     
     //색 데이터 rgb 뽑아내는 부분
-    func getRgbData(index: String) -> ([CGFloat], [CGFloat], [CGFloat], [CGFloat]) {
+    static func getRgbData(realm: Realm, index: String) -> ([CGFloat], [CGFloat], [CGFloat], [CGFloat]) {
         let data = realm.objects(ThemeColor.self).filter("index == %@", index)
         let backgroundData = data.first?.backgroundColor.split(separator: " ")
         let textData = data.first?.textColor.split(separator: " ")
@@ -70,7 +100,7 @@ class ThemeColorVC: UIViewController {
         var windowColor: [CGFloat] = []
         for i in 1...4 {
             backgroundColor.append(CGFloat(Double(backgroundData![i])!))
-            textColor.append(CGFloat(Double(textData![i])!))
+//            textColor.append(CGFloat(Double(textData![i])!))
             buttonColor.append(CGFloat(Double(buttonData![i])!))
             windowColor.append(CGFloat(Double(windowData![i])!))
         }
@@ -88,7 +118,7 @@ class ThemeColorVC: UIViewController {
     //색을 변경할 컴포넌트 구분
     enum ColorValue {
         case background
-        case text
+//        case text
         case button
         case window
     }
@@ -106,32 +136,32 @@ class ThemeColorVC: UIViewController {
     func changeBookmarkColor() {
         switch segmentStatus {
         case 0:
-            let backgroundColor: [CGFloat] = getRgbData(index: "0").0
-            let textColor: [CGFloat] = getRgbData(index: "0").1
-            let buttonColor: [CGFloat] = getRgbData(index: "0").2
-            let tableColor: [CGFloat] = getRgbData(index: "0").3
-            self.backgroundColorBtn.tintColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
-            self.textColorBtn.tintColor = UIColor(red: textColor[0], green: textColor[1], blue: textColor[2], alpha: textColor[3])
-            self.buttonColorBtn.tintColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
-            self.windowColorBtn.tintColor = UIColor(red: tableColor[0], green: tableColor[1], blue: tableColor[2], alpha: tableColor[3])
+            let backgroundColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "0").0
+//            let textColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "0").1
+            let buttonColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "0").2
+            let tableColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "0").3
+            self.backgroundColorBtn.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+//            self.textColorBtn.backgroundColor = UIColor(red: textColor[0], green: textColor[1], blue: textColor[2], alpha: textColor[3])
+            self.buttonColorBtn.backgroundColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
+            self.windowColorBtn.backgroundColor = UIColor(red: tableColor[0], green: tableColor[1], blue: tableColor[2], alpha: tableColor[3])
         case 1:
-            let backgroundColor: [CGFloat] = getRgbData(index: "1").0
-            let textColor: [CGFloat] = getRgbData(index: "1").1
-            let buttonColor: [CGFloat] = getRgbData(index: "1").2
-            let tableColor: [CGFloat] = getRgbData(index: "1").3
-            self.backgroundColorBtn.tintColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
-            self.textColorBtn.tintColor = UIColor(red: textColor[0], green: textColor[1], blue: textColor[2], alpha: textColor[3])
-            self.buttonColorBtn.tintColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
-            self.windowColorBtn.tintColor = UIColor(red: tableColor[0], green: tableColor[1], blue: tableColor[2], alpha: tableColor[3])
+            let backgroundColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "1").0
+//            let textColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "1").1
+            let buttonColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "1").2
+            let tableColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "1").3
+            self.backgroundColorBtn.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+//            self.textColorBtn.backgroundColor = UIColor(red: textColor[0], green: textColor[1], blue: textColor[2], alpha: textColor[3])
+            self.buttonColorBtn.backgroundColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
+            self.windowColorBtn.backgroundColor = UIColor(red: tableColor[0], green: tableColor[1], blue: tableColor[2], alpha: tableColor[3])
         case 2:
-            let backgroundColor: [CGFloat] = getRgbData(index: "2").0
-            let textColor: [CGFloat] = getRgbData(index: "2").1
-            let buttonColor: [CGFloat] = getRgbData(index: "2").2
-            let tableColor: [CGFloat] = getRgbData(index: "2").3
-            self.backgroundColorBtn.tintColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
-            self.textColorBtn.tintColor = UIColor(red: textColor[0], green: textColor[1], blue: textColor[2], alpha: textColor[3])
-            self.buttonColorBtn.tintColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
-            self.windowColorBtn.tintColor = UIColor(red: tableColor[0], green: tableColor[1], blue: tableColor[2], alpha: tableColor[3])
+            let backgroundColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "2").0
+//            let textColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "2").1
+            let buttonColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "2").2
+            let tableColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "2").3
+            self.backgroundColorBtn.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+//            self.textColorBtn.backgroundColor = UIColor(red: textColor[0], green: textColor[1], blue: textColor[2], alpha: textColor[3])
+            self.buttonColorBtn.backgroundColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
+            self.windowColorBtn.backgroundColor = UIColor(red: tableColor[0], green: tableColor[1], blue: tableColor[2], alpha: tableColor[3])
         default:
             print("지정 색상 세그먼트 컨트롤러 선택 에러.")
         }
@@ -146,9 +176,9 @@ class ThemeColorVC: UIViewController {
         presentColorPicker(type: .background)
     }
     
-    @IBAction func textColorPicker(_ sender: Any) {
-        presentColorPicker(type: .text)
-    }
+//    @IBAction func textColorPicker(_ sender: Any) {
+//        presentColorPicker(type: .text)
+//    }
     
     @IBAction func buttonColorPicker(_ sender: Any) {
         presentColorPicker(type: .button)
@@ -197,22 +227,22 @@ extension ThemeColorVC: UIColorPickerViewControllerDelegate {
                     editColor.first?.backgroundColor = "\(viewController.selectedColor)"
                 }
                 //선택한 색상 Picker 버튼에 적용
-                self.backgroundColorBtn.tintColor = viewController.selectedColor
-            case .text:
-                try! realm.write {
-                    editColor.first?.textColor = "\(viewController.selectedColor)"
-                }
-                self.textColorBtn.tintColor = viewController.selectedColor
+                self.backgroundColorBtn.backgroundColor = viewController.selectedColor
+//            case .text:
+//                try! realm.write {
+//                    editColor.first?.textColor = "\(viewController.selectedColor)"
+//                }
+//                self.textColorBtn.backgroundColor = viewController.selectedColor
             case .button:
                 try! realm.write {
                     editColor.first?.buttonColor = "\(viewController.selectedColor)"
                 }
-                self.buttonColorBtn.tintColor = viewController.selectedColor
+                self.buttonColorBtn.backgroundColor = viewController.selectedColor
             case .window:
                 try! realm.write {
                     editColor.first?.windowColor = "\(viewController.selectedColor)"
                 }
-                self.windowColorBtn.tintColor = viewController.selectedColor
+                self.windowColorBtn.backgroundColor = viewController.selectedColor
             case .none:
                 break
             }
@@ -223,22 +253,22 @@ extension ThemeColorVC: UIColorPickerViewControllerDelegate {
                 try! realm.write {
                     editColor.first?.backgroundColor = "\(viewController.selectedColor)"
                 }
-                self.backgroundColorBtn.tintColor = viewController.selectedColor
-            case .text:
-                try! realm.write {
-                    editColor.first?.textColor = "\(viewController.selectedColor)"
-                }
-                self.textColorBtn.tintColor = viewController.selectedColor
+                self.backgroundColorBtn.backgroundColor = viewController.selectedColor
+//            case .text:
+//                try! realm.write {
+//                    editColor.first?.textColor = "\(viewController.selectedColor)"
+//                }
+//                self.textColorBtn.backgroundColor = viewController.selectedColor
             case .button:
                 try! realm.write {
                     editColor.first?.buttonColor = "\(viewController.selectedColor)"
                 }
-                self.buttonColorBtn.tintColor = viewController.selectedColor
+                self.buttonColorBtn.backgroundColor = viewController.selectedColor
             case .window:
                 try! realm.write {
                     editColor.first?.windowColor = "\(viewController.selectedColor)"
                 }
-                self.windowColorBtn.tintColor = viewController.selectedColor
+                self.windowColorBtn.backgroundColor = viewController.selectedColor
             case .none:
                 break
             }
@@ -249,22 +279,22 @@ extension ThemeColorVC: UIColorPickerViewControllerDelegate {
                 try! realm.write {
                     editColor.first?.backgroundColor = "\(viewController.selectedColor)"
                 }
-                self.backgroundColorBtn.tintColor = viewController.selectedColor
-            case .text:
-                try! realm.write {
-                    editColor.first?.textColor = "\(viewController.selectedColor)"
-                }
-                self.textColorBtn.tintColor = viewController.selectedColor
+                self.backgroundColorBtn.backgroundColor = viewController.selectedColor
+//            case .text:
+//                try! realm.write {
+//                    editColor.first?.textColor = "\(viewController.selectedColor)"
+//                }
+//                self.textColorBtn.backgroundColor = viewController.selectedColor
             case .button:
                 try! realm.write {
                     editColor.first?.buttonColor = "\(viewController.selectedColor)"
                 }
-                self.buttonColorBtn.tintColor = viewController.selectedColor
+                self.buttonColorBtn.backgroundColor = viewController.selectedColor
             case .window:
                 try! realm.write {
                     editColor.first?.windowColor = "\(viewController.selectedColor)"
                 }
-                self.windowColorBtn.tintColor = viewController.selectedColor
+                self.windowColorBtn.backgroundColor = viewController.selectedColor
             case .none:
                 break
             }

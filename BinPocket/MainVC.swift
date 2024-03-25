@@ -28,7 +28,9 @@ class MainVC: UIViewController {
     let dateformatter = DateFormatter()
     
     //Realm 데이터베이스가 변경될때 이용할 토큰.
-    var notificationToken : NotificationToken?
+    var mydataNotiToken : NotificationToken?
+    var themeDataNotiToken : NotificationToken?
+    var currentThemeNotiToken : NotificationToken?
 
     
     //현재 저장된 데이터들 중 한번이라도 사용되고있는 카테고리의 종류 담아내는 부분
@@ -51,7 +53,7 @@ class MainVC: UIViewController {
         //notificationToken를 사용할 대상
         var mydata = realm.objects(MyData.self)
         //데이터베이스가 변경될때마다 테이블 뷰 리로드하는 코드.
-        notificationToken = mydata.observe { [weak self] (changes: RealmCollectionChange) in
+        mydataNotiToken = mydata.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
                 self!.plusRankTableView.reloadData()
@@ -65,7 +67,45 @@ class MainVC: UIViewController {
             }
         }
         
-    
+        //지정색상 1, 2, 3 을 변경하여 색상을 변경했을 경우(currentTheme 데이터 변경 감지)
+        var currentTheme = realm.objects(currentTheme.self)
+        currentThemeNotiToken = currentTheme.observe { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                print("currentTheme 데이터 초기화됨.")
+            case .update(_, let deletions, let insertions, let modifications):
+                print("currentTheme 데이터 변경 감지됨//지정 색상 변경 감지")
+                let backgroundColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").0
+//                let textColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").1
+                let buttonColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").2
+                let tableColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").3
+                //MainVC 배경색
+                self!.view.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+                //네비게이션 버튼 색
+                self?.navigationController?.navigationBar.tintColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
+            case .error(let error):
+                print("\(error)")
+            }
+        }
+        //색상 변경 페이지에서 색을 변경했을 경우 색 변경(ThemeColor 데이터 변경 감지)
+        var themeData = realm.objects(ThemeColor.self)
+        themeDataNotiToken = themeData.observe { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                print("ThemeColor 데이터 초기화됨.")
+            case .update:
+                print("ThemeColor 데이터 변경 감지됨")
+                let backgroundColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").0
+//                let textColor: [CGFloat] = self!.getRgbData(index: "\(themeData.filter("themeStatus == %@", currentTheme.first!.themeStatus))").1
+                let buttonColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").2
+                //MainVC 배경색
+                self!.view.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+                //네비게이션 버튼 색
+                self?.navigationController?.navigationBar.tintColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
+            case .error(let error):
+                print("\(error)")
+            }
+        }
     }
     
     
@@ -102,8 +142,8 @@ class MainVC: UIViewController {
         let themeBtn = UIBarButtonItem(image: UIImage(systemName: "paintpalette"), style: .plain, target: self, action: #selector(themePageBtn(sender:)))
         self.navigationItem.rightBarButtonItems = [goToTotalPageBtn, goToCurrentDateBtn]
         self.navigationItem.leftBarButtonItems = [settingBtn, themeBtn]
-        self.navigationController?.navigationBar.tintColor = .black
         self.navigationItem.title = "빈 주머니"
+        self.navigationController?.navigationBar.tintColor = .black
         let backBarButtonItem = UIBarButtonItem(title: "뒤로가기", style: .plain, target: self, action: nil)
             backBarButtonItem.tintColor = .black
         self.navigationItem.backBarButtonItem = backBarButtonItem
@@ -143,7 +183,7 @@ class MainVC: UIViewController {
         calendarView.appearance.borderRadius = 0.5
         calendarView.appearance.titleTodayColor = .black
         calendarView.appearance.subtitleTodayColor = .black
-        calendarView.appearance.todayColor = UIColor(r: 110, g: 62, b: 4, a: 0.3)
+        calendarView.appearance.todayColor = .systemGray3
         calendarView.appearance.selectionColor = .clear
         calendarView.appearance.subtitleDefaultColor = .black
         calendarView.appearance.titleSelectionColor = .black
