@@ -1010,6 +1010,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="categoryTableBox" destination="6BN-eJ-0Uw" id="Iat-A2-xLd"/>
                         <outlet property="categoryTableView" destination="J4y-bO-dkd" id="oPb-bd-aGZ"/>
                         <outlet property="makeCategoryButton" destination="G51-0M-Ujk" id="h9u-h8-XOM"/>
                     </connections>
@@ -1337,6 +1338,7 @@
                         <outlet property="addFavoriteDataButton" destination="bbq-q7-6AC" id="5Hz-oT-UuY"/>
                         <outlet property="categoryLabel" destination="sQP-vJ-18I" id="uay-ct-Xyk"/>
                         <outlet property="favoriteDataTableView" destination="rzj-lD-ZnQ" id="eBp-hn-A7y"/>
+                        <outlet property="favoriteTableBox" destination="Chz-V0-Hx0" id="EVe-Gh-BZq"/>
                         <outlet property="moneyTextField" destination="f3i-B8-TKU" id="2ve-Ep-dj9"/>
                         <outlet property="segementController" destination="9Jf-vu-ZT2" id="YOR-i9-g2J"/>
                         <outlet property="selectCategoryBtn" destination="T7o-QO-jpn" id="qxZ-b1-Fj6"/>
@@ -1346,149 +1348,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLK-9Z-P1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1446.5648854961833" y="-706.33802816901414"/>
-        </scene>
-        <!--Theme ColorVC-->
-        <scene sceneID="45C-1J-NVZ">
-            <objects>
-                <viewController storyboardIdentifier="ThemeColorVC" id="hqd-uD-Vob" customClass="ThemeColorVC" customModule="BinPocket" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bW0-0u-tMu">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Is4-2m-XcO">
-                                <rect key="frame" x="0.0" y="122" width="430" height="1"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="2Ro-te-5aZ"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="색상 변경" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zt-4Y-oy4">
-                                <rect key="frame" x="184.66666666666666" y="79" width="60.666666666666657" height="23"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="18"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BeD-Bk-uPc">
-                                <rect key="frame" x="30" y="223" width="370" height="60"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배경" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nu-2F-CEG">
-                                        <rect key="frame" x="0.0" y="18.666666666666657" width="310" height="23"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="18"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWC-ir-jUt">
-                                        <rect key="frame" x="310" y="0.0" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="oAW-L4-7ee"/>
-                                            <constraint firstAttribute="width" constant="60" id="sM7-p4-htN"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled"/>
-                                        <connections>
-                                            <action selector="backgroundColorPicker:" destination="hqd-uD-Vob" eventType="touchUpInside" id="LY8-f6-mi9"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gy4-gB-EwO">
-                                <rect key="frame" x="30" y="303" width="370" height="60"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="버튼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiN-um-tvT">
-                                        <rect key="frame" x="0.0" y="18.666666666666686" width="310" height="23"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rak-cu-aop">
-                                        <rect key="frame" x="310" y="0.0" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="cB5-RJ-Phn"/>
-                                            <constraint firstAttribute="width" constant="60" id="kfd-WK-fg7"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled"/>
-                                        <connections>
-                                            <action selector="buttonColorPicker:" destination="hqd-uD-Vob" eventType="touchUpInside" id="dd1-F2-GXS"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fmc-cP-47Z">
-                                <rect key="frame" x="30" y="383" width="370" height="60"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겨찾기/카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr0-4U-oGG">
-                                        <rect key="frame" x="0.0" y="18.666666666666686" width="310" height="23"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="NanumBarunpenOTF" family="NanumBarunpenOTF" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8C-U7-nNS">
-                                        <rect key="frame" x="310" y="0.0" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="4yC-gX-Ipu"/>
-                                            <constraint firstAttribute="height" constant="60" id="emW-Ph-dVh"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled"/>
-                                        <connections>
-                                            <action selector="tableColorPicker:" destination="hqd-uD-Vob" eventType="touchUpInside" id="vQK-5p-T4i"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YtJ-yJ-9Gy">
-                                <rect key="frame" x="30" y="153" width="370" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Yh1-U2-EvC"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="지정 색상 1"/>
-                                    <segment title="지정 색상 2"/>
-                                    <segment title="지정 색상 3"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentController:" destination="hqd-uD-Vob" eventType="valueChanged" id="iuP-6I-ynU"/>
-                                </connections>
-                            </segmentedControl>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="689-Ge-Li5"/>
-                        <color key="backgroundColor" red="0.95294117649999999" green="0.83529411760000005" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Gy4-gB-EwO" firstAttribute="trailing" secondItem="BeD-Bk-uPc" secondAttribute="trailing" id="2ST-SB-Kha"/>
-                            <constraint firstItem="1Zt-4Y-oy4" firstAttribute="top" secondItem="689-Ge-Li5" secondAttribute="top" constant="20" id="43E-vy-0UW"/>
-                            <constraint firstItem="Is4-2m-XcO" firstAttribute="leading" secondItem="689-Ge-Li5" secondAttribute="leading" id="62o-Pc-qCS"/>
-                            <constraint firstItem="689-Ge-Li5" firstAttribute="trailing" secondItem="BeD-Bk-uPc" secondAttribute="trailing" constant="30" id="RDs-6A-SkT"/>
-                            <constraint firstItem="689-Ge-Li5" firstAttribute="trailing" secondItem="Is4-2m-XcO" secondAttribute="trailing" id="TsZ-eZ-Xl3"/>
-                            <constraint firstItem="1Zt-4Y-oy4" firstAttribute="centerX" secondItem="689-Ge-Li5" secondAttribute="centerX" id="VrU-4z-GcC"/>
-                            <constraint firstItem="fmc-cP-47Z" firstAttribute="leading" secondItem="Gy4-gB-EwO" secondAttribute="leading" id="Z1C-oP-YEg"/>
-                            <constraint firstItem="YtJ-yJ-9Gy" firstAttribute="top" secondItem="Is4-2m-XcO" secondAttribute="bottom" constant="30" id="bu5-To-acd"/>
-                            <constraint firstItem="BeD-Bk-uPc" firstAttribute="leading" secondItem="689-Ge-Li5" secondAttribute="leading" constant="30" id="cHp-2S-nCO"/>
-                            <constraint firstItem="Gy4-gB-EwO" firstAttribute="top" secondItem="BeD-Bk-uPc" secondAttribute="bottom" constant="20" id="dMV-IV-onc"/>
-                            <constraint firstItem="BeD-Bk-uPc" firstAttribute="top" secondItem="YtJ-yJ-9Gy" secondAttribute="bottom" constant="30" id="icb-t0-9L1"/>
-                            <constraint firstItem="Gy4-gB-EwO" firstAttribute="leading" secondItem="BeD-Bk-uPc" secondAttribute="leading" id="oNm-P8-bgh"/>
-                            <constraint firstItem="fmc-cP-47Z" firstAttribute="top" secondItem="Gy4-gB-EwO" secondAttribute="bottom" constant="20" id="prV-4C-xgw"/>
-                            <constraint firstItem="YtJ-yJ-9Gy" firstAttribute="leading" secondItem="BeD-Bk-uPc" secondAttribute="leading" id="tC3-Q6-iL8"/>
-                            <constraint firstItem="fmc-cP-47Z" firstAttribute="trailing" secondItem="Gy4-gB-EwO" secondAttribute="trailing" id="vHg-5i-Tgj"/>
-                            <constraint firstItem="YtJ-yJ-9Gy" firstAttribute="trailing" secondItem="BeD-Bk-uPc" secondAttribute="trailing" id="vfa-oS-aRg"/>
-                            <constraint firstItem="Is4-2m-XcO" firstAttribute="top" secondItem="1Zt-4Y-oy4" secondAttribute="bottom" constant="20" id="xvK-WB-gD1"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="backgroundColorBtn" destination="wWC-ir-jUt" id="yfJ-WS-ERT"/>
-                        <outlet property="buttonColorBtn" destination="rak-cu-aop" id="teb-gn-0k0"/>
-                        <outlet property="themeSegmentBtn" destination="YtJ-yJ-9Gy" id="mog-L9-hY5"/>
-                        <outlet property="windowColorBtn" destination="k8C-U7-nNS" id="KUt-ik-6Z6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t15-GI-71B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2204.6511627906975" y="-1369.3133047210301"/>
         </scene>
         <!--Total ListVC-->
         <scene sceneID="rOF-ON-EyX">
@@ -1790,7 +1649,7 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="I2s-At-Zb7">
-                                <rect key="frame" x="66" y="213" width="298.33333333333331" height="135.66666666666663"/>
+                                <rect key="frame" x="66" y="213" width="298.33333333333337" height="135.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="o0m-Zt-Maq">
                                         <rect key="frame" x="0.0" y="0.0" width="279" height="35.666666666666664"/>
@@ -2046,6 +1905,7 @@
                         <outlet property="editSegementController" destination="4Mq-S7-he0" id="7Vv-cS-eWm"/>
                         <outlet property="editTitleTextField" destination="shU-IS-c5d" id="O8X-OI-N0H"/>
                         <outlet property="favoriteDataTableView" destination="9CB-fG-cQq" id="PMz-BL-dAT"/>
+                        <outlet property="favoriteTableBox" destination="0Zn-pz-SEG" id="4Es-c8-DgZ"/>
                         <outlet property="selectCategoryBtn" destination="lfy-CA-1SX" id="DSV-wI-mUJ"/>
                     </connections>
                 </viewController>
@@ -2105,7 +1965,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SDB-wl-pQu"/>
-                        <color key="backgroundColor" red="0.95294117647058818" green="0.83529411764705885" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bRu-8U-7fF" firstAttribute="centerX" secondItem="SDB-wl-pQu" secondAttribute="centerX" id="2JS-P2-kQM"/>
                             <constraint firstItem="oVV-9w-Bgm" firstAttribute="centerX" secondItem="SDB-wl-pQu" secondAttribute="centerX" id="9Qb-St-gGA"/>
@@ -2151,6 +2011,9 @@
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

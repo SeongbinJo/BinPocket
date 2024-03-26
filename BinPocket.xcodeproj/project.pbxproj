@@ -16,7 +16,6 @@
 		58528E7F2997C0F500F7726F /* appImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 58528E7E2997C0F400F7726F /* appImage.png */; };
 		58528E812997C0FD00F7726F /* nameImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 58528E802997C0FD00F7726F /* nameImage.png */; };
 		58571E242A4EB27F0092D7C1 /* EditListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58571E232A4EB27F0092D7C1 /* EditListVC.swift */; };
-		585742512ACD96DF00F16506 /* RankDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585742502ACD96DF00F16506 /* RankDetailVC.swift */; };
 		585742532ACD978200F16506 /* RankDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585742522ACD978200F16506 /* RankDetailCell.swift */; };
 		58694FCE297904FF00817314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FCD297904FF00817314 /* AppDelegate.swift */; };
 		58694FD0297904FF00817314 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FCF297904FF00817314 /* SceneDelegate.swift */; };
@@ -28,7 +27,6 @@
 		58694FE4297905A200817314 /* AddlistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FE3297905A200817314 /* AddlistVC.swift */; };
 		58694FE6297905D200817314 /* TotalListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FE5297905D200817314 /* TotalListVC.swift */; };
 		5873E2522ACAF17100B31106 /* RankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5873E2512ACAF17100B31106 /* RankTableCell.swift */; };
-		587966F22BA4460400F4B6E5 /* ThemeColorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587966F12BA4460400F4B6E5 /* ThemeColorVC.swift */; };
 		587E0B7A29982CE00007BB54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 587E0B7C29982CE00007BB54 /* InfoPlist.strings */; };
 		588332732AAA07EA007630C9 /* SelectCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588332722AAA07EA007630C9 /* SelectCategoryVC.swift */; };
 		58A125B72997372B0068F86E /* RgbColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A125B62997372B0068F86E /* RgbColorExt.swift */; };
@@ -56,7 +54,6 @@
 		58528E7E2997C0F400F7726F /* appImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appImage.png; sourceTree = "<group>"; };
 		58528E802997C0FD00F7726F /* nameImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nameImage.png; sourceTree = "<group>"; };
 		58571E232A4EB27F0092D7C1 /* EditListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListVC.swift; sourceTree = "<group>"; };
-		585742502ACD96DF00F16506 /* RankDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankDetailVC.swift; sourceTree = "<group>"; };
 		585742522ACD978200F16506 /* RankDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankDetailCell.swift; sourceTree = "<group>"; };
 		58694FCA297904FF00817314 /* BinPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58694FCD297904FF00817314 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +71,6 @@
 		5878BC742998190F00C0133C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5878BC752998192C00C0133C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		5878BC762998192E00C0133C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		587966F12BA4460400F4B6E5 /* ThemeColorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorVC.swift; sourceTree = "<group>"; };
 		587E0B7B29982CE00007BB54 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		588332722AAA07EA007630C9 /* SelectCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryVC.swift; sourceTree = "<group>"; };
 		58A125B62997372B0068F86E /* RgbColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RgbColorExt.swift; sourceTree = "<group>"; };
@@ -188,12 +184,10 @@
 				58694FD62979050000817314 /* Assets.xcassets */,
 				58694FD82979050000817314 /* LaunchScreen.storyboard */,
 				58694FD1297904FF00817314 /* MainVC.swift */,
-				587966F12BA4460400F4B6E5 /* ThemeColorVC.swift */,
 				58ECD34C29965DBF00812DC9 /* SettingVC.swift */,
 				58571E232A4EB27F0092D7C1 /* EditListVC.swift */,
 				587E0B7C29982CE00007BB54 /* InfoPlist.strings */,
 				58694FE12979058D00817314 /* ViewlistVC.swift */,
-				585742502ACD96DF00F16506 /* RankDetailVC.swift */,
 				588332722AAA07EA007630C9 /* SelectCategoryVC.swift */,
 				58694FE3297905A200817314 /* AddlistVC.swift */,
 				58D848002986A25C00854DDD /* RealmData.swift */,
@@ -345,7 +339,6 @@
 				58571E242A4EB27F0092D7C1 /* EditListVC.swift in Sources */,
 				58A125B9299737C80068F86E /* NotificationCenterName.swift in Sources */,
 				58694FD0297904FF00817314 /* SceneDelegate.swift in Sources */,
-				587966F22BA4460400F4B6E5 /* ThemeColorVC.swift in Sources */,
 				58492B8B297AE5240056A9A7 /* BorderCV.swift in Sources */,
 				58694FE22979058D00817314 /* ViewlistVC.swift in Sources */,
 				585742532ACD978200F16506 /* RankDetailCell.swift in Sources */,
@@ -357,7 +350,6 @@
 				58694FE4297905A200817314 /* AddlistVC.swift in Sources */,
 				58F3923E2AADE5DD00C4119D /* CategoryCollectionViewCell.swift in Sources */,
 				58694FE6297905D200817314 /* TotalListVC.swift in Sources */,
-				585742512ACD96DF00F16506 /* RankDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,7 @@ class TotalListVC : UIViewController {
         
         totalTableView.delegate = self
         totalTableView.dataSource = self
+        
     }
     
 }

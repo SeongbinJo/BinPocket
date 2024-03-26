@@ -19,6 +19,7 @@ class AddlistVC : UIViewController {
     @IBOutlet weak var favoriteDataTableView: UITableView!
     @IBOutlet weak var selectCategoryBtn: Borderbutton!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var favoriteTableBox: Borderview!
     
     //Realm
     var realm = try! Realm()
@@ -44,6 +45,9 @@ class AddlistVC : UIViewController {
         self.addBtn.isEnabled = true
         self.segementController.isSelected = false
         self.moneyTextField.keyboardType = .numberPad
+        
+    
+        
         
         //데이터베이스 변경될 때마다 테이블 뷰 리로드.
         notificationToken = realm.observe({ (noti, realm) in

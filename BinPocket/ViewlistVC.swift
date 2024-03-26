@@ -42,6 +42,7 @@ class ViewlistVC : UIViewController {
     
     //Realm 데이터베이스가 변경될때 이용할 토큰.
     var notificationToken : NotificationToken?
+
     
     //MainVC에서 selectdate 받아오기.
     var selectdate = ""
@@ -55,6 +56,8 @@ class ViewlistVC : UIViewController {
         minusTableView.dataSource = self
         plusMoneyList = realm.objects(MyData.self).filter("plusOrMinus == 0")
         minusMoneyList = realm.objects(MyData.self).filter("plusOrMinus == 1")
+        
+
 
         //notificationToken를 사용할 대상
         var mydata = realm.objects(MyData.self)

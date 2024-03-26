@@ -32,16 +32,3 @@ class Category: Object {
     @objc dynamic var id = ""
 }
 
-class ThemeColor: Object {
-    //빈주머니 기본 색
-    @objc dynamic var index = ""
-    @objc dynamic var backgroundColor: String = ""
-    @objc dynamic var textColor: String = ""
-    @objc dynamic var buttonColor: String = ""
-    @objc dynamic var windowColor: String = ""
-}
-
-class currentTheme: Object {
-    //현재 선택된 지정 색상
-    @objc dynamic var themeStatus: Int = 0
-}

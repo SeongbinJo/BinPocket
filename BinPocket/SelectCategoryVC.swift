@@ -15,6 +15,7 @@ class SelectCategoryVC : UIViewController {
 
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var makeCategoryButton: UIButton!
+    @IBOutlet weak var categoryTableBox: Borderview!
     
     //Realm
     var realm = try! Realm()
@@ -37,6 +38,9 @@ class SelectCategoryVC : UIViewController {
         notificationToken = realm.observe({ (noti, realm) in
             self.categoryTableView.reloadData()
         })
+        
+
+        
     }
     
     

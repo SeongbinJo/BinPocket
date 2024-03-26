@@ -29,8 +29,6 @@ class MainVC: UIViewController {
     
     //Realm 데이터베이스가 변경될때 이용할 토큰.
     var mydataNotiToken : NotificationToken?
-    var themeDataNotiToken : NotificationToken?
-    var currentThemeNotiToken : NotificationToken?
 
     
     //현재 저장된 데이터들 중 한번이라도 사용되고있는 카테고리의 종류 담아내는 부분
@@ -49,6 +47,7 @@ class MainVC: UIViewController {
         plusRankTableView.dataSource = self
         minusRankTableView.delegate = self
         minusRankTableView.dataSource = self
+        
  
         //notificationToken를 사용할 대상
         var mydata = realm.objects(MyData.self)
@@ -67,45 +66,8 @@ class MainVC: UIViewController {
             }
         }
         
-        //지정색상 1, 2, 3 을 변경하여 색상을 변경했을 경우(currentTheme 데이터 변경 감지)
-        var currentTheme = realm.objects(currentTheme.self)
-        currentThemeNotiToken = currentTheme.observe { [weak self] (changes: RealmCollectionChange) in
-            switch changes {
-            case .initial:
-                print("currentTheme 데이터 초기화됨.")
-            case .update(_, let deletions, let insertions, let modifications):
-                print("currentTheme 데이터 변경 감지됨//지정 색상 변경 감지")
-                let backgroundColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").0
-//                let textColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").1
-                let buttonColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").2
-                let tableColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").3
-                //MainVC 배경색
-                self!.view.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
-                //네비게이션 버튼 색
-                self?.navigationController?.navigationBar.tintColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
-            case .error(let error):
-                print("\(error)")
-            }
-        }
-        //색상 변경 페이지에서 색을 변경했을 경우 색 변경(ThemeColor 데이터 변경 감지)
-        var themeData = realm.objects(ThemeColor.self)
-        themeDataNotiToken = themeData.observe { [weak self] (changes: RealmCollectionChange) in
-            switch changes {
-            case .initial:
-                print("ThemeColor 데이터 초기화됨.")
-            case .update:
-                print("ThemeColor 데이터 변경 감지됨")
-                let backgroundColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").0
-//                let textColor: [CGFloat] = self!.getRgbData(index: "\(themeData.filter("themeStatus == %@", currentTheme.first!.themeStatus))").1
-                let buttonColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").2
-                //MainVC 배경색
-                self!.view.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
-                //네비게이션 버튼 색
-                self?.navigationController?.navigationBar.tintColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
-            case .error(let error):
-                print("\(error)")
-            }
-        }
+   
+        
     }
     
     
@@ -139,9 +101,8 @@ class MainVC: UIViewController {
         let goToTotalPageBtn = UIBarButtonItem(image: UIImage(systemName: "calendar"), style: .plain, target: self, action: #selector(goToTotalListPage(sender:)))
         let goToCurrentDateBtn = UIBarButtonItem(image: UIImage(systemName: "t.square"), style: .plain, target: self, action: #selector(currentPageBtn(sender:)))
         let settingBtn = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(settingPageBtn(sender:)))
-        let themeBtn = UIBarButtonItem(image: UIImage(systemName: "paintpalette"), style: .plain, target: self, action: #selector(themePageBtn(sender:)))
         self.navigationItem.rightBarButtonItems = [goToTotalPageBtn, goToCurrentDateBtn]
-        self.navigationItem.leftBarButtonItems = [settingBtn, themeBtn]
+        self.navigationItem.leftBarButtonItems = [settingBtn]
         self.navigationItem.title = "빈 주머니"
         self.navigationController?.navigationBar.tintColor = .black
         let backBarButtonItem = UIBarButtonItem(title: "뒤로가기", style: .plain, target: self, action: nil)
@@ -163,11 +124,7 @@ class MainVC: UIViewController {
         let settingpage = self.storyboard?.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
         self.navigationController?.pushViewController(settingpage, animated: true)
     }
-    //네비게이션 버튼 -> 테마 변경 페이지 이동
-    @objc func themePageBtn(sender: UIBarButtonItem) {
-        guard let themeColorPage = self.storyboard?.instantiateViewController(withIdentifier: "ThemeColorVC") as? ThemeColorVC else { return }
-        self.present(themeColorPage, animated: true)
-    }
+
     
     
     //FScalendar 커스텀

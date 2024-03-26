@@ -20,6 +20,7 @@ class EditListVC : UIViewController {
     
     @IBOutlet weak var selectCategoryBtn: Borderbutton!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var favoriteTableBox: Borderview!
     //realm
     var realm = try! Realm()
     
@@ -63,6 +64,7 @@ class EditListVC : UIViewController {
             editSegementController.selectedSegmentTintColor = UIColor(r: 233, g: 81, b: 81, a: 0.3)
             plusMinus = false
         }
+        
         
         
     }

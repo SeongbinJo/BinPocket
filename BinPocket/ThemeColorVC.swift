@@ -79,11 +79,39 @@ class ThemeColorVC: UIViewController {
                 let backgroundColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").0
 //                let textColor: [CGFloat] = self!.getRgbData(index: "\(themeData.filter("themeStatus == %@", currentTheme.first!.themeStatus))").1
                 //MainVC 배경색
+                let buttonColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").2
+                let tableColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self!.realm, index: "\(currentTheme.first!.themeStatus)").3
                 self!.view.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+//                self!.backgroundColorBtn.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+//                self!.buttonColorBtn.backgroundColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
+//                self!.windowColorBtn.backgroundColor = UIColor(red: tableColor[0], green: tableColor[1], blue: tableColor[2], alpha: tableColor[3])
             case .error(let error):
                 print("\(error)")
             }
         }
+        
+        //지정색상 세그먼트 컨트롤러 첫 위치
+        switch currentTheme.first!.themeStatus {
+        case 0:
+            themeSegmentBtn.selectedSegmentIndex = 0
+        case 1:
+            themeSegmentBtn.selectedSegmentIndex = 1
+        case 2:
+            themeSegmentBtn.selectedSegmentIndex = 2
+        default:
+            themeSegmentBtn.selectedSegmentIndex = 0
+        }
+        
+        
+        //색 설정
+        let backgroundColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "\(currentTheme.first!.themeStatus)").0
+        let buttonColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "\(currentTheme.first!.themeStatus)").2
+        let tableColor: [CGFloat] = ThemeColorVC.getRgbData(realm: self.realm, index: "\(currentTheme.first!.themeStatus)").3
+        self.view.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+        self.backgroundColorBtn.backgroundColor = UIColor(red: backgroundColor[0], green: backgroundColor[1], blue: backgroundColor[2], alpha: backgroundColor[3])
+        self.buttonColorBtn.backgroundColor = UIColor(red: buttonColor[0], green: buttonColor[1], blue: buttonColor[2], alpha: buttonColor[3])
+        self.windowColorBtn.backgroundColor = UIColor(red: tableColor[0], green: tableColor[1], blue: tableColor[2], alpha: tableColor[3])
+        
     }
     
     
@@ -273,7 +301,7 @@ extension ThemeColorVC: UIColorPickerViewControllerDelegate {
                 break
             }
         case 2:
-            let editColor = realm.objects(ThemeColor.self).filter("index == %@", "1")
+            let editColor = realm.objects(ThemeColor.self).filter("index == %@", "2")
             switch self.typeStatus {
             case .background:
                 try! realm.write {

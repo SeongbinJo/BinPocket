@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class SettingVC : UIViewController {
     
@@ -15,12 +16,16 @@ class SettingVC : UIViewController {
     
     let settingTitleList : [String] = ["도움말", "Contact App Developer"]
     
+    let realm = try! Realm()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         naviItem()
         settingTableView.delegate = self
         settingTableView.dataSource = self
+        
+        
         
     }
     
@@ -48,10 +53,14 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
     
     //셀을 클릭했을 때.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
         //셀을 클릭하면 이펙트 나왔다 사라짐.
         tableView.deselectRow(at: indexPath, animated: true)
         guard let helppage = self.storyboard?.instantiateViewController(withIdentifier: "HelpVC") as? UIViewController else { return }
+ 
         guard let contactpage = self.storyboard?.instantiateViewController(withIdentifier: "ContactVC") as? UIViewController else { return }
+
         if indexPath.row == 0 {
             self.present(helppage, animated: true)
         }else if indexPath.row == 1 {
