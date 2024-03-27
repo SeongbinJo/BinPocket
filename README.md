@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ce2a7dd1f0f70b2d3dfbcc41105f2d95facbb9935f9324d79a64fa5a7c6e5f40
-size 2410
+<img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/66e9ed31-c6db-4a20-8dcc-f8287ee30851"/> <img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/aac2cc88-7092-4e1c-8f38-6fcb0c0517b5"/> <img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/63fe95bd-fdf5-4294-8f8b-3120ed358b62"/> <img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/629f49b7-b263-4043-ad21-f0ab443762ab"/>
+
