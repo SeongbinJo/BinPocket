@@ -1,0 +1,135 @@
+
+/* Class = "UILabel"; text = "금액 :"; ObjectID = "1lc-4p-9nJ"; */
+"1lc-4p-9nJ.text" = "금액 :";
+
+/* Class = "UILabel"; text = "메인화면의 우측 상단의 'T' 버튼을 누르면 이번 달로 이동하며, '달력' 버튼을 누르면 여태까지의 월 별 지출액 현황을 볼 수 있으며 리스트를 누르면 해당 달력으로 이동합니다."; ObjectID = "3iO-oc-oLa"; */
+"3iO-oc-oLa.text" = "메인화면의 우측 상단의 'T' 버튼을 누르면 이번 달로 이동하며, '달력' 버튼을 누르면 여태까지의 월 별 지출액 현황을 볼 수 있으며 리스트를 누르면 해당 달력으로 이동합니다.";
+
+/* Class = "UILabel"; text = ":"; ObjectID = "5cC-Rw-dX5"; */
+"5cC-Rw-dX5.text" = ":";
+
+/* Class = "UILabel"; text = "지출/수입 내역을 추가할 때 지출/수입의 선택, 제목, 금액을 전부 입력해야합니다."; ObjectID = "6bw-jU-7SV"; */
+"6bw-jU-7SV.text" = "지출/수입 내역을 추가할 때 지출/수입의 선택, 제목, 금액을 전부 입력해야합니다.";
+
+/* Class = "UISegmentedControl"; 9Jf-vu-ZT2.segmentTitles[0] = "지출"; ObjectID = "9Jf-vu-ZT2"; */
+"9Jf-vu-ZT2.segmentTitles[0]" = "지출";
+
+/* Class = "UISegmentedControl"; 9Jf-vu-ZT2.segmentTitles[1] = "수입"; ObjectID = "9Jf-vu-ZT2"; */
+"9Jf-vu-ZT2.segmentTitles[1]" = "수입";
+
+/* Class = "UILabel"; text = "수입"; ObjectID = "9sg-J6-51X"; */
+"9sg-J6-51X.text" = "수입";
+
+/* Class = "UILabel"; text = "하루 총 합계 :"; ObjectID = "CaY-ct-xbR"; */
+"CaY-ct-xbR.text" = "하루 총 합계 :";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "DIn-UM-1bV"; */
+"DIn-UM-1bV.text" = "0";
+
+/* Class = "UILabel"; text = "금액"; ObjectID = "EVc-bi-6US"; */
+"EVc-bi-6US.text" = "금액";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Fx4-dv-G0G"; */
+"Fx4-dv-G0G.text" = "0";
+
+/* Class = "UILabel"; text = "설정 1"; ObjectID = "GKN-Ow-vaz"; */
+"GKN-Ow-vaz.text" = "설정 1";
+
+/* Class = "UILabel"; text = "원"; ObjectID = "GgS-tb-yIi"; */
+"GgS-tb-yIi.text" = "원";
+
+/* Class = "UILabel"; text = "내역"; ObjectID = "H0T-vW-WvR"; */
+"H0T-vW-WvR.text" = "내역";
+
+/* Class = "UILabel"; text = "제목 :"; ObjectID = "LQq-pw-CuB"; */
+"LQq-pw-CuB.text" = "제목 :";
+
+/* Class = "UILabel"; text = "원"; ObjectID = "Nyr-Rd-7Lx"; */
+"Nyr-Rd-7Lx.text" = "원";
+
+/* Class = "UILabel"; text = "월 별 지출액 현황"; ObjectID = "OfU-aP-vsP"; */
+"OfU-aP-vsP.text" = "월 별 지출액 현황";
+
+/* Class = "UILabel"; text = "avan31017@naver.com"; ObjectID = "R33-AC-vly"; */
+"R33-AC-vly.text" = "avan31017@naver.com";
+
+/* Class = "UILabel"; text = "달력의 날짜를 누르면 지출/수입 내역을 추가하는 페이지로 이동하며, 내역의 삭제는 왼쪽으로 스와이프합니다."; ObjectID = "U1X-FM-IvR"; */
+"U1X-FM-IvR.text" = "달력의 날짜를 누르면 지출/수입 내역을 추가하는 페이지로 이동하며, 내역의 삭제는 왼쪽으로 스와이프합니다.";
+
+/* Class = "UILabel"; text = "금액"; ObjectID = "WYU-tU-xss"; */
+"WYU-tU-xss.text" = "금액";
+
+/* Class = "UILabel"; text = "지출"; ObjectID = "Xms-Ag-DPn"; */
+"Xms-Ag-DPn.text" = "지출";
+
+/* Class = "UITextField"; placeholder = "내역을 입력하세요. (20자까지)"; ObjectID = "aUU-OP-vVW"; */
+"aUU-OP-vVW.placeholder" = "내역을 입력하세요. (20자까지)";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "bRu-8U-7fF"; */
+"bRu-8U-7fF.text" = "Email";
+
+/* Class = "UILabel"; text = "Naver :"; ObjectID = "cFp-Cc-KKC"; */
+"cFp-Cc-KKC.text" = "Naver :";
+
+/* Class = "UILabel"; text = "Google :"; ObjectID = "cos-24-ms6"; */
+"cos-24-ms6.text" = "Google :";
+
+/* Class = "UILabel"; text = "원"; ObjectID = "dtV-cx-W5n"; */
+"dtV-cx-W5n.text" = "원";
+
+/* Class = "UILabel"; text = "도움말"; ObjectID = "euf-df-lJD"; */
+"euf-df-lJD.text" = "도움말";
+
+/* Class = "UITextField"; placeholder = "금액을 입력하세요."; ObjectID = "f3i-B8-TKU"; */
+"f3i-B8-TKU.placeholder" = "금액을 입력하세요.";
+
+/* Class = "UILabel"; text = "내역"; ObjectID = "fDV-v6-FtO"; */
+"fDV-v6-FtO.text" = "내역";
+
+/* Class = "UIButton"; configuration.title = "추가"; ObjectID = "g6E-ym-0j8"; */
+"g6E-ym-0j8.configuration.title" = "추가";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "g6E-ym-0j8"; */
+"g6E-ym-0j8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "원"; ObjectID = "hMH-ei-8kM"; */
+"hMH-ei-8kM.text" = "원";
+
+/* Class = "UILabel"; text = "Seongbin Jo"; ObjectID = "ho9-IP-g1d"; */
+"ho9-IP-g1d.text" = "Seongbin Jo";
+
+/* Class = "UILabel"; text = "원"; ObjectID = "lNc-Bz-uOZ"; */
+"lNc-Bz-uOZ.text" = "원";
+
+/* Class = "UILabel"; text = ":"; ObjectID = "mC7-qf-uzs"; */
+"mC7-qf-uzs.text" = ":";
+
+/* Class = "UILabel"; text = "avan31017@gmail.com"; ObjectID = "nXX-DD-mzO"; */
+"nXX-DD-mzO.text" = "avan31017@gmail.com";
+
+/* Class = "UILabel"; text = "원"; ObjectID = "nsd-OE-Qhu"; */
+"nsd-OE-Qhu.text" = "원";
+
+/* Class = "UILabel"; text = "이번 달 총 합계 :"; ObjectID = "o2o-gY-HyW"; */
+"o2o-gY-HyW.text" = "이번 달 총 합계 :";
+
+/* Class = "UILabel"; text = "Contact App Developer"; ObjectID = "oVV-9w-Bgm"; */
+"oVV-9w-Bgm.text" = "Contact App Developer";
+
+/* Class = "UILabel"; text = "지출/수입 추가"; ObjectID = "rTC-nG-hjn"; */
+"rTC-nG-hjn.text" = "지출/수입 추가";
+
+/* Class = "UILabel"; text = "금액"; ObjectID = "rlJ-cx-2wu"; */
+"rlJ-cx-2wu.text" = "금액";
+
+/* Class = "UINavigationItem"; title = "세이브 머니"; ObjectID = "s2k-uF-dMF"; */
+"s2k-uF-dMF.title" = "세이브 머니";
+
+/* Class = "UILabel"; text = "달력을 스와이프하여 이전/다음 달을 볼 수 있습니다."; ObjectID = "s9I-v2-nAy"; */
+"s9I-v2-nAy.text" = "달력을 스와이프하여 이전/다음 달을 볼 수 있습니다.";
+
+/* Class = "UILabel"; text = ":"; ObjectID = "sfK-Y4-hgi"; */
+"sfK-Y4-hgi.text" = ":";
+
+/* Class = "UILabel"; text = "연 월"; ObjectID = "vr6-4a-tbi"; */
+"vr6-4a-tbi.text" = "연 월";
