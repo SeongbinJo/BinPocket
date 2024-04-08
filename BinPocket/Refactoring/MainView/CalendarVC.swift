@@ -14,6 +14,8 @@ class CalendarVC: UIViewController {
     
 
     @IBOutlet weak var calendarView: FSCalendar!
+    @IBOutlet weak var plusRankTableView: UITableView!
+    @IBOutlet weak var minusRankTableView: UITableView!
     
     //Realm
     let realm = try! Realm()
@@ -27,6 +29,11 @@ class CalendarVC: UIViewController {
         calendarView.delegate = self
         calendarView.dataSource = self
         calendarViewCustom()
+        
+        plusRankTableView.delegate = self
+        plusRankTableView.dataSource = self
+        minusRankTableView.delegate = self
+        minusRankTableView.dataSource = self
         print("CalendarVC - viewDidLoad() 호출됨")
         
         
@@ -92,4 +99,18 @@ extension CalendarVC: FSCalendarDataSource {
             
         
     }
+}
+
+extension CalendarVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: CategoryRankTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CategoryRankTableViewCell", for: indexPath) as! CategoryRankTableViewCell
+        
+        return cell
+    }
+    
+    
 }

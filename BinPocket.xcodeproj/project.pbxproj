@@ -15,6 +15,7 @@
 		5849E85629824CDC00088CA4 /* NanumBarunpenR.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5849E85429824CDC00088CA4 /* NanumBarunpenR.otf */; };
 		58528E7F2997C0F500F7726F /* appImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 58528E7E2997C0F400F7726F /* appImage.png */; };
 		58528E812997C0FD00F7726F /* nameImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 58528E802997C0FD00F7726F /* nameImage.png */; };
+		585712702BC3D9870042A984 /* CategoryRankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857126F2BC3D9870042A984 /* CategoryRankTableViewCell.swift */; };
 		58571E242A4EB27F0092D7C1 /* EditListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58571E232A4EB27F0092D7C1 /* EditListVC.swift */; };
 		585742532ACD978200F16506 /* RankDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585742522ACD978200F16506 /* RankDetailCell.swift */; };
 		58694FCE297904FF00817314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FCD297904FF00817314 /* AppDelegate.swift */; };
@@ -53,6 +54,7 @@
 		5849E85429824CDC00088CA4 /* NanumBarunpenR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenR.otf; sourceTree = "<group>"; };
 		58528E7E2997C0F400F7726F /* appImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appImage.png; sourceTree = "<group>"; };
 		58528E802997C0FD00F7726F /* nameImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nameImage.png; sourceTree = "<group>"; };
+		5857126F2BC3D9870042A984 /* CategoryRankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRankTableViewCell.swift; sourceTree = "<group>"; };
 		58571E232A4EB27F0092D7C1 /* EditListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListVC.swift; sourceTree = "<group>"; };
 		585742522ACD978200F16506 /* RankDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankDetailCell.swift; sourceTree = "<group>"; };
 		58694FCA297904FF00817314 /* BinPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +139,7 @@
 		581BB1CA2BC00D8200334061 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5857126F2BC3D9870042A984 /* CategoryRankTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				58D93C422A7E0B1A00141D7A /* FavoriteDataCell.swift in Sources */,
 				58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */,
 				58694FE4297905A200817314 /* AddlistVC.swift in Sources */,
+				585712702BC3D9870042A984 /* CategoryRankTableViewCell.swift in Sources */,
 				58F3923E2AADE5DD00C4119D /* CategoryCollectionViewCell.swift in Sources */,
 				58694FE6297905D200817314 /* TotalListVC.swift in Sources */,
 			);

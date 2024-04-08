@@ -1,21 +1,23 @@
-<img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/66e9ed31-c6db-4a20-8dcc-f8287ee30851"/> <img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/aac2cc88-7092-4e1c-8f38-6fcb0c0517b5"/> <img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/63fe95bd-fdf5-4294-8f8b-3120ed358b62"/> <img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/629f49b7-b263-4043-ad21-f0ab443762ab"/>
-
+빈주머니 README.md
 
 # 빈주머니
-#### _개발기간 : 2023.01.16 ~. 2023.02.12, 배포중 / 추가할 기능 생기는대로 or 피드백 반영하는대로 버전 올리는 중.._
+#### _개발기간 : 2023.01.16 ~. 2023.02.12 / 추가할 기능 생기는대로 버전 올리는 중.._
 #### 총 시간 : 5576분, 약 92.9시간 소요.
 
-## [프로젝트 소개]
+## [앱 소개]
+<img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/53e8615d-bcc4-49ab-9e06-71f14a1bd05f"/> <img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/68d8d099-5e13-4104-ac15-095ca2b4f4a3"/> <img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/5ed40126-7230-4ec0-ad5e-ca1fe369fbf5"/> <img width="23%" src="https://github.com/SeongbinJo/BinPocket/assets/86182850/fc708dc7-4757-4b9d-9d6e-b78c4c380586"/>
+
 "당신의 주머니는 빈 주머니 입니까? 가득 차 있습니까?  
 당신의 주머니가 비어있지 않도록 지출과 수입 내역을 간편하게 기록해 보세요!"  
 
-빈주머니는 오늘 하루에 생겼던 지출과 수입들을 간단하게 추가하고, 내역을 간편하게 볼 수 있는 가계부 앱입니다.
+오늘 하루에 생겼던 지출과 수입들을 간단하게 추가하고, 내역을 간편하게 볼 수 있습니다.
+
 
 ---
 
 ## [업데이트 내역]
 * 1.0.1
-    - [언어] 영어 -> 한국어 수정.
+    - [언어]영어 -> 한국어 수정.
 * 1.0.2
     - 앱 이름 한글로 수정.
 * 1.0.3
@@ -31,29 +33,33 @@
     - 지출/수입 내역 수정기능 추가.
 * 1.0.7
     - 내역 삭제시 종료되는 버그 수정.
-    - 수입/지출 내역 페이지 UI 개선.
+    - 수입/지출 내역 페이지 UI개선.
 * 1.0.8
-    - 수정 기능에서 '제목' 혹은 '금액'을 비워두고 수정시 종료되는 버그 수정.
+    - 수정 기능 빈칸 작성시 종료되는 버그 수정.
 * 1.0.9
     - 내역 즐겨찾기 기능 추가.
 * 1.1.0
     - 카테고리 추가.
     - 카테고리 별 지출/수입 순위 추가.
-    - UI 수정.
 * 1.1.1
-    - 메인화면의 앱 종료 버그 수정.
-    - 해당 월의 모든 날짜에 내역이 존재할 경우 메인화면에 총 합계금액이 제때 불러와지지 않는 버그 수정.
- 
+    - 메인화면 앱 종료 버그 수정.
+    - 사용성 개선.
+
+
+## [개인정보 처리방침]
+https://binpocket.blogspot.com/2023/06/blog-post.html
+
+
 
 ---
 ## [스킬]
 * UIKit
+* Storyboard
 
 ## [라이브러리]
 * FSCalendar
 * Realm
 
-## [개인정보 처리방침]
-[개인정보 처리방침](https://sites.google.com/view/binpocket/%ED%99%88)
+
 
 
