@@ -10,12 +10,12 @@ import UIKit
 
 class CategoryRankTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var minusRank: UIStackView!
-    @IBOutlet weak var minusCategory: UIStackView!
-    @IBOutlet weak var minusPercentage: UIStackView!
-    
-    @IBOutlet weak var plusRank: UILabel!
-    @IBOutlet weak var plusCategory: UILabel!
-    @IBOutlet weak var plusPercentage: UILabel!
+//    @IBOutlet weak var minusRank: UIStackView!
+//    @IBOutlet weak var minusCategory: UIStackView!
+//    @IBOutlet weak var minusPercentage: UIStackView!
+//    
+//    @IBOutlet weak var plusRank: UILabel!
+//    @IBOutlet weak var plusCategory: UILabel!
+//    @IBOutlet weak var plusPercentage: UILabel!
     
 }

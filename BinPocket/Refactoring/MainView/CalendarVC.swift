@@ -14,8 +14,8 @@ class CalendarVC: UIViewController {
     
 
     @IBOutlet weak var calendarView: FSCalendar!
-    @IBOutlet weak var plusRankTableView: UITableView!
-    @IBOutlet weak var minusRankTableView: UITableView!
+//    @IBOutlet weak var plusRankTableView: UITableView!
+//    @IBOutlet weak var minusRankTableView: UITableView!
     
     //Realm
     let realm = try! Realm()
@@ -30,10 +30,10 @@ class CalendarVC: UIViewController {
         calendarView.dataSource = self
         calendarViewCustom()
         
-        plusRankTableView.delegate = self
-        plusRankTableView.dataSource = self
-        minusRankTableView.delegate = self
-        minusRankTableView.dataSource = self
+//        plusRankTableView.delegate = self
+//        plusRankTableView.dataSource = self
+//        minusRankTableView.delegate = self
+//        minusRankTableView.dataSource = self
         print("CalendarVC - viewDidLoad() 호출됨")
         
         
