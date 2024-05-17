@@ -9,11 +9,15 @@ import UIKit
 
 class CalendarViewController: UIViewController {
     
+    // 달력 컨테이너 시작
+    private var calendarCollectionView: UICollectionView!
+    
     private lazy var calendarView: UIView = {
         let calendarView = UIView()
         calendarView.backgroundColor = .red
         return calendarView
     }()
+    // 달력 컨테이너 끝
     
     // 수입 컨테이너 시작
     private lazy var inComeTitleLabel: UILabel = {
@@ -134,11 +138,21 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationItem.title = "빈주머니"
+
+        let calendarCollectionViewLayout = UICollectionViewFlowLayout()
+        calendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: calendarCollectionViewLayout)
         
-        let views = [calendarView, finaceStackView, totalBackgroundView]
+        calendarCollectionView.delegate = self
+        calendarCollectionView.dataSource = self
+        
+        calendarCollectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: "calendarCell")
+        
+        let views = [calendarView, calendarCollectionView, finaceStackView, totalBackgroundView]
         for component in views {
-            component.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(component)
+            if let component = component {
+                component.translatesAutoresizingMaskIntoConstraints = false
+                view.addSubview(component)
+            }
         }
         
         let safeArea = view.safeAreaLayoutGuide
@@ -147,6 +161,11 @@ class CalendarViewController: UIViewController {
             calendarView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 5),
             calendarView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -5),
             calendarView.heightAnchor.constraint(greaterThanOrEqualToConstant: 400),
+            
+            calendarCollectionView.topAnchor.constraint(equalTo: calendarView.topAnchor, constant: 30),
+            calendarCollectionView.bottomAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: -5),
+            calendarCollectionView.leadingAnchor.constraint(equalTo: calendarView.leadingAnchor, constant: 5),
+            calendarCollectionView.trailingAnchor.constraint(equalTo: calendarView.trailingAnchor, constant: -5),
 
             finaceStackView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 10),
             finaceStackView.leadingAnchor.constraint(equalTo: calendarView.leadingAnchor),
@@ -159,17 +178,29 @@ class CalendarViewController: UIViewController {
             totalBackgroundView.trailingAnchor.constraint(equalTo: finaceStackView.trailingAnchor),
             totalBackgroundView.heightAnchor.constraint(equalToConstant: 80)
         ])
+        
+        
     }
     
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        42
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCollectionViewCell
+        cell.configureCell(string: "test", string2: "120만원")
+        cell.backgroundColor = .green
+        return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width / 8 // 셀 너비를 7로 나눔
+            return CGSize(width: width, height: width) // 셀 높이를 셀 너비와 같게 설정 (정사각형 셀)
+        }
 }

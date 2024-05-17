@@ -12,6 +12,7 @@
 		582B7BAD2BF6E48400D942C6 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582B7BAC2BF6E48400D942C6 /* CalendarViewController.swift */; };
 		582B7BAF2BF6E4AF00D942C6 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582B7BAE2BF6E4AF00D942C6 /* RankingViewController.swift */; };
 		582B7BB12BF6E56600D942C6 /* ListOfHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582B7BB02BF6E56600D942C6 /* ListOfHistoryViewController.swift */; };
+		582B7BB62BF71E5D00D942C6 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582B7BB52BF71E5D00D942C6 /* CalendarCollectionViewCell.swift */; };
 		583D7C812979482700F01023 /* Borderbutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D7C802979482700F01023 /* Borderbutton.swift */; };
 		58492B8B297AE5240056A9A7 /* BorderCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58492B8A297AE5240056A9A7 /* BorderCV.swift */; };
 		5849E85529824CDC00088CA4 /* NanumBarunpenB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5849E85329824CDC00088CA4 /* NanumBarunpenB.otf */; };
@@ -52,6 +53,7 @@
 		582B7BAC2BF6E48400D942C6 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		582B7BAE2BF6E4AF00D942C6 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		582B7BB02BF6E56600D942C6 /* ListOfHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfHistoryViewController.swift; sourceTree = "<group>"; };
+		582B7BB52BF71E5D00D942C6 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		583D7C802979482700F01023 /* Borderbutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borderbutton.swift; sourceTree = "<group>"; };
 		58492B8A297AE5240056A9A7 /* BorderCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCV.swift; sourceTree = "<group>"; };
 		5849E85329824CDC00088CA4 /* NanumBarunpenB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenB.otf; sourceTree = "<group>"; };
@@ -129,14 +131,13 @@
 			path = extensions;
 			sourceTree = "<group>";
 		};
-		581BB1C92BC00D7200334061 /* MainView */ = {
+		581BB1C92BC00D7200334061 /* First Tab Item */ = {
 			isa = PBXGroup;
 			children = (
 				582B7BAC2BF6E48400D942C6 /* CalendarViewController.swift */,
-				582B7BAE2BF6E4AF00D942C6 /* RankingViewController.swift */,
-				582B7BB02BF6E56600D942C6 /* ListOfHistoryViewController.swift */,
+				582B7BB52BF71E5D00D942C6 /* CalendarCollectionViewCell.swift */,
 			);
-			path = MainView;
+			path = "First Tab Item";
 			sourceTree = "<group>";
 		};
 		582B7BB22BF7199F00D942C6 /* Before Refactoring */ = {
@@ -150,6 +151,22 @@
 				5805879129794E8700DA5F5B /* extensions */,
 			);
 			path = "Before Refactoring";
+			sourceTree = "<group>";
+		};
+		582B7BB32BF71E1200D942C6 /* Second Tab Item */ = {
+			isa = PBXGroup;
+			children = (
+				582B7BAE2BF6E4AF00D942C6 /* RankingViewController.swift */,
+			);
+			path = "Second Tab Item";
+			sourceTree = "<group>";
+		};
+		582B7BB42BF71E1D00D942C6 /* Third Tab Item */ = {
+			isa = PBXGroup;
+			children = (
+				582B7BB02BF6E56600D942C6 /* ListOfHistoryViewController.swift */,
+			);
+			path = "Third Tab Item";
 			sourceTree = "<group>";
 		};
 		583D7C7F297947C200F01023 /* components */ = {
@@ -246,7 +263,9 @@
 		58FFA0A62BB44D2D00599380 /* Refactoring */ = {
 			isa = PBXGroup;
 			children = (
-				581BB1C92BC00D7200334061 /* MainView */,
+				581BB1C92BC00D7200334061 /* First Tab Item */,
+				582B7BB32BF71E1200D942C6 /* Second Tab Item */,
+				582B7BB42BF71E1D00D942C6 /* Third Tab Item */,
 			);
 			path = Refactoring;
 			sourceTree = "<group>";
@@ -396,6 +415,7 @@
 				58D93C422A7E0B1A00141D7A /* FavoriteDataCell.swift in Sources */,
 				58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */,
 				58694FE4297905A200817314 /* AddlistVC.swift in Sources */,
+				582B7BB62BF71E5D00D942C6 /* CalendarCollectionViewCell.swift in Sources */,
 				58F3923E2AADE5DD00C4119D /* CategoryCollectionViewCell.swift in Sources */,
 				58694FE6297905D200817314 /* TotalListVC.swift in Sources */,
 			);
