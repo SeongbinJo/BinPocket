@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		5805879029794D2A00DA5F5B /* Borderview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805878F29794D2A00DA5F5B /* Borderview.swift */; };
 		5805879329794EAC00DA5F5B /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805879229794EAC00DA5F5B /* CALayer.swift */; };
+		582B7BAD2BF6E48400D942C6 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582B7BAC2BF6E48400D942C6 /* CalendarViewController.swift */; };
+		582B7BAF2BF6E4AF00D942C6 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582B7BAE2BF6E4AF00D942C6 /* RankingViewController.swift */; };
+		582B7BB12BF6E56600D942C6 /* ListOfHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582B7BB02BF6E56600D942C6 /* ListOfHistoryViewController.swift */; };
 		583D7C812979482700F01023 /* Borderbutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D7C802979482700F01023 /* Borderbutton.swift */; };
 		58492B8B297AE5240056A9A7 /* BorderCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58492B8A297AE5240056A9A7 /* BorderCV.swift */; };
 		5849E85529824CDC00088CA4 /* NanumBarunpenB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5849E85329824CDC00088CA4 /* NanumBarunpenB.otf */; };
 		5849E85629824CDC00088CA4 /* NanumBarunpenR.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5849E85429824CDC00088CA4 /* NanumBarunpenR.otf */; };
 		58528E7F2997C0F500F7726F /* appImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 58528E7E2997C0F400F7726F /* appImage.png */; };
 		58528E812997C0FD00F7726F /* nameImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 58528E802997C0FD00F7726F /* nameImage.png */; };
-		585712702BC3D9870042A984 /* CategoryRankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857126F2BC3D9870042A984 /* CategoryRankTableViewCell.swift */; };
 		58571E242A4EB27F0092D7C1 /* EditListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58571E232A4EB27F0092D7C1 /* EditListVC.swift */; };
 		585742532ACD978200F16506 /* RankDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585742522ACD978200F16506 /* RankDetailCell.swift */; };
 		58694FCE297904FF00817314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58694FCD297904FF00817314 /* AppDelegate.swift */; };
@@ -39,7 +41,6 @@
 		58ECD34D29965DBF00812DC9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD34C29965DBF00812DC9 /* SettingVC.swift */; };
 		58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */; };
 		58F3923E2AADE5DD00C4119D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F3923D2AADE5DD00C4119D /* CategoryCollectionViewCell.swift */; };
-		58FFA0A82BB44D7000599380 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFA0A72BB44D7000599380 /* CalendarVC.swift */; };
 		C3D743C57A3F485B30824A75 /* Pods_BinPocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF88A3F0A1C87590491B005 /* Pods_BinPocket.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,13 +49,15 @@
 		2264F30DDD142F89C6A26A00 /* Pods-BinPocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinPocket.debug.xcconfig"; path = "Target Support Files/Pods-BinPocket/Pods-BinPocket.debug.xcconfig"; sourceTree = "<group>"; };
 		5805878F29794D2A00DA5F5B /* Borderview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borderview.swift; sourceTree = "<group>"; };
 		5805879229794EAC00DA5F5B /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		582B7BAC2BF6E48400D942C6 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		582B7BAE2BF6E4AF00D942C6 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		582B7BB02BF6E56600D942C6 /* ListOfHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfHistoryViewController.swift; sourceTree = "<group>"; };
 		583D7C802979482700F01023 /* Borderbutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borderbutton.swift; sourceTree = "<group>"; };
 		58492B8A297AE5240056A9A7 /* BorderCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCV.swift; sourceTree = "<group>"; };
 		5849E85329824CDC00088CA4 /* NanumBarunpenB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenB.otf; sourceTree = "<group>"; };
 		5849E85429824CDC00088CA4 /* NanumBarunpenR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenR.otf; sourceTree = "<group>"; };
 		58528E7E2997C0F400F7726F /* appImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appImage.png; sourceTree = "<group>"; };
 		58528E802997C0FD00F7726F /* nameImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nameImage.png; sourceTree = "<group>"; };
-		5857126F2BC3D9870042A984 /* CategoryRankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRankTableViewCell.swift; sourceTree = "<group>"; };
 		58571E232A4EB27F0092D7C1 /* EditListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListVC.swift; sourceTree = "<group>"; };
 		585742522ACD978200F16506 /* RankDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankDetailCell.swift; sourceTree = "<group>"; };
 		58694FCA297904FF00817314 /* BinPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +87,6 @@
 		58ECD34C29965DBF00812DC9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingtableviewCell.swift; sourceTree = "<group>"; };
 		58F3923D2AADE5DD00C4119D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		58FFA0A72BB44D7000599380 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		96C17D911AB3536243F69688 /* Pods-BinPocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinPocket.release.xcconfig"; path = "Target Support Files/Pods-BinPocket/Pods-BinPocket.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,18 +132,11 @@
 		581BB1C92BC00D7200334061 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				58FFA0A72BB44D7000599380 /* CalendarVC.swift */,
-				581BB1CA2BC00D8200334061 /* Components */,
+				582B7BAC2BF6E48400D942C6 /* CalendarViewController.swift */,
+				582B7BAE2BF6E4AF00D942C6 /* RankingViewController.swift */,
+				582B7BB02BF6E56600D942C6 /* ListOfHistoryViewController.swift */,
 			);
 			path = MainView;
-			sourceTree = "<group>";
-		};
-		581BB1CA2BC00D8200334061 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				5857126F2BC3D9870042A984 /* CategoryRankTableViewCell.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		583D7C7F297947C200F01023 /* components */ = {
@@ -369,21 +364,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582B7BAD2BF6E48400D942C6 /* CalendarViewController.swift in Sources */,
 				5805879329794EAC00DA5F5B /* CALayer.swift in Sources */,
 				58ECD34D29965DBF00812DC9 /* SettingVC.swift in Sources */,
 				58DD22E629927FA6001CBD84 /* TotalTableViewCell.swift in Sources */,
 				58694FD2297904FF00817314 /* MainVC.swift in Sources */,
+				582B7BAF2BF6E4AF00D942C6 /* RankingViewController.swift in Sources */,
 				583D7C812979482700F01023 /* Borderbutton.swift in Sources */,
 				5805879029794D2A00DA5F5B /* Borderview.swift in Sources */,
 				58694FCE297904FF00817314 /* AppDelegate.swift in Sources */,
 				58A125B72997372B0068F86E /* RgbColorExt.swift in Sources */,
+				582B7BB12BF6E56600D942C6 /* ListOfHistoryViewController.swift in Sources */,
 				588332732AAA07EA007630C9 /* SelectCategoryVC.swift in Sources */,
 				58571E242A4EB27F0092D7C1 /* EditListVC.swift in Sources */,
 				58A125B9299737C80068F86E /* NotificationCenterName.swift in Sources */,
 				58694FD0297904FF00817314 /* SceneDelegate.swift in Sources */,
 				58492B8B297AE5240056A9A7 /* BorderCV.swift in Sources */,
 				58694FE22979058D00817314 /* ViewlistVC.swift in Sources */,
-				58FFA0A82BB44D7000599380 /* CalendarVC.swift in Sources */,
 				585742532ACD978200F16506 /* RankDetailCell.swift in Sources */,
 				5873E2522ACAF17100B31106 /* RankTableCell.swift in Sources */,
 				58D848012986A25C00854DDD /* RealmData.swift in Sources */,
@@ -391,7 +388,6 @@
 				58D93C422A7E0B1A00141D7A /* FavoriteDataCell.swift in Sources */,
 				58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */,
 				58694FE4297905A200817314 /* AddlistVC.swift in Sources */,
-				585712702BC3D9870042A984 /* CategoryRankTableViewCell.swift in Sources */,
 				58F3923E2AADE5DD00C4119D /* CategoryCollectionViewCell.swift in Sources */,
 				58694FE6297905D200817314 /* TotalListVC.swift in Sources */,
 			);
