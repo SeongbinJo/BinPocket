@@ -139,6 +139,19 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
+		582B7BB22BF7199F00D942C6 /* Before Refactoring */ = {
+			isa = PBXGroup;
+			children = (
+				58694FE72979064D00817314 /* font */,
+				58528E7B2997BAD300F7726F /* images */,
+				58FFA0A42BB44D0100599380 /* ViewController */,
+				58694FD3297904FF00817314 /* Main.storyboard */,
+				583D7C7F297947C200F01023 /* components */,
+				5805879129794E8700DA5F5B /* extensions */,
+			);
+			path = "Before Refactoring";
+			sourceTree = "<group>";
+		};
 		583D7C7F297947C200F01023 /* components */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,17 +199,12 @@
 		58694FCC297904FF00817314 /* BinPocket */ = {
 			isa = PBXGroup;
 			children = (
-				58528E7B2997BAD300F7726F /* images */,
-				5805879129794E8700DA5F5B /* extensions */,
-				583D7C7F297947C200F01023 /* components */,
-				58694FE72979064D00817314 /* font */,
+				582B7BB22BF7199F00D942C6 /* Before Refactoring */,
 				58694FCD297904FF00817314 /* AppDelegate.swift */,
 				58694FCF297904FF00817314 /* SceneDelegate.swift */,
-				58694FD3297904FF00817314 /* Main.storyboard */,
 				58694FD62979050000817314 /* Assets.xcassets */,
 				58694FD82979050000817314 /* LaunchScreen.storyboard */,
 				587E0B7C29982CE00007BB54 /* InfoPlist.strings */,
-				58FFA0A42BB44D0100599380 /* ViewController */,
 				58FFA0A52BB44D2200599380 /* Realm */,
 				58694FDB2979050000817314 /* Info.plist */,
 				58FFA0A62BB44D2D00599380 /* Refactoring */,
