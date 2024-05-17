@@ -16,31 +16,16 @@ class CalendarViewController: UIViewController {
     }()
     
     // 수입 컨테이너 시작
-    private lazy var inComeLabel: UILabel = {
+    private lazy var inComeTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = "수입"
         return label
     }()
     
-    private lazy var inComeLabelStackView: UIStackView = {
-        let inComeLabelStackView = UIStackView()
-        inComeLabelStackView.axis = .vertical
-        inComeLabelStackView.alignment = .center
-        inComeLabelStackView.spacing = 0
-        inComeLabelStackView.backgroundColor = .yellow
-        let hStackView = UIStackView()
-        hStackView.axis = .horizontal
-        hStackView.distribution = .fill
-        hStackView.alignment = .center
-        let inComeTitleLabel = UILabel()
-        inComeTitleLabel.text = "수입"
-        let wonLabel = UILabel()
-        wonLabel.text = "원"
-        hStackView.addArrangedSubview(inComeLabel)
-        hStackView.addArrangedSubview(wonLabel)
-        inComeLabelStackView.addArrangedSubview(inComeTitleLabel)
-        inComeLabelStackView.addArrangedSubview(hStackView)
-        return inComeLabelStackView
+    private lazy var inComeAmountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0"
+        return label
     }()
     
     private lazy var inComeBackgroundView: UIView = {
@@ -48,13 +33,17 @@ class CalendarViewController: UIViewController {
         backgroundView.backgroundColor = .red
         backgroundView.layer.cornerRadius = 10
         
-        backgroundView.addSubview(inComeLabelStackView)
-        inComeLabelStackView.translatesAutoresizingMaskIntoConstraints = false
+        inComeAmountLabel.translatesAutoresizingMaskIntoConstraints = false
+        inComeTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        backgroundView.addSubview(inComeTitleLabel)
+        backgroundView.addSubview(inComeAmountLabel)
         NSLayoutConstraint.activate([
-            inComeLabelStackView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 10),
-            inComeLabelStackView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -10),
-            inComeLabelStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 10),
-            inComeLabelStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -10),
+            inComeTitleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 5),
+            inComeTitleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            
+            inComeAmountLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            inComeAmountLabel.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
         ])
         
         return backgroundView
@@ -62,27 +51,16 @@ class CalendarViewController: UIViewController {
     // 수입 컨테이너 끝
     
     // 지출 컨테이너 시작
-    private lazy var expenseLabel: UILabel = {
+    private lazy var extenseTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "0"
+        label.text = "지출"
         return label
     }()
     
-    private lazy var expenseLabelStackView: UIStackView = {
-        let expenseLabelStackView = UIStackView()
-        expenseLabelStackView.axis = .vertical
-        expenseLabelStackView.alignment = .center
-        let hStackView = UIStackView()
-        hStackView.axis = .horizontal
-        let expenseTitleLabel = UILabel()
-        expenseTitleLabel.text = "지출"
-        let wonLabel = UILabel()
-        wonLabel.text = "원"
-        hStackView.addArrangedSubview(expenseLabel)
-        hStackView.addArrangedSubview(wonLabel)
-        expenseLabelStackView.addArrangedSubview(expenseTitleLabel)
-        expenseLabelStackView.addArrangedSubview(hStackView)
-        return expenseLabelStackView
+    private lazy var extenseAmountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0"
+        return label
     }()
     
     private lazy var expenseBackgroundView: UIView = {
@@ -90,13 +68,17 @@ class CalendarViewController: UIViewController {
         backgroundView.backgroundColor = .blue
         backgroundView.layer.cornerRadius = 10
         
-        backgroundView.addSubview(expenseLabelStackView)
-        expenseLabelStackView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.addSubview(extenseTitleLabel)
+        backgroundView.addSubview(extenseAmountLabel)
+        
+        extenseTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        extenseAmountLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            expenseLabelStackView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 10),
-            expenseLabelStackView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -10),
-            expenseLabelStackView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 10),
-            expenseLabelStackView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -10),
+            extenseTitleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 5),
+            extenseTitleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            
+            extenseAmountLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            extenseAmountLabel.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
         ])
         
         return backgroundView
@@ -114,17 +96,46 @@ class CalendarViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var totalLabelStackView: UIStackView = {
-        let stackView = UIStackView()
-        return stackView
+    // 총 합계 컨테이너 시작
+    private lazy var totalTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Total"
+        return label
     }()
+    
+    private lazy var totalAmountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0"
+        return label
+    }()
+    
+    private lazy var totalBackgroundView: UIView = {
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .gray
+        backgroundView.layer.cornerRadius = 10
+        
+        backgroundView.addSubview(totalTitleLabel)
+        backgroundView.addSubview(totalAmountLabel)
+        
+        totalTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        totalAmountLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            totalTitleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 5),
+            totalTitleLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            
+            totalAmountLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            totalAmountLabel.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
+        ])
+        return backgroundView
+    }()
+    // 총 합계 컨테이너 끝
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationItem.title = "빈주머니"
         
-        let views = [calendarView, finaceStackView]
+        let views = [calendarView, finaceStackView, totalBackgroundView]
         for component in views {
             component.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(component)
@@ -135,12 +146,18 @@ class CalendarViewController: UIViewController {
             calendarView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 5),
             calendarView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 5),
             calendarView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -5),
-            calendarView.heightAnchor.constraint(equalToConstant: 400),
+            calendarView.heightAnchor.constraint(greaterThanOrEqualToConstant: 400),
 
             finaceStackView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 10),
-            finaceStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -150),
             finaceStackView.leadingAnchor.constraint(equalTo: calendarView.leadingAnchor),
             finaceStackView.trailingAnchor.constraint(equalTo: calendarView.trailingAnchor),
+            finaceStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 80),
+            
+            totalBackgroundView.topAnchor.constraint(equalTo: finaceStackView.bottomAnchor, constant: 10),
+            totalBackgroundView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -20),
+            totalBackgroundView.leadingAnchor.constraint(equalTo: finaceStackView.leadingAnchor),
+            totalBackgroundView.trailingAnchor.constraint(equalTo: finaceStackView.trailingAnchor),
+            totalBackgroundView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     
