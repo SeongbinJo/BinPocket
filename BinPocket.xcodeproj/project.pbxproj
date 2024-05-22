@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40CEE6DFFBF633E3D7528ED2 /* Pods_BinPocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2452731696B536007A8A57C /* Pods_BinPocket.framework */; };
 		5805879029794D2A00DA5F5B /* Borderview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805878F29794D2A00DA5F5B /* Borderview.swift */; };
 		5805879329794EAC00DA5F5B /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805879229794EAC00DA5F5B /* CALayer.swift */; };
 		582B7BAD2BF6E48400D942C6 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582B7BAC2BF6E48400D942C6 /* CalendarViewController.swift */; };
@@ -42,11 +43,9 @@
 		58ECD34D29965DBF00812DC9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD34C29965DBF00812DC9 /* SettingVC.swift */; };
 		58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */; };
 		58F3923E2AADE5DD00C4119D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F3923D2AADE5DD00C4119D /* CategoryCollectionViewCell.swift */; };
-		C3D743C57A3F485B30824A75 /* Pods_BinPocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF88A3F0A1C87590491B005 /* Pods_BinPocket.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CF88A3F0A1C87590491B005 /* Pods_BinPocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BinPocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2264F30DDD142F89C6A26A00 /* Pods-BinPocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinPocket.debug.xcconfig"; path = "Target Support Files/Pods-BinPocket/Pods-BinPocket.debug.xcconfig"; sourceTree = "<group>"; };
 		5805878F29794D2A00DA5F5B /* Borderview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borderview.swift; sourceTree = "<group>"; };
 		5805879229794EAC00DA5F5B /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
@@ -83,6 +82,19 @@
 		58A125B62997372B0068F86E /* RgbColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RgbColorExt.swift; sourceTree = "<group>"; };
 		58A125B8299737C80068F86E /* NotificationCenterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterName.swift; sourceTree = "<group>"; };
 		58A12F8A2985191D00FD668E /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		58A1E4DE2BFCE73800F00ED8 /* Pods-BinPocket-acknowledgements.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Pods-BinPocket-acknowledgements.markdown"; sourceTree = "<group>"; };
+		58A1E4DF2BFCE73800F00ED8 /* Pods-BinPocket-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-BinPocket-acknowledgements.plist"; sourceTree = "<group>"; };
+		58A1E4E02BFCE73800F00ED8 /* Pods-BinPocket-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Pods-BinPocket-dummy.m"; sourceTree = "<group>"; };
+		58A1E4E12BFCE73800F00ED8 /* Pods-BinPocket-frameworks-Debug-input-files.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = "Pods-BinPocket-frameworks-Debug-input-files.xcfilelist"; sourceTree = "<group>"; };
+		58A1E4E22BFCE73800F00ED8 /* Pods-BinPocket-frameworks-Debug-output-files.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = "Pods-BinPocket-frameworks-Debug-output-files.xcfilelist"; sourceTree = "<group>"; };
+		58A1E4E32BFCE73800F00ED8 /* Pods-BinPocket-frameworks-Release-input-files.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = "Pods-BinPocket-frameworks-Release-input-files.xcfilelist"; sourceTree = "<group>"; };
+		58A1E4E42BFCE73800F00ED8 /* Pods-BinPocket-frameworks-Release-output-files.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = "Pods-BinPocket-frameworks-Release-output-files.xcfilelist"; sourceTree = "<group>"; };
+		58A1E4E52BFCE73800F00ED8 /* Pods-BinPocket-frameworks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "Pods-BinPocket-frameworks.sh"; sourceTree = "<group>"; };
+		58A1E4E62BFCE73800F00ED8 /* Pods-BinPocket-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-BinPocket-Info.plist"; sourceTree = "<group>"; };
+		58A1E4E72BFCE73800F00ED8 /* Pods-BinPocket-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-BinPocket-umbrella.h"; sourceTree = "<group>"; };
+		58A1E4E82BFCE73800F00ED8 /* Pods-BinPocket.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-BinPocket.debug.xcconfig"; sourceTree = "<group>"; };
+		58A1E4E92BFCE73800F00ED8 /* Pods-BinPocket.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BinPocket.modulemap"; sourceTree = "<group>"; };
+		58A1E4EA2BFCE73800F00ED8 /* Pods-BinPocket.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-BinPocket.release.xcconfig"; sourceTree = "<group>"; };
 		58D848002986A25C00854DDD /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		58D93C412A7E0B1A00141D7A /* FavoriteDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDataCell.swift; sourceTree = "<group>"; };
 		58DD22E529927FA6001CBD84 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +102,7 @@
 		58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingtableviewCell.swift; sourceTree = "<group>"; };
 		58F3923D2AADE5DD00C4119D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		96C17D911AB3536243F69688 /* Pods-BinPocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinPocket.release.xcconfig"; path = "Target Support Files/Pods-BinPocket/Pods-BinPocket.release.xcconfig"; sourceTree = "<group>"; };
+		C2452731696B536007A8A57C /* Pods_BinPocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BinPocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,13 +110,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3D743C57A3F485B30824A75 /* Pods_BinPocket.framework in Frameworks */,
+				40CEE6DFFBF633E3D7528ED2 /* Pods_BinPocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		014EAA7C53CD912CE419DC49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2452731696B536007A8A57C /* Pods_BinPocket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1DFCA8D7B1FB27F3391AB454 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,14 +132,6 @@
 				96C17D911AB3536243F69688 /* Pods-BinPocket.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		4F3A4CF6AFDAB7A96872BE65 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0CF88A3F0A1C87590491B005 /* Pods_BinPocket.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5805879129794E8700DA5F5B /* extensions */ = {
@@ -198,10 +211,11 @@
 		58694FC1297904FF00817314 = {
 			isa = PBXGroup;
 			children = (
+				58A1E4EB2BFCE73800F00ED8 /* Pods-BinPocket */,
 				58694FCC297904FF00817314 /* BinPocket */,
 				58694FCB297904FF00817314 /* Products */,
 				1DFCA8D7B1FB27F3391AB454 /* Pods */,
-				4F3A4CF6AFDAB7A96872BE65 /* Frameworks */,
+				014EAA7C53CD912CE419DC49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -236,6 +250,27 @@
 				5849E85429824CDC00088CA4 /* NanumBarunpenR.otf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		58A1E4EB2BFCE73800F00ED8 /* Pods-BinPocket */ = {
+			isa = PBXGroup;
+			children = (
+				58A1E4DE2BFCE73800F00ED8 /* Pods-BinPocket-acknowledgements.markdown */,
+				58A1E4DF2BFCE73800F00ED8 /* Pods-BinPocket-acknowledgements.plist */,
+				58A1E4E02BFCE73800F00ED8 /* Pods-BinPocket-dummy.m */,
+				58A1E4E12BFCE73800F00ED8 /* Pods-BinPocket-frameworks-Debug-input-files.xcfilelist */,
+				58A1E4E22BFCE73800F00ED8 /* Pods-BinPocket-frameworks-Debug-output-files.xcfilelist */,
+				58A1E4E32BFCE73800F00ED8 /* Pods-BinPocket-frameworks-Release-input-files.xcfilelist */,
+				58A1E4E42BFCE73800F00ED8 /* Pods-BinPocket-frameworks-Release-output-files.xcfilelist */,
+				58A1E4E52BFCE73800F00ED8 /* Pods-BinPocket-frameworks.sh */,
+				58A1E4E62BFCE73800F00ED8 /* Pods-BinPocket-Info.plist */,
+				58A1E4E72BFCE73800F00ED8 /* Pods-BinPocket-umbrella.h */,
+				58A1E4E82BFCE73800F00ED8 /* Pods-BinPocket.debug.xcconfig */,
+				58A1E4E92BFCE73800F00ED8 /* Pods-BinPocket.modulemap */,
+				58A1E4EA2BFCE73800F00ED8 /* Pods-BinPocket.release.xcconfig */,
+			);
+			name = "Pods-BinPocket";
+			path = "Pods/Target Support Files/Pods-BinPocket";
 			sourceTree = "<group>";
 		};
 		58FFA0A42BB44D0100599380 /* ViewController */ = {
@@ -281,7 +316,7 @@
 				58694FC6297904FF00817314 /* Sources */,
 				58694FC7297904FF00817314 /* Frameworks */,
 				58694FC8297904FF00817314 /* Resources */,
-				D43D58A5DD16664B1470B923 /* [CP] Embed Pods Frameworks */,
+				545696DDA4C71AA643CD7710 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -345,6 +380,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		545696DDA4C71AA643CD7710 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BinPocket/Pods-BinPocket-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BinPocket/Pods-BinPocket-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BinPocket/Pods-BinPocket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		73E0AC1E2485EF5B8921328E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,23 +417,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D43D58A5DD16664B1470B923 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BinPocket/Pods-BinPocket-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BinPocket/Pods-BinPocket-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BinPocket/Pods-BinPocket-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -492,6 +527,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -587,7 +623,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -620,7 +656,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
