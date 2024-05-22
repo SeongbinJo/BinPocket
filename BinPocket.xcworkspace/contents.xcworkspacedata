@@ -4,6 +4,49 @@
    <FileRef
       location = "group:BinPocket.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:Pods-BinPocket"
+      name = "Pods-BinPocket">
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket-acknowledgements.markdown">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket-acknowledgements.plist">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket-dummy.m">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket-frameworks-Debug-input-files.xcfilelist">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket-frameworks-Debug-output-files.xcfilelist">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket-frameworks-Release-input-files.xcfilelist">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket-frameworks-Release-output-files.xcfilelist">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket-frameworks.sh">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket-Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket-umbrella.h">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket.debug.xcconfig">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket.modulemap">
+      </FileRef>
+      <FileRef
+         location = "group:Pods-BinPocket/Pods-BinPocket.release.xcconfig">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
