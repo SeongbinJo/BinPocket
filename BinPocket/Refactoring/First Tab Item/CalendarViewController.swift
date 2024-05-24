@@ -10,18 +10,12 @@ import UIKit
 class CalendarViewController: UIViewController {
     
     // 달력 컨테이너 시작
-    private var calendarCollectionView: UICollectionView!
-    
+    private var calendarCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private var prevMonthButton: UIButton = UIButton()
-    
     private var currentYearMonth: UILabel = UILabel()
-    
     private var nextMonthButton: UIButton = UIButton()
-    
     private var todayButton: UIButton = UIButton()
-
     private lazy var calendarNavigationBarStackView: UIStackView = UIStackView()
-
     private lazy var calendarView: UIView = UIView()
     // 달력 컨테이너 끝
     
@@ -29,12 +23,10 @@ class CalendarViewController: UIViewController {
 
     // 수입 View
     private lazy var inComeAmountLabel: UILabel = UILabel()
-    
     private lazy var inComeAmountView: UIView = UIView()
     
     // 지출 View
     private lazy var expenseAmountLabel: UILabel = UILabel()
-
     private lazy var expenseAmountView: UIView = UIView()
 
     // Total View
@@ -42,7 +34,6 @@ class CalendarViewController: UIViewController {
     
     // 요일 스택뷰
     private lazy var weekOfDayStackView: UIStackView = UIStackView()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +68,7 @@ class CalendarViewController: UIViewController {
         calendarView.addSubview(calendarNavigationBarStackView)
         
         NSLayoutConstraint.activate([
-            calendarNavigationBarStackView.topAnchor.constraint(equalTo: calendarView.topAnchor),
+            calendarNavigationBarStackView.topAnchor.constraint(equalTo: calendarView.topAnchor, constant: 10),
             calendarNavigationBarStackView.centerXAnchor.constraint(equalTo: calendarView.centerXAnchor),
         ])
     }
@@ -85,8 +76,10 @@ class CalendarViewController: UIViewController {
     
     func setupTodayButton() {
         todayButton.setTitleColor(.white, for: .normal)
-        todayButton.setTitle("Today", for: .normal)
-        todayButton.backgroundColor = .black
+        var config = UIButton.Configuration.filled()
+        config.title = "Today"
+        config.background.backgroundColor = .black
+        todayButton.configuration = config
         todayButton.addAction(UIAction { _ in
             print("Clicked Today Button.")
         }, for: .touchUpInside)
@@ -96,7 +89,7 @@ class CalendarViewController: UIViewController {
         calendarView.addSubview(todayButton)
         
         NSLayoutConstraint.activate([
-            todayButton.topAnchor.constraint(equalTo: calendarNavigationBarStackView.topAnchor),
+            todayButton.centerYAnchor.constraint(equalTo: calendarNavigationBarStackView.centerYAnchor),
             todayButton.trailingAnchor.constraint(equalTo: calendarView.trailingAnchor, constant: -5),
         ])
     }
@@ -138,13 +131,33 @@ class CalendarViewController: UIViewController {
         
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         
+        // 임시 콜렉션뷰
+        calendarCollectionView.dataSource = self
+        calendarCollectionView.delegate = self
+        
+        calendarCollectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        
+        calendarCollectionView.backgroundColor = .lightGray
+        
+        calendarCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        calendarView.addSubview(calendarCollectionView)
+        
+        NSLayoutConstraint.activate([
+            calendarCollectionView.topAnchor.constraint(equalTo: weekOfDayStackView.bottomAnchor, constant: 5),
+            calendarCollectionView.leadingAnchor.constraint(equalTo: calendarView.leadingAnchor),
+            calendarCollectionView.trailingAnchor.constraint(equalTo: calendarView.trailingAnchor),
+            calendarCollectionView.bottomAnchor.constraint(equalTo: calendarView.bottomAnchor)
+        ])
+        //
+        
         view.addSubview(calendarView)
         
         NSLayoutConstraint.activate([
             calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-            calendarView.heightAnchor.constraint(greaterThanOrEqualToConstant: 300)
+            calendarView.heightAnchor.constraint(greaterThanOrEqualToConstant: 700)
         ])
     }
     
@@ -285,3 +298,32 @@ class CalendarViewController: UIViewController {
     }
 }
 
+extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    // UICollectionViewDelegateFlowLayout
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        .zero
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return .zero // 열 간의 간격을 0으로 설정
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = self.calendarView.frame.width / 7
+        return CGSize(width: width, height: width * 1)
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        42
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CalendarCollectionViewCell
+        cell.configureCell()
+        cell.backgroundColor = .brown
+        return cell
+    }
+    
+    
+}

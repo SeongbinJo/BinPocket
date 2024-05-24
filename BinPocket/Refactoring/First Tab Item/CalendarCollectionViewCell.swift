@@ -8,52 +8,54 @@
 import UIKit
 
 class CalendarCollectionViewCell: UICollectionViewCell {
-    let dayOfWeek: [String] = ["일", "월", "화", "수", "목", "금", "토"]
     
     private lazy var numberOfDay: UILabel = {
         let numberLabel = UILabel()
-        numberLabel.text = "asdf"
+        numberLabel.text = "0"
+        numberLabel.translatesAutoresizingMaskIntoConstraints = false
         return numberLabel
     }()
     
     private lazy var amountOfDay: UILabel = {
         let amountLabel = UILabel()
-        amountLabel.text = "20,000"
+        amountLabel.text = "1,400,000"
         amountLabel.font = .systemFont(ofSize: 10, weight: .light)
+        amountLabel.translatesAutoresizingMaskIntoConstraints = false
         return amountLabel
     }()
     
-    private lazy var cellStackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.alignment = .center
-        stackView.backgroundColor = .red
-        stackView.spacing = 0
+        
         stackView.addArrangedSubview(numberOfDay)
         stackView.addArrangedSubview(amountOfDay)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         return stackView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(cellStackView)
-        cellStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            cellStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            cellStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-//            cellStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
-            cellStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-            cellStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-        ])
+
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureCell(string: String, string2: String) {
-        numberOfDay.text = string
-        amountOfDay.text = string2
+    func configureCell() {
+        numberOfDay.text = "0"
+        amountOfDay.text = "-"
+        
+        contentView.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+        ])
     }
 }

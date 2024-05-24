@@ -36,6 +36,7 @@
 		58A125B72997372B0068F86E /* RgbColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A125B62997372B0068F86E /* RgbColorExt.swift */; };
 		58A125B9299737C80068F86E /* NotificationCenterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A125B8299737C80068F86E /* NotificationCenterName.swift */; };
 		58A12F8B2985191D00FD668E /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A12F8A2985191D00FD668E /* TableCell.swift */; };
+		58A6D9612C00E94E00196B82 /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A6D9602C00E94E00196B82 /* RealmDataManager.swift */; };
 		58D848012986A25C00854DDD /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D848002986A25C00854DDD /* RealmData.swift */; };
 		58D93C422A7E0B1A00141D7A /* FavoriteDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D93C412A7E0B1A00141D7A /* FavoriteDataCell.swift */; };
 		58DD22E629927FA6001CBD84 /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DD22E529927FA6001CBD84 /* TotalTableViewCell.swift */; };
@@ -110,6 +111,7 @@
 		58A1E4E82BFCE73800F00ED8 /* Pods-BinPocket.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-BinPocket.debug.xcconfig"; sourceTree = "<group>"; };
 		58A1E4E92BFCE73800F00ED8 /* Pods-BinPocket.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BinPocket.modulemap"; sourceTree = "<group>"; };
 		58A1E4EA2BFCE73800F00ED8 /* Pods-BinPocket.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-BinPocket.release.xcconfig"; sourceTree = "<group>"; };
+		58A6D9602C00E94E00196B82 /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
 		58D848002986A25C00854DDD /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		58D93C412A7E0B1A00141D7A /* FavoriteDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDataCell.swift; sourceTree = "<group>"; };
 		58DD22E529927FA6001CBD84 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
@@ -735,6 +737,14 @@
 				58A1E4EA2BFCE73800F00ED8 /* Pods-BinPocket.release.xcconfig */,
 			);
 			path = "Pods-BinPocket";
+			sourceTree = "<group>";
+		};
+		58A6D95F2C00E93800196B82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				58A6D9602C00E94E00196B82 /* RealmDataManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		58E4628D2C00D2B000812574 /* core */ = {
@@ -1419,6 +1429,7 @@
 		58FFA0A62BB44D2D00599380 /* Refactoring */ = {
 			isa = PBXGroup;
 			children = (
+				58A6D95F2C00E93800196B82 /* Model */,
 				581BB1C92BC00D7200334061 /* First Tab Item */,
 				582B7BB32BF71E1200D942C6 /* Second Tab Item */,
 				582B7BB42BF71E1D00D942C6 /* Third Tab Item */,
@@ -1559,6 +1570,7 @@
 				58694FCE297904FF00817314 /* AppDelegate.swift in Sources */,
 				58A125B72997372B0068F86E /* RgbColorExt.swift in Sources */,
 				582B7BB12BF6E56600D942C6 /* ListOfHistoryViewController.swift in Sources */,
+				58A6D9612C00E94E00196B82 /* RealmDataManager.swift in Sources */,
 				588332732AAA07EA007630C9 /* SelectCategoryVC.swift in Sources */,
 				58571E242A4EB27F0092D7C1 /* EditListVC.swift in Sources */,
 				58A125B9299737C80068F86E /* NotificationCenterName.swift in Sources */,
