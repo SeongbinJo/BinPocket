@@ -1,6 +1,0 @@
-framework module Pods_BinPocket {
-  umbrella header "Pods-BinPocket-umbrella.h"
-
-  export *
-  module * { export * }
-}
