@@ -47,9 +47,13 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureCell() {
-        numberOfDay.text = "0"
-        amountOfDay.text = "-"
+    func configureCell(days: String) {
+        numberOfDay.text = days
+        if days == "" {
+            amountOfDay.text = ""
+        }else {
+            amountOfDay.text = "-"
+        }
         
         contentView.addSubview(stackView)
         

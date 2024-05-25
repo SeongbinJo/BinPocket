@@ -64,6 +64,7 @@ class CalendarViewController: UIViewController {
             CalendarDateManager.manager.prevMonth()
             CalendarDateManager.manager.updateTitleLabel(self?.currentYearMonth ?? UILabel())
             CalendarDateManager.manager.updateDays()
+            self?.calendarCollectionView.reloadData()
         }, for: .touchUpInside)
         
         currentYearMonth.text = "yyyy년 mm월"
@@ -73,6 +74,7 @@ class CalendarViewController: UIViewController {
             CalendarDateManager.manager.nextMonth()
             CalendarDateManager.manager.updateTitleLabel(self?.currentYearMonth ?? UILabel())
             CalendarDateManager.manager.updateDays()
+            self?.calendarCollectionView.reloadData()
         }, for: .touchUpInside)
 
         
@@ -336,12 +338,13 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        42
+        CalendarDateManager.manager.countOfDays()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CalendarCollectionViewCell
-        cell.configureCell()
+        let days = CalendarDateManager.manager.getDays()
+        cell.configureCell(days: days[indexPath.row])
         cell.backgroundColor = .brown
         return cell
     }

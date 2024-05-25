@@ -59,6 +59,16 @@ class CalendarDateManager {
         }
     }
     
+    //MARK: - days의 count
+    func countOfDays() -> Int {
+        let count = days.count
+        return count
+    }
+    
+    func getDays() -> [String] {
+        return days
+    }
+    
     //MARK: - 이전 달
     func prevMonth() {
         self.calendarDate = self.calendar.date(byAdding: DateComponents(month: -1), to: self.calendarDate) ?? Date()
