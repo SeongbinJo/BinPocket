@@ -39,6 +39,10 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        // 현재 달력 초기화
+        CalendarDateManager.manager.configureCalendar()
+        CalendarDateManager.manager.updateDays()
+        
         setupCalendarNavBarStackView()
         setupTodayButton()
         setupWeekOfDayStackView()
@@ -46,14 +50,31 @@ class CalendarViewController: UIViewController {
         setupInComeAmountView()
         setupExpenseAmountView()
         setupTotalAmountView()
-
+        
+        // 현재 년,월 타이틀 update
+        CalendarDateManager.manager.updateTitleLabel(currentYearMonth)
+        
+        
     }
     
     // UI 레이아웃 메소드
     func setupCalendarNavBarStackView() {
         prevMonthButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        prevMonthButton.addAction(UIAction { [weak self] _ in
+            CalendarDateManager.manager.prevMonth()
+            CalendarDateManager.manager.updateTitleLabel(self?.currentYearMonth ?? UILabel())
+            CalendarDateManager.manager.updateDays()
+        }, for: .touchUpInside)
+        
         currentYearMonth.text = "yyyy년 mm월"
+        
         nextMonthButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        nextMonthButton.addAction(UIAction { [weak self] _ in
+            CalendarDateManager.manager.nextMonth()
+            CalendarDateManager.manager.updateTitleLabel(self?.currentYearMonth ?? UILabel())
+            CalendarDateManager.manager.updateDays()
+        }, for: .touchUpInside)
+
         
         calendarNavigationBarStackView.axis = .horizontal
         calendarNavigationBarStackView.alignment = .center
