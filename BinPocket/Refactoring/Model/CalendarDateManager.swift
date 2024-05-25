@@ -17,13 +17,13 @@ class CalendarDateManager {
     
     private init() {
         days = []
+        self.dateFormatter.dateFormat = "yyyy년 M월"
     }
     
     //MARK: - 달력 초기화
     func configureCalendar() {
         let components = self.calendar.dateComponents([.year, .month], from: Date())
         self.calendarDate = self.calendar.date(from: components) ?? Date()
-        self.dateFormatter.dateFormat = "yyyy년 M월"
     }
     
     //MARK: - 1일이 무슨 요일인지?

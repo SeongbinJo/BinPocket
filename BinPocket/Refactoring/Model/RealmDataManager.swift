@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
 
 class RealmDataManager {
-    let manager = RealmDataManager()
+    static let manager = RealmDataManager()
     private var monthDataList: [MyData] // 월 별 데이터 묶음(하루 데이터 x 한달)
     private var dayDataList: [MyData] // 일 별 데이터 묶음(하루의 내역)
     private var amountMonthDataList: [Int] // 일 별 총합 금액의 묶음(월 단위)
@@ -18,6 +19,5 @@ class RealmDataManager {
         dayDataList = []
         amountMonthDataList = []
     }
-    
-    // 메서드
+
 }

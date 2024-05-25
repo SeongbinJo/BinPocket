@@ -103,8 +103,11 @@ class CalendarViewController: UIViewController {
         config.title = "Today"
         config.background.backgroundColor = .black
         todayButton.configuration = config
-        todayButton.addAction(UIAction { _ in
-            print("Clicked Today Button.")
+        todayButton.addAction(UIAction { [weak self] _ in
+            CalendarDateManager.manager.configureCalendar()
+            CalendarDateManager.manager.updateTitleLabel(self?.currentYearMonth ?? UILabel())
+            CalendarDateManager.manager.updateDays()
+            self?.calendarCollectionView.reloadData()
         }, for: .touchUpInside)
         
         todayButton.translatesAutoresizingMaskIntoConstraints = false
