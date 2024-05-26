@@ -8,7 +8,7 @@
 import UIKit
 
 class CalendarDetailViewController: UIViewController {
-    var navigationTitle: String = "yyyy년 M월 d일"
+    var navigationTitle: String?
     
     var addButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: CalendarDetailViewController.self, action: #selector(addButtonAction))
     
@@ -23,6 +23,8 @@ class CalendarDetailViewController: UIViewController {
     private var expenseTableView: UITableView = UITableView(frame: .zero, style: .plain)
     private var expenseView: UIView = UIView()
     
+    private var tableStackView: UIStackView = UIStackView()
+    
     private var totalAmountLabel: UILabel = UILabel()
     private var totalLabelStackView: UIStackView = UIStackView()
 
@@ -30,13 +32,14 @@ class CalendarDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = navigationTitle
+        self.navigationItem.title = navigationTitle ?? "제목 불러오기 실패"
         self.navigationItem.rightBarButtonItems = [addButton]
         self.view.backgroundColor = .white
         
         setupButtons()
         setupInComeView()
         setupExpenseView()
+        setupTableStackView()
     }
 
     
@@ -85,7 +88,7 @@ class CalendarDetailViewController: UIViewController {
         
         inComeView.addSubview(inComeTitleLabel)
         inComeView.addSubview(inComeAmountLabel)
-        inComeView.addSubview(inComeTableView)
+//        inComeView.addSubview(inComeTableView)
         
         NSLayoutConstraint.activate([
             inComeTitleLabel.topAnchor.constraint(equalTo: inComeView.topAnchor, constant: 10),
@@ -101,15 +104,13 @@ class CalendarDetailViewController: UIViewController {
         ])
         
         inComeView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(inComeView)
+
+        tableStackView.addArrangedSubview(inComeView)
         
         NSLayoutConstraint.activate([
-            inComeView.topAnchor.constraint(equalTo: prevButton.bottomAnchor, constant: 5),
-            inComeView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            inComeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            inComeView.heightAnchor.constraint(equalToConstant: 300),
-//            inComeView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            inComeView.topAnchor.constraint(equalTo: tableStackView.topAnchor),
+            inComeView.leadingAnchor.constraint(equalTo: tableStackView.leadingAnchor),
+            inComeView.trailingAnchor.constraint(equalTo: tableStackView.trailingAnchor),
         ])
     }
     
@@ -129,7 +130,7 @@ class CalendarDetailViewController: UIViewController {
         
         expenseView.addSubview(expenseTitleLabel)
         expenseView.addSubview(expenseAmountLabel)
-        expenseView.addSubview(expenseTableView)
+//        expenseView.addSubview(expenseTableView)
         
         NSLayoutConstraint.activate([
             expenseTitleLabel.topAnchor.constraint(equalTo: expenseView.topAnchor, constant: 10),
@@ -145,15 +146,36 @@ class CalendarDetailViewController: UIViewController {
         ])
         
         expenseView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(expenseView)
+ 
+        tableStackView.addArrangedSubview(expenseView)
         
         NSLayoutConstraint.activate([
-            expenseView.topAnchor.constraint(equalTo: inComeView.bottomAnchor, constant: 5),
-            expenseView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            expenseView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            expenseView.heightAnchor.constraint(equalToConstant: 300),
-//            inComeView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            expenseView.topAnchor.constraint(equalTo: inComeView.bottomAnchor, constant: 10),
+            expenseView.leadingAnchor.constraint(equalTo: inComeView.leadingAnchor),
+            expenseView.trailingAnchor.constraint(equalTo: inComeView.trailingAnchor),
+            expenseView.bottomAnchor.constraint(equalTo: tableStackView.bottomAnchor)
+        ])
+    }
+    
+    func setupTableStackView() {
+        tableStackView.axis = .vertical
+        tableStackView.distribution = .fillEqually
+        tableStackView.alignment = .center
+        tableStackView.spacing = 20
+        tableStackView.backgroundColor = .yellow
+        
+        tableStackView.addArrangedSubview(inComeView)
+        tableStackView.addArrangedSubview(expenseView)
+        
+        tableStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(tableStackView)
+        
+        NSLayoutConstraint.activate([
+            tableStackView.topAnchor.constraint(equalTo: prevButton.bottomAnchor, constant: 5),
+            tableStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            tableStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            tableStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }
 }

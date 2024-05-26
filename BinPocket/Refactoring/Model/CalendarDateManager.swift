@@ -35,25 +35,25 @@ class CalendarDateManager {
     //MARK: - 특정 날짜의 요일은?
     func weekOfDay(dateString: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 M월d"
+        dateFormatter.dateFormat = "yyyy년 M월 d일"
         let numberOfWeekDay = self.calendar.component(.weekday, from: dateFormatter.date(from: dateString) ?? Date()) - 1
         switch numberOfWeekDay {
         case 0:
-            return "일요일"
+            return "일"
         case 1:
-            return "월요일"
+            return "월"
         case 2:
-            return "화요일"
+            return "화"
         case 3:
-            return "수요일"
+            return "수"
         case 4:
-            return "목요일"
+            return "목"
         case 5:
-            return "금요일"
+            return "금"
         case 6:
-            return "토요일"
+            return "토"
         default:
-            return "일요일"
+            return "nil"
         }
     }
     //MARK: - 특정 달의 날짜 개수(28~31)

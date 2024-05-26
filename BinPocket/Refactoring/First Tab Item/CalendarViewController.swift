@@ -339,10 +339,16 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let days = CalendarDateManager.manager.getDays()
-        let dateString = (self.currentYearMonth.text ?? "") + String(days[indexPath.row])
+        if days[indexPath.row] == "" {
+            print("잘못된 날짜 선택입니다.")
+            return
+        }
+        var dateString = (self.currentYearMonth.text ?? "") + " " + String(days[indexPath.row]) + "일"
+        dateString += (" " + CalendarDateManager.manager.weekOfDay(dateString: dateString) + "요일")
         print("현재 누른 셀의 정보 : \(dateString)")
         print(CalendarDateManager.manager.weekOfDay(dateString: dateString))
         let calendarDetailViewController = CalendarDetailViewController()
+        calendarDetailViewController.navigationTitle = dateString
         show(calendarDetailViewController, sender: true)
     }
     
