@@ -58,7 +58,7 @@ class CalendarViewController: UIViewController {
         print(RealmDataManager.manager.getAllMyData())
     }
     
-    // UI 레이아웃 메소드
+    // UI 레이아웃 배치 메소드
     func setupCalendarNavBarStackView() {
         prevMonthButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         prevMonthButton.addAction(UIAction { [weak self] _ in
@@ -184,7 +184,7 @@ class CalendarViewController: UIViewController {
             calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-            calendarView.heightAnchor.constraint(greaterThanOrEqualToConstant: 700)
+            calendarView.heightAnchor.constraint(greaterThanOrEqualToConstant: 400)
         ])
     }
     
@@ -197,15 +197,11 @@ class CalendarViewController: UIViewController {
         inComeTitle.text = "수입"
         inComeTitle.translatesAutoresizingMaskIntoConstraints = false
         
-        let wonLabel = UILabel()
-        wonLabel.text = "원"
-        
         let hStackView = UIStackView()
         hStackView.axis = .horizontal
         hStackView.distribution = .fill
         hStackView.alignment = .center
         hStackView.addArrangedSubview(inComeAmountLabel)
-        hStackView.addArrangedSubview(wonLabel)
         hStackView.translatesAutoresizingMaskIntoConstraints = false
         
         inComeAmountView.addSubview(inComeTitle)
@@ -229,7 +225,7 @@ class CalendarViewController: UIViewController {
             inComeAmountView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 10),
             inComeAmountView.leadingAnchor.constraint(equalTo: calendarView.leadingAnchor),
             inComeAmountView.trailingAnchor.constraint(equalTo: calendarView.centerXAnchor, constant: -5),
-            inComeAmountView.heightAnchor.constraint(greaterThanOrEqualToConstant: 80),
+            inComeAmountView.heightAnchor.constraint(equalToConstant: 80),
         ])
     }
 
@@ -242,15 +238,11 @@ class CalendarViewController: UIViewController {
         expenseTitle.text = "지출"
         expenseTitle.translatesAutoresizingMaskIntoConstraints = false
         
-        let wonLabel = UILabel()
-        wonLabel.text = "원"
-        
         let hStackView = UIStackView()
         hStackView.axis = .horizontal
         hStackView.distribution = .fill
         hStackView.alignment = .center
         hStackView.addArrangedSubview(expenseAmountLabel)
-        hStackView.addArrangedSubview(wonLabel)
         hStackView.translatesAutoresizingMaskIntoConstraints = false
         
         expenseAmountView.addSubview(expenseTitle)
@@ -274,7 +266,8 @@ class CalendarViewController: UIViewController {
             expenseAmountView.topAnchor.constraint(equalTo: inComeAmountView.topAnchor),
             expenseAmountView.leadingAnchor.constraint(equalTo: calendarView.centerXAnchor, constant: 5),
             expenseAmountView.trailingAnchor.constraint(equalTo: calendarView.trailingAnchor),
-            expenseAmountView.heightAnchor.constraint(greaterThanOrEqualToConstant: 80),
+            expenseAmountView.bottomAnchor.constraint(equalTo: inComeAmountView.bottomAnchor),
+            expenseAmountView.heightAnchor.constraint(equalToConstant: 80),
         ])
     }
 
@@ -288,16 +281,12 @@ class CalendarViewController: UIViewController {
         // 이 부분은 후에 inComeAmountLabel + expenseAmontLabel의 값으로 대체
         let totalAmountLabel = UILabel()
         totalAmountLabel.text = "0"
-        
-        let wonLabel = UILabel()
-        wonLabel.text = "원"
-        
+
         let hStackView = UIStackView()
         hStackView.axis = .horizontal
         hStackView.distribution = .fill
         hStackView.alignment = .center
         hStackView.addArrangedSubview(totalAmountLabel)
-        hStackView.addArrangedSubview(wonLabel)
         hStackView.translatesAutoresizingMaskIntoConstraints = false
         
         totalAmountView.addSubview(totalTitle)
@@ -319,7 +308,7 @@ class CalendarViewController: UIViewController {
             totalAmountView.topAnchor.constraint(equalTo: expenseAmountView.bottomAnchor, constant: 10),
             totalAmountView.leadingAnchor.constraint(equalTo: inComeAmountView.leadingAnchor),
             totalAmountView.trailingAnchor.constraint(equalTo: expenseAmountView.trailingAnchor),
-            totalAmountView.heightAnchor.constraint(greaterThanOrEqualToConstant: 80),
+            totalAmountView.heightAnchor.constraint(equalToConstant: 80),
             totalAmountView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }
@@ -353,6 +342,8 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
         let dateString = (self.currentYearMonth.text ?? "") + String(days[indexPath.row])
         print("현재 누른 셀의 정보 : \(dateString)")
         print(CalendarDateManager.manager.weekOfDay(dateString: dateString))
+        let calendarDetailViewController = CalendarDetailViewController()
+        show(calendarDetailViewController, sender: true)
     }
     
 }

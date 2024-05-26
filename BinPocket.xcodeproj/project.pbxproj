@@ -45,6 +45,7 @@
 		58ECD34D29965DBF00812DC9 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD34C29965DBF00812DC9 /* SettingVC.swift */; };
 		58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */; };
 		58F3923E2AADE5DD00C4119D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F3923D2AADE5DD00C4119D /* CategoryCollectionViewCell.swift */; };
+		58F516602C034C4E0074A56D /* CalendarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5165F2C034C4E0074A56D /* CalendarDetailViewController.swift */; };
 		58FB1F812C0224B100C55052 /* CalendarDateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB1F802C0224B100C55052 /* CalendarDateManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -569,6 +570,7 @@
 		58ECD34C29965DBF00812DC9 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		58ECD34E2996623A00812DC9 /* SettingtableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingtableviewCell.swift; sourceTree = "<group>"; };
 		58F3923D2AADE5DD00C4119D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		58F5165F2C034C4E0074A56D /* CalendarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailViewController.swift; sourceTree = "<group>"; };
 		58FB1F802C0224B100C55052 /* CalendarDateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateManager.swift; sourceTree = "<group>"; };
 		96C17D911AB3536243F69688 /* Pods-BinPocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinPocket.release.xcconfig"; path = "Target Support Files/Pods-BinPocket/Pods-BinPocket.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -618,6 +620,7 @@
 			children = (
 				582B7BAC2BF6E48400D942C6 /* CalendarViewController.swift */,
 				582B7BB52BF71E5D00D942C6 /* CalendarCollectionViewCell.swift */,
+				58F5165F2C034C4E0074A56D /* CalendarDetailViewController.swift */,
 			);
 			path = "First Tab Item";
 			sourceTree = "<group>";
@@ -1587,6 +1590,7 @@
 				58A12F8B2985191D00FD668E /* TableCell.swift in Sources */,
 				58D93C422A7E0B1A00141D7A /* FavoriteDataCell.swift in Sources */,
 				58ECD34F2996623A00812DC9 /* SettingtableviewCell.swift in Sources */,
+				58F516602C034C4E0074A56D /* CalendarDetailViewController.swift in Sources */,
 				58694FE4297905A200817314 /* AddlistVC.swift in Sources */,
 				582B7BB62BF71E5D00D942C6 /* CalendarCollectionViewCell.swift in Sources */,
 				58F3923E2AADE5DD00C4119D /* CategoryCollectionViewCell.swift in Sources */,
