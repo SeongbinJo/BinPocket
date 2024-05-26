@@ -326,11 +326,6 @@ class CalendarViewController: UIViewController {
 }
 
 extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    // UICollectionViewDelegateFlowLayout
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        .zero
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return .zero // 열 간의 간격을 0으로 설정
     }
@@ -353,5 +348,11 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let days = CalendarDateManager.manager.getDays()
+        let dateString = (self.currentYearMonth.text ?? "") + String(days[indexPath.row])
+        print("현재 누른 셀의 정보 : \(dateString)")
+        print(CalendarDateManager.manager.weekOfDay(dateString: dateString))
+    }
     
 }

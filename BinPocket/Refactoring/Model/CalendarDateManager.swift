@@ -27,11 +27,35 @@ class CalendarDateManager {
     }
     
     //MARK: - 1일이 무슨 요일인지?
-    func WeekOfFirstDay() -> Int {
+    func weekOfFirstDay() -> Int {
         let numberOfWeekDay = self.calendar.component(.weekday, from: self.calendarDate) - 1 // 1 = 일요일 이므로 일요일을 0으로 맞춰줌
         return numberOfWeekDay
     }
     
+    //MARK: - 특정 날짜의 요일은?
+    func weekOfDay(dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 M월d"
+        let numberOfWeekDay = self.calendar.component(.weekday, from: dateFormatter.date(from: dateString) ?? Date()) - 1
+        switch numberOfWeekDay {
+        case 0:
+            return "일요일"
+        case 1:
+            return "월요일"
+        case 2:
+            return "화요일"
+        case 3:
+            return "수요일"
+        case 4:
+            return "목요일"
+        case 5:
+            return "금요일"
+        case 6:
+            return "토요일"
+        default:
+            return "일요일"
+        }
+    }
     //MARK: - 특정 달의 날짜 개수(28~31)
     func countDayInMonth() -> Int {
         let countDay = self.calendar.range(of: .day, in: .month, for: self.calendarDate)?.count ?? 0 // for의 날짜안에 in안의 of의 개수를 반환
@@ -47,7 +71,7 @@ class CalendarDateManager {
     //MARK: - WeekOfFirstDay() + countDayInMonth() => days 업데이트
     func updateDays() {
         self.days.removeAll()
-        let weekOfFirstDay = self.WeekOfFirstDay()
+        let weekOfFirstDay = self.weekOfFirstDay()
         let countOfTotalDays = weekOfFirstDay + self.countDayInMonth()
         
         for day in 0..<countOfTotalDays {
