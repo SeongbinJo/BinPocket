@@ -55,7 +55,7 @@ class CalendarViewController: UIViewController {
         // 현재 년,월 타이틀 update
         CalendarDateManager.manager.updateTitleLabel(currentYearMonth)
         
-        print(RealmDataManager.manager.getAllMyData())
+//        print(RealmDataManager.manager.getAllMyData())
     }
     
     // UI 레이아웃 배치 메소드
