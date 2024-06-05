@@ -13,7 +13,7 @@ class CalendarDateManager {
     private let calendar = Calendar.current
     private let dateFormatter = DateFormatter()
     private var calendarDate = Date()
-    private var days: [String] // 해당 달의 1일이 수요일이라면 ["", "", "", "1", "2", ..., "31"] 로 저장
+    private var days: [String] // 해당 달의 1일이 수요일이라면 ["", "", "", "1", "2", ..., "31"]로 저장
     
     private init() {
         days = []
