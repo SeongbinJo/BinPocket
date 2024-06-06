@@ -28,7 +28,7 @@ class CalendarDateManager {
     
     //MARK: - 1일이 무슨 요일인지?
     func weekOfFirstDay() -> Int {
-        let numberOfWeekDay = self.calendar.component(.weekday, from: self.calendarDate) - 1 // 1 = 일요일 이므로 일요일을 0으로 맞춰줌
+        let numberOfWeekDay = self.calendar.component(.weekday, from: self.calendarDate) - 1 // 1 = 일요일 이므로 일요일을 0으로 맞춰줌.
         return numberOfWeekDay
     }
     
